@@ -15,6 +15,7 @@ Starfsmaður upplýsingar um verktaka
         2. Þakviðgerðir Magga | Þakviðgerðir
         3. Bubbi byggir ehf. | smiður
         4. máling og eh fleira. | málari
+        0. Back
 
             Enter number: 1
 ---------------------------------------------------------------------------------------
