@@ -39,6 +39,24 @@ Enter your ID:
 ---------------------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------------------
+                Change Information:
+
+                1.Contractor: Viðgerðir Palla
+                2.Phone: 5812345
+                3.Name: Palli Palli Pallason
+                4.Opening Hours: 8:30 - 16:30
+                5.Location: Grænlandsgata 68
+                6.Profession: Pípari
+                7.Rating: 1/10
+
+                Enter Number to change: 2
+
+                Phone: 123458
+
+                // Phone has been changed to : 123458 \\
+---------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------
         Contractors: 
         1. Viðgerðir Palla | Pípari
         2. Þakviðgerðir Magga | Þakviðgerðir

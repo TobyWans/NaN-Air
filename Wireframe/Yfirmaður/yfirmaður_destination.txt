@@ -33,7 +33,7 @@ Enter your ID:
             Opening hours: 7:00 - 19:00
             supervisor: Magnús K. Magnússon
 
-            C. Change
             Q. Back
                 Input: 
 ---------------------------------------------------------------------------------------
+
