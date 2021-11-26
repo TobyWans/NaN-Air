@@ -18,7 +18,6 @@ Enter your ID:
         1. Create new request
         2. Open/Change request
         3. Close request
-        4. Change priority 
         Q.Back
 
             Enter number: 1
@@ -36,4 +35,10 @@ Hér kemur listi yfir hús hjá yfirmanni.
                 Enter number: 1
 ---------------------------------------------------------------------------------------
         Fill in the work request form:
-            
+            Work request ID: 13                 # númer kemur sjálfkrafa þegar yfirmaður býr til verkbeðni
+            Housing: Grænlandsgata 4, ID: 123
+            Description: Leki í glugga.
+            Priority: High.
+
+            Confirm(y/n): y
+---------------------------------------------------------------------------------------
