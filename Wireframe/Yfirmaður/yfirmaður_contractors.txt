@@ -19,7 +19,47 @@ Enter your ID:
         2. Þakviðgerðir Magga | Þakviðgerðir
         3. Bubbi byggir ehf. | smiður
         4. máling og eh fleira. | málari
-        0. Back
+        5. Add new contractor
+        Q. Back
 
             Enter number: 1
 ---------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------
+            Contractor: Viðgerðir Palla
+            Phone: 5812345
+            Name: Palli Palli Pallason
+            Opening Hours: 8:30 - 16:30
+            Location: Grænlandsgata 68
+            Profession: Pípari
+            Rating: 1/10
+
+            C. Change information
+            Q. back
+---------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------
+        Contractors: 
+        1. Viðgerðir Palla | Pípari
+        2. Þakviðgerðir Magga | Þakviðgerðir
+        3. Bubbi byggir ehf. | smiður
+        4. máling og eh fleira. | málari
+        5. Add new contractor
+        Q. Back
+
+            Enter number: 5
+---------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------
+            Contractor:                          # Eitt atriði í einu myndi prentast út sem þyrfti að fylla inn í
+            Phone:                               # og þegar það er ýtt á enter birtist næsta.
+            Name:
+            Opening Hours:
+            Location:
+            Profession:
+            Rating:
+
+            // Contractor had been created \\
+            
+            A. Add new contractor
+            Q. Back
