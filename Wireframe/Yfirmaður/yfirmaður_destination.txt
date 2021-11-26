@@ -1,0 +1,38 @@
+Yfirmaður Destination
+---------------------------------------------------------------------------------------
+Enter your ID:
+
+    Menu:
+    1. Work request
+    2. Contractors
+    3. Housing
+    4. Employees
+    5. Destination
+    Q. Log out
+
+            Enter number: 5
+---------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------
+        Destinations: 
+            1. Nuuk, Grænland
+            2. Kulusuk, Grænland
+            3. Þórshöfn, Færeyjar
+            4. Tingwall, Hjaltlandseyjum
+            5. Longyearbyen, Svalbarðni
+
+            Q. Back
+
+                    Enter number: 1
+---------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------
+        Nuuk, Grænland:
+            Airport: Nuuk International Airport
+            Phone: +299 32 60 05
+            Opening hours: 7:00 - 19:00
+            supervisor: Magnús K. Magnússon
+
+            Q. Back
+                Input: 
+---------------------------------------------------------------------------------------
