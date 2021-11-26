@@ -17,6 +17,7 @@ Enter your ID:
         1. Change housing
         2. Add housing
         3. List of housing
+        4. Renting status 
         Q. Back
             Enter number: 
 ---------------------------------------------------------------------------------------
@@ -39,7 +40,7 @@ Enter number: 2
         Street number:
         Location:
 
-        C: Change
+        A: Add housing
         Q: Back
 ---------------------------------------------------------------------------------------
 Enter number: 3
@@ -47,4 +48,12 @@ Enter number: 3
 
     List of houseing:
         Listi eftir location
-        	
+
+        Q: Back
+---------------------------------------------------------------------------------------
+Enter number: 4
+---------------------------------------------------------------------------------------
+    Listi með henær það er í útleigu:
+
+
+        Q: Back
