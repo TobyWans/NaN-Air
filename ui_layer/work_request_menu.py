@@ -1,6 +1,7 @@
 from ui_layer.login_checker import LogInCheck
 import random
 
+PRIORITY = ('low', 'medium', 'high')
 
 class WorkRequestMenu:
     def __init__(self):
@@ -28,6 +29,11 @@ Work requests:
         
     def create_new_request(self):
         work_request_ID = print(f"Work request ID: {random.randint(100, 999)}")
+        housing = input("Housing: ")
+        description = input("Description: ")
+        priority = input("Priority: ")
+        if priority.lower not in PRIORITY:
+            pass
     
     def close_request(self):
         pass
