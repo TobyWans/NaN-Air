@@ -1,7 +1,17 @@
-from ui_layer.main_menu import MainMenu
+
+
+
+from ui_layer.employee_menu import EmployeeMenu
+from ui_layer.login_checker import LogInCheck
+from ui_layer.supervisor_menu import SupervisorMenu
 
 
 if __name__ == "__main__":
-    main_menu = MainMenu()
-    main_menu.ID_login()
-    main_menu.show_options()
+    login = LogInCheck()
+    if login.ID_login():
+        supervisor = SupervisorMenu()
+        supervisor.draw_options()
+    else:
+        employee = EmployeeMenu()
+        employee.draw_options()
+    
