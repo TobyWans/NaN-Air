@@ -17,7 +17,9 @@ class EmployeeDL:
 
     def create_employee(self, emp):
         with open(self.filepath, 'a', newline='', encoding='utf-8') as csvfile:
-            fieldnames = ["name","email","phone"]
+            fieldnames = ["name","email","address","phone","mobile"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writerow({'name': emp.name, "email": emp.email, "phone": emp.phone})
        
+    def change_employee():
+        pass
