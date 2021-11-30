@@ -1,4 +1,5 @@
 from src.logic_layer.LLAPI import LLAPI
+from src.ui_layer.work_request_menu import WorkRequestMenu
 
 
 class MainMenu:
@@ -25,8 +26,8 @@ class MainMenu:
             command = input("\t\tEnter an option: ")
             
             if command == '1':
-                work_request_menu = print("here goes the work request menu")
-                # return_option = work_request_menu.draw_options()
+                work_request_menu = WorkRequestMenu()
+                return_option = work_request_menu.draw_options()
             elif command == '2':
                 contractor_menu = print("here goes the contractor menu")
                 # contractor_menu.draw_options()

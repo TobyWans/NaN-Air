@@ -1,4 +1,4 @@
-from src.logic_layer.login_checker import LogInCheck
+from src.logic_layer.LLAPI import LLAPI
 import random
 
 PRIORITY = ('low', 'medium', 'high')
@@ -6,17 +6,19 @@ PRIORITY = ('low', 'medium', 'high')
 class WorkRequestMenu:
     def __init__(self):
         random.seed(69)
+        self.LLAPI = LLAPI()
         self.supervisor_options = ["Create new request", "Open/Change request", "Close request"]
         self.employee_options = ["All work requests", "Search by ID", "Search by date", "Your open requests", "Finished request"]
         self.go_back = "Q. Back"
     
     def draw_options(self):
-        if LogInCheck.ID_login():
-            for index in self.supervisor_options:
-                print(index)
-        else:
-            for index in self.employee_options:
-                print(index)
+        all_options = []
+        all_options.extend(self.employee_options)
+        if self.LLAPI.supervisor_check():
+            all_options.extend(self.supervisor_options)
+        for index in all_options:
+            print(f"\t{all_options.index(index) + 1}. {index}")
+        print("\tQ. Log out\n")
             
         
     def create_new_request(self):
