@@ -1,7 +1,6 @@
 from src.logic_layer.LLAPI import LLAPI
 from src.ui_layer.work_request_menu import WorkRequestMenu
 
-
 class MainMenu:
     def __init__(self):
         self.supervisor_options = ["Employees", "Destination"]
@@ -9,6 +8,7 @@ class MainMenu:
         self.LLAPI = LLAPI()
         
     def draw_options(self):
+        self.LLAPI.clear_console()
         all_options = []
         all_options.extend(self.employee_options)
         if self.LLAPI.supervisor_check():
@@ -16,6 +16,7 @@ class MainMenu:
         for index in all_options:
             print(f"\t{all_options.index(index) + 1}. {index}")
         print("\tQ. Log out\n")
+        self.prompt_input()
         
 
         
@@ -26,7 +27,7 @@ class MainMenu:
             command = input("\t\tEnter an option: ")
             
             if command == '1':
-                work_request_menu = WorkRequestMenu()
+                work_request_menu = WorkRequestMenu(self.LLAPI)
                 return_option = work_request_menu.draw_options()
             elif command == '2':
                 contractor_menu = print("here goes the contractor menu")
@@ -34,15 +35,19 @@ class MainMenu:
             elif command == '3':
                 housing_menu = print("here goes the housing menu")
                 # housing_menu.draw_options()
-            elif command == '4':
+            elif command == '4' and self.LLAPI.supervisor_check():
                 employees_menu = print("here goes the employees menu")
                 # employees_menu.draw_options()
-            elif command == '5':
+            elif command == '5' and self.LLAPI.supervisor_check():
                 destination_menu = print("here goes the destination menu")
                 # destination_menu.draw_options()
             elif command.lower() == 'q':
                 return
-            else: print("Invalid option, please try again ")
+            else:
+                print("Invalid option, please try again ")
+            if return_option == 'm':
+                return 'm'
+            
             
             
     def login(self):

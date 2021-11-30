@@ -1,24 +1,48 @@
 from src.logic_layer.LLAPI import LLAPI
 import random
+import os
 
 PRIORITY = ('low', 'medium', 'high')
 
 class WorkRequestMenu:
-    def __init__(self):
+    def __init__(self, llapi):
         random.seed(69)
-        self.LLAPI = LLAPI()
+        self.llapi = llapi
         self.supervisor_options = ["Create new request", "Open/Change request", "Close request"]
         self.employee_options = ["All work requests", "Search by ID", "Search by date", "Your open requests", "Finished request"]
-        self.go_back = "Q. Back"
     
     def draw_options(self):
+        self.llapi.clear_console()
         all_options = []
         all_options.extend(self.employee_options)
-        if self.LLAPI.supervisor_check():
+        if self.llapi.supervisor_check():
             all_options.extend(self.supervisor_options)
         for index in all_options:
             print(f"\t{all_options.index(index) + 1}. {index}")
-        print("\tQ. Log out\n")
+        print("\tQ. Return\n")
+        return self.prompt_input()
+    
+    def prompt_input(self):
+        while True:
+            command = input("Enter an option: ")
+            if command == '1':
+                all_work_requests = self.llapi.all_work_requests() # bæta við llapi
+                for request in all_work_requests:
+                    print(request)
+            elif command == '2':
+                search_id = self.llapi.search_id() # bæta við llapi
+            elif command == '3':
+                search_date = self.llapi.search_date() # bæta við llapi
+            elif command == '4':
+                user_open_requests = self.llapi.user_open_requests() # bæta við llapi
+            elif command == '5':
+                finished_requests = self.llapi.finished_requests() # bæta við llapi
+            elif command == '6':
+                create_new_request = self.llapi.create_new_request() # bæta við llapi
+            elif command == '7':
+                open_change_request = self.llapi.open_change_request() # bæta við llapi
+            elif command == '8':
+                close_request = self.llapi.close_request() # bæta við llapi
             
         
     def create_new_request(self):

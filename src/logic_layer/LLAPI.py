@@ -1,4 +1,5 @@
 from src.logic_layer.login_checker import LogInCheck
+import os
 
 
 class LLAPI:
@@ -10,3 +11,7 @@ class LLAPI:
     
     def supervisor_check(self):
         return self.login_checker.supervisor_check()
+    
+    def clear_console(self):
+        clear_cmd = os.system('cls' if os.name in ('nt', 'dos') else 'clear')
+        return clear_cmd
