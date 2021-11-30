@@ -6,26 +6,18 @@ PRIORITY = ('low', 'medium', 'high')
 class WorkRequestMenu:
     def __init__(self):
         random.seed(69)
-        self.supervisor_options = """
-Work requests:
-        1. Create new request
-        2. Open/Change request
-        3. Close request
-        Q. Back
-        """
-        self.employee_options = """
-Work requests:
-        1. All work requests
-        2. Search by ID
-        3. Search by date
-        4. Your open requests
-        5. Finished request
-        Q. Back
-        """
+        self.supervisor_options = ["Create new request", "Open/Change request", "Close request"]
+        self.employee_options = ["All work requests", "Search by ID", "Search by date", "Your open requests", "Finished request"]
+        self.go_back = "Q. Back"
     
     def draw_options(self):
-        if LogInCheck.ID_login(): print(self.supervisor_options)
-        else: print(self.employee_options)
+        if LogInCheck.ID_login():
+            for index in self.supervisor_options:
+                print(index)
+        else:
+            for index in self.employee_options:
+                print(index)
+            
         
     def create_new_request(self):
         work_request_ID = print(f"Work request ID: {random.randint(100, 999)}")

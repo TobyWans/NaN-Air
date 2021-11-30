@@ -1,17 +1,19 @@
+from ui_layer.work_request_menu import WorkRequestMenu
+from ui_layer.login_checker import LogInCheck
+
+
 class SupervisorMenu:
     def __init__(self):
-        self.options = """
-        1. Work request
-        2. Contractors
-        3. Housing
-        4. Employees
-        5. Destination
-        Q. Log out
-        """
-    
+        self.supervisor_options = ["Employees", "Destination"]
+        self.employee_options = ["Work request", "Contractors", "Housing"]
+        
     def draw_options(self):
-        print(self.options)
-        self.prompt_input()
+        if LogInCheck.ID_login(self):
+            for index in self.supervisor_options:
+                print(index)
+        else:
+            for index in self.employee_options:
+                print(index)
         
         
     def prompt_input(self):
@@ -20,7 +22,7 @@ class SupervisorMenu:
             command = input("Enter an option: ")
             
             if command == '1':
-                work_request_menu = print("here goes the work request menu")
+                work_request_menu = WorkRequestMenu()
                 # return_option = work_request_menu.draw_options()
             elif command == '2':
                 contractor_menu = print("here goes the contractor menu")
