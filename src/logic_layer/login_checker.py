@@ -7,9 +7,9 @@ class LogInCheck:
         
     # log in validation
     # kannski hægt að gera þetta auðveldara?
-    def ID_login(self):
+    def ID_login(self, login=input("Enter your ID: ")):
         while True:
-            self.login = input("Enter your ID: ")
+            #self.login = input("Enter your ID: ")  // 
             if not self.login.isdecimal():
                 print("Invalid ID")
             elif len(self.login) < 4:
