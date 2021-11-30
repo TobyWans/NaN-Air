@@ -1,4 +1,4 @@
-from ui_layer.login_checker import LogInCheck
+from logic_layer.login_checker import LogInCheck
 import random
 
 PRIORITY = ('low', 'medium', 'high')

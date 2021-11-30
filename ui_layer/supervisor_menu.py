@@ -1,5 +1,5 @@
 from ui_layer.work_request_menu import WorkRequestMenu
-from ui_layer.login_checker import LogInCheck
+from logic_layer.login_checker import LogInCheck
 
 
 class SupervisorMenu:
