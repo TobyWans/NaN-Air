@@ -8,21 +8,24 @@ class MainMenu:
         self.LLAPI = LLAPI()
         
     def draw_options(self):
+        all_options = []
+        all_options.extend(self.employee_options)
         if self.LLAPI.supervisor_check():
-            for index in self.supervisor_options:
-                print(index)
-        else:
-            for index in self.employee_options:
-                print(index)
+            all_options.extend(self.supervisor_options)
+        for index in all_options:
+            print(f"\t{all_options.index(index) + 1}. {index}")
+        print("\tQ. Log out\n")
+        
+
         
         
     def prompt_input(self):
         return_option = ''
         while True:
-            command = input("Enter an option: ")
+            command = input("\t\tEnter an option: ")
             
             if command == '1':
-                work_request_menu = WorkRequestMenu()
+                work_request_menu = print("here goes the work request menu")
                 # return_option = work_request_menu.draw_options()
             elif command == '2':
                 contractor_menu = print("here goes the contractor menu")
@@ -46,5 +49,4 @@ class MainMenu:
         while not self.LLAPI.ID_login(login):
             print("Invalid ID")
             login = input("Enter your ID: ")
-        print("Welcome lil dude")
             
