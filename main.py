@@ -1,9 +1,11 @@
-from ui_layer.employee_menu import EmployeeMenu
-from logic_layer.login_checker import LogInCheck
-from ui_layer.supervisor_menu import SupervisorMenu
+from src.ui_layer.main_menu import MainMenu
+
+
+
+
 
 if __name__ == "__main__":
-    menu = SupervisorMenu()
+    menu = MainMenu()
     menu.draw_options()
     
     # login = LogInCheck()

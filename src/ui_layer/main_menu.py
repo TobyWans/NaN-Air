@@ -1,14 +1,15 @@
-from ui_layer.work_request_menu import WorkRequestMenu
-from logic_layer.login_checker import LogInCheck
+from src.logic_layer.login_checker import *
+from src.ui_layer.work_request_menu import WorkRequestMenu
 
 
-class SupervisorMenu:
+class MainMenu:
     def __init__(self):
         self.supervisor_options = ["Employees", "Destination"]
         self.employee_options = ["Work request", "Contractors", "Housing"]
+        self.login = LogInCheck.ID_login(self)
         
     def draw_options(self):
-        if LogInCheck.ID_login(self):
+        if self.login:
             for index in self.supervisor_options:
                 print(index)
         else:

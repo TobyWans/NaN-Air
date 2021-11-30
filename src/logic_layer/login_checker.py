@@ -1,24 +1,24 @@
 # Þetta er bara til að prófa login, þurfum að búa til eh file með öllu starfsfólki
-EMPLOYEE = {"joi": "1234", "chuck": "1111", "mike": "1221", "klaus": "1755", }
 
 class LogInCheck:
     def __init__(self):
-        pass
+        self.emp_dict = {"joi": "1234", "chuck": "1111", "mike": "1221", "klaus": "1755", }
+        self.login = ""
         
     # log in validation
     # kannski hægt að gera þetta auðveldara?
     def ID_login(self):
         while True:
-            login = input("Enter your ID: ")
-            if not login.isdecimal():
+            self.login = input("Enter your ID: ")
+            if not self.login.isdecimal():
                 print("Invalid ID")
-            elif len(login) < 4:
+            elif len(self.login) < 4:
                 print("Invalid ID")
             else:
-                search_ID = self.search(EMPLOYEE, login)
+                search_ID = self.search(self.emp_dict, self.login)
                 if search_ID != None:
                     print(f"Welcome {search_ID}, ")
-                    user_check = self.supervisor_check(login)
+                    user_check = self.supervisor_check(self.login)
                     if user_check:
                         print("You're logged in as a supervisor")
                         return True
