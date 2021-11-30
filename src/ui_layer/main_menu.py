@@ -1,15 +1,14 @@
-from src.logic_layer.login_checker import *
-from src.ui_layer.work_request_menu import WorkRequestMenu
+from src.logic_layer.LLAPI import LLAPI
 
 
 class MainMenu:
     def __init__(self):
         self.supervisor_options = ["Employees", "Destination"]
         self.employee_options = ["Work request", "Contractors", "Housing"]
-        self.login = LogInCheck.ID_login(self)
+        self.LLAPI = LLAPI()
         
     def draw_options(self):
-        if self.login:
+        if self.LLAPI.supervisor_check():
             for index in self.supervisor_options:
                 print(index)
         else:
@@ -40,4 +39,12 @@ class MainMenu:
             elif command.lower() == 'q':
                 return
             else: print("Invalid option, please try again ")
+            
+            
+    def login(self):
+        login = input("Enter your ID: ")
+        while not self.LLAPI.ID_login(login):
+            print("Invalid ID")
+            login = input("Enter your ID: ")
+        print("Welcome lil dude")
             
