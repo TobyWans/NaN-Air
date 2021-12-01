@@ -20,7 +20,9 @@ class DestinationMenu:
         while True:
             command = input("Enter an option: ")
             if command == "1":
-                print_nuuk = self.llapi.destination_info(1)
+                print_nuuk = self.llapi.destination_info()
+                for dest in print_nuuk:
+                    print(dest)
             elif command  == "2":
                 pass
             elif command  == "3":

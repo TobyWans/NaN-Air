@@ -20,5 +20,5 @@ class LLAPI:
         clear_cmd = os.system('cls' if os.name in ('nt', 'dos') else 'clear')
         return clear_cmd
 
-    def destination_info(self, index):
-        return self.destinationLL.destination_info(index)
+    def destination_info(self):
+        return self.destinationLL.destination_info()
