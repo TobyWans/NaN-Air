@@ -1,6 +1,7 @@
 from src.logic_layer.LLAPI import LLAPI
 from src.ui_layer.work_request_menu import WorkRequestMenu
 from src.ui_layer.employee_menu import EmployeeMenu
+import time
 
 class MainMenu:
     def __init__(self):
@@ -14,6 +15,7 @@ class MainMenu:
         all_options.extend(self.employee_options)
         if self.LLAPI.supervisor_check():
             all_options.extend(self.supervisor_options)
+        print("Menu:")
         for index in all_options:
             print(f"\t{all_options.index(index) + 1}. {index}")
         print("\tQ. Log out\n")
@@ -25,7 +27,7 @@ class MainMenu:
     def prompt_input(self):
         return_option = ''
         while True:
-            command = input("\t\tEnter an option: ")
+            command = input("\tEnter an option: ")
             
             if command == '1':
                 work_request_menu = WorkRequestMenu(self.LLAPI)
@@ -47,10 +49,8 @@ class MainMenu:
                 return
             else:
                 print("Invalid option, please try again ")
-            if return_option == 'm':
-                return 'm'
-            
-            
+        time.sleep(2)
+        self.draw_options()
             
     def login(self):
         login = input("Enter your ID: ")
