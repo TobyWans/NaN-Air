@@ -21,5 +21,12 @@ class EmployeeDL:
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writerow({'name': emp.name, "email": emp.email, "address": emp.address, "phone": emp.phone, "mobile": emp.mobile, "location": emp.location})
        
-    def change_employee():
+    def change_employee(self, emp):
         pass
+
+    def search_employee_by_location(self, emp):
+        pass
+
+    def search_employee_by_ID(self, emp):
+        pass
+

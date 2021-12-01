@@ -5,7 +5,7 @@ from src.logic_layer.LLAPI import LLAPI
 class EmployeeMenu:
     def __init__(self, llapi):
         self.llapi = llapi
-        self.supervisor_options = ["Add employee", "Change employee","Search by ID", "Search by location"]
+        self.supervisor_options = ["Add employee", "Change employee","Search by ID", "Search by location", "All employees"]
         
 
     
@@ -32,7 +32,7 @@ class EmployeeMenu:
                 search_employee_by_location = self.llapi.search_employee_by_location() # bæta við llapi
             elif command == '5':
                 all_employees = self.llapi.all_employees() # bæta við í llapi
-            elif command.lower() == 'r':
+            elif command.lower() == 'q':
                 return
             else:
                 print("Invalid option, please try again ")
