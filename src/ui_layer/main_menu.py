@@ -1,10 +1,7 @@
 from src.logic_layer.LLAPI import LLAPI
 from src.ui_layer.work_request_menu import WorkRequestMenu
-<<<<<<< Updated upstream
 from src.ui_layer.employee_menu import EmployeeMenu
-=======
 import time
->>>>>>> Stashed changes
 
 class MainMenu:
     def __init__(self):
