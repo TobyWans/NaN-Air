@@ -1,5 +1,6 @@
 from src.logic_layer.LLAPI import LLAPI
 from src.ui_layer.work_request_menu import WorkRequestMenu
+from src.ui_layer.employee_menu import EmployeeMenu
 
 class MainMenu:
     def __init__(self):
@@ -36,7 +37,8 @@ class MainMenu:
                 housing_menu = print("here goes the housing menu")
                 # housing_menu.draw_options()
             elif command == '4' and self.LLAPI.supervisor_check():
-                employees_menu = print("here goes the employees menu")
+                employee_menu = EmployeeMenu(self.LLAPI)
+                return_option = employee_menu.draw_options()
                 # employees_menu.draw_options()
             elif command == '5' and self.LLAPI.supervisor_check():
                 destination_menu = print("here goes the destination menu")
