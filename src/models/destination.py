@@ -8,5 +8,4 @@ class Destination:
         self.supervisor = supervisor
 
     def __str__(self):
-        return f"Country: {self.country}\nAirport: {self.airport}\nPhone: {self.phone}\nOpening hours: {self.opening_hour} -{self.closing_hour}\nSupervisor: {self.supervisor}"
-
+        return f"\nCountry: {self.country}\nAirport: {self.airport}\nPhone: {self.phone}\nOpening hours: {self.opening_hour} -{self.closing_hour}\nSupervisor: {self.supervisor}\n"
