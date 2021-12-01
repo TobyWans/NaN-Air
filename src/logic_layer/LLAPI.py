@@ -3,6 +3,7 @@ from src.logic_layer.destinationLL import DestinationLL
 from src.storage_layer.DLAPI import DLAPI
 from src.logic_layer.employeeLL import EmployeeLL
 from src.logic_layer.work_requestLL import WorkRequestLL
+from src.logic_layer.housingLL import HousingLL
 import os
 
 
@@ -13,6 +14,7 @@ class LLAPI:
         self.destinationLL = DestinationLL(self.dlapi)
         self.employeell = EmployeeLL(self.dlapi)
         self.workrequestLL = WorkRequestLL(self.dlapi)
+        self.housLL = HousingLL(self.dlapi)
         
     def ID_login(self, id):
         return self.login_checker.ID_login(id)
@@ -47,3 +49,6 @@ class LLAPI:
     
     def create_new_request(self, req):
         return self.workrequestLL.create_new_request(req)
+
+    def add_housing(self, hous):
+        return self.housLL.add_housing(hous)

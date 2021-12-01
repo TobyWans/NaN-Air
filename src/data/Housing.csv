@@ -1,23 +1,24 @@
-property_number,street_name,street_number,location,size,nr_of_rooms,type
+property_number,street_name,street_number,location,size,nr_of_rooms,type,requires_maintenance 
 
-F959594,Vei,217,Svalbard,150m2,4 herbergi,Villas
-AA999-1 til og með AA999-81,Longyearbyen Harbor,1,Svalbard, 5000m2, 80 herbergi, Submarine
+F959594,Vei,217,Svalbard,150m2,4 herbergi,Villas, None
+AA999-1 til og með AA999-81,Longyearbyen Harbor,1,Svalbard, 5000m2, 80 herbergi, Submarine, sauna; weight room; kjarnaofn 
 
-64-3901, iGloo-Ville, 1, Nuuk, 35fm2, 1 herbergi, Snow house 
-64-3902, iGloo-Ville, 2, Nuuk, 35fm2, 1 herbergi, Snow house 
-64-3903, iGloo-Ville, 3, Nuuk, 35fm2, 1 herbergi, Snow house 
-64-3904, iGloo-Ville, 4, Nuuk, 35fm2, 1 herbergi, Snow house 
-64-3905, iGloo-Ville, 5, Nuuk, 35fm2, 1 herbergi, Snow house 
-64-3906, iGloo-Ville, 6, Nuuk, 35fm2, 1 herbergi, Snow house 
-64-3907, iGloo-Ville, 7, Nuuk, 35fm2, 1 herbergi, Snow house 
-64-3908, iGloo-Ville, 8, Nuuk, 35fm2, 1 herbergi, Snow house 
-64-3909, iGloo-Ville, 9, Nuuk, 35fm2, 1 herbergi, Snow house 
-64-3910, iGloo-Ville, 10, Nuuk, 35fm2, 1 herbergi, Snow house 
+64-3900, iGloo-Ville, 1, Nuuk, 35fm2, 1 herbergi, reception and restaurant, None
+64-3901, iGloo-Ville, 1, Nuuk, 35fm2, 1 herbergi, Snow house, None
+64-3902, iGloo-Ville, 2, Nuuk, 35fm2, 1 herbergi, Snow house, None
+64-3903, iGloo-Ville, 3, Nuuk, 35fm2, 1 herbergi, Snow house, None
+64-3904, iGloo-Ville, 4, Nuuk, 35fm2, 1 herbergi, Snow house, None
+64-3905, iGloo-Ville, 5, Nuuk, 35fm2, 1 herbergi, Snow house, None
+64-3906, iGloo-Ville, 6, Nuuk, 35fm2, 1 herbergi, Snow house, None
+64-3907, iGloo-Ville, 7, Nuuk, 35fm2, 1 herbergi, Snow house, None
+64-3908, iGloo-Ville, 8, Nuuk, 35fm2, 1 herbergi, Snow house, None
+64-3909, iGloo-Ville, 9, Nuuk, 35fm2, 1 herbergi, Snow house, None
+64-3910, iGloo-Ville, 10, Nuuk, 35fm2, 1 herbergi, Snow house, None
 
-64-3875-6, Suloraq, 42, Nuuk, 69m2, 2 herbergi, Appartment bilding 
-64-3831, Igimaq, 7, Nuuk, 10m2, 1 herbergi, Snow house, 
-64-3812, Nuussuaq, 4,Nuuk, 400m2, 8 herbergi, Villa, 
+64-3875-6, Suloraq, 42, Nuuk, 69m2, 2 herbergi, Appartment bilding, None
+64-3831, Igimaq, 7, Nuuk, 10m2, 1 herbergi, Snow house, None
+64-3812, Nuussuaq, 4,Nuuk, 400m2, 8 herbergi, Villa, None
 
-ix-9331 til og með ix-9333, Skákið,15, Faroe Islands, 100m2, 3 herbergi, Townhouse
-ix-2239, Svalbarðsvegur, 22, Faroe Islands, 200m2, 5 herbergi, Villas,
-ix-9492 til og með ix-9502, Nýggivegur, 1, Faroe Islands,  15m2, 10 herbergi, Moldarhús
+ix-9331 til og með ix-9333, Skákið,15, Faroe Islands, 100m2, 3 herbergi, Townhouse, None
+ix-2239, Svalbarðsvegur, 22, Faroe Islands, 200m2, 5 herbergi, Villas, None
+ix-9492 til og með ix-9502, Nýggivegur, 1, Faroe Islands,  15m2, 10 herbergi, Moldarhús, None
