@@ -19,14 +19,16 @@ class DestinationMenu:
     def prompt_input(self):
         while True:
             command = input("Enter an option: ")
+            print_destination = self.llapi.destination_info()
+            dest_str_list = []
+            for dest in print_destination:
+                dest_str_list.append(dest)
             if command == "1":
-                print_nuuk = self.llapi.destination_info()
-                for dest in print_nuuk:
-                    print(dest)
+                print(dest_str_list[0])
             elif command  == "2":
-                pass
+                print(dest_str_list[1])
             elif command  == "3":
-                pass
+                print(dest_str_list[2])
             elif command  == "4":
                 pass
             elif command  == "5":
