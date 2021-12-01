@@ -34,3 +34,6 @@ class DLAPI:
 
     def add_housing(self, hous):
         return self.housDL.add_housing(hous)
+
+    def get_housing_list(self):
+        return self.housDL.get_housing_list()

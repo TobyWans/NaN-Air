@@ -52,3 +52,6 @@ class LLAPI:
 
     def add_housing(self, hous):
         return self.housLL.add_housing(hous)
+    
+    def housing_list(self):
+        return self.housLL.housing_list()
