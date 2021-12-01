@@ -30,7 +30,7 @@ class EmployeeMenu:
                 search_employee_by_id = self.llapi.search_employee_by_id() # bæta við llapi
             elif command == '4':
                 search_employee_by_location = self.llapi.search_employee_by_location() # bæta við llapi
-            elif command.lower == 'q':
+            elif command.lower() == 'q':
                 return
             else:
                 print("Invalid option, please try again ")
