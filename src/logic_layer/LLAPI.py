@@ -2,6 +2,7 @@ from src.logic_layer.login_checker import LogInCheck
 from src.logic_layer.destinationLL import DestinationLL
 from src.storage_layer.DLAPI import DLAPI
 from src.logic_layer.employeeLL import EmployeeLL
+from src.logic_layer.work_requestLL import WorkRequestLL
 import os
 
 
@@ -11,6 +12,7 @@ class LLAPI:
         self.login_checker = LogInCheck()
         self.destinationLL = DestinationLL(self.dlapi)
         self.employeell = EmployeeLL(self.dlapi)
+        self.workrequestLL = WorkRequestLL(self.dlapi)
         
     def ID_login(self, id):
         return self.login_checker.ID_login(id)
@@ -39,3 +41,9 @@ class LLAPI:
 
     def all_employees(self):
         pass
+    
+    def all_work_requests(self):
+        return self.workrequestLL.all_work_requests()
+    
+    def create_new_request(self, req):
+        return self.workrequestLL.create_new_request(req)

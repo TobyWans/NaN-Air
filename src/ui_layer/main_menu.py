@@ -50,8 +50,7 @@ class MainMenu:
                 return
             else:
                 print("Invalid option, please try again ")
-        time.sleep(2)
-        self.draw_options()
+            self.draw_options()
             
     def login(self):
         login = input("Enter your ID: ")

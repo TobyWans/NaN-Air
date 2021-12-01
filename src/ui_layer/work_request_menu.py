@@ -1,3 +1,4 @@
+from src.models.work_requests import Work_Request
 from src.logic_layer.LLAPI import LLAPI
 import random
 import time
@@ -20,13 +21,13 @@ class WorkRequestMenu:
         for index in all_options:
             print(f"\t{all_options.index(index) + 1}. {index}")
         print("\tR. Return\n")
-        return self.prompt_input()
+        self.prompt_input()
     
     def prompt_input(self):
         while True:
             command = input("\tEnter an option: ")
             if command == '1':
-                all_work_requests = self.llapi.all_work_requests() # bæta við llapi
+                all_work_requests = self.llapi.all_work_requests()
                 for request in all_work_requests:
                     print(request)
             elif command == '2':
@@ -38,12 +39,13 @@ class WorkRequestMenu:
             elif command == '5':
                 finished_requests = self.llapi.finished_requests() # bæta við llapi
             elif command == '6':
-                create_new_request = self.llapi.create_new_request() # bæta við llapi
+                self.create_new_request()
             elif command == '7':
                 open_change_request = self.llapi.open_change_request() # bæta við llapi
             elif command == '8':
                 close_request = self.llapi.close_request() # bæta við llapi
             elif command.lower() == 'r':
+                self.llapi.clear_console()
                 return 'r'
             else:
                 print("Invalid option, please try again ")
@@ -53,11 +55,15 @@ class WorkRequestMenu:
         
     def create_new_request(self):
         work_request_ID = print(f"Work request ID: {random.randint(100, 999)}")
+        title = input("Title: ")
+        where = input("Location: ")
         housing = input("Housing: ")
         description = input("Description: ")
         priority = input("Priority: ")
         if priority.lower not in PRIORITY:
             pass
+        req = Work_Request(title, where,  housing, description, priority)
+        self.llapi.create_new_request(req)
     
     def close_request(self):
         pass

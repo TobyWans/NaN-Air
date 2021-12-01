@@ -6,7 +6,7 @@ class WorkRequestLL:
         self.dlapi = dlapi
         
     def all_work_requests(self):
-        pass
+        return self.dlapi.get_all_work_requests()
     
     def search_id(self, user_id):
         pass
@@ -20,8 +20,8 @@ class WorkRequestLL:
     def finished_requests(self):
         pass
     
-    def create_new_request(self):
-        pass
+    def create_new_request(self, req):
+        return self.dlapi.create_new_request(req)
     
     def open_change_request(self):
         pass
