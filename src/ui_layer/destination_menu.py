@@ -1,5 +1,6 @@
 from src.logic_layer.LLAPI import LLAPI
 
+
 class DestinationMenu:
     def __init__(self, llapi):
         # random.seed(69)
