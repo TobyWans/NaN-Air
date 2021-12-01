@@ -6,9 +6,9 @@ import os
 
 class LLAPI:
     def __init__(self):
+        self.dlapi = DLAPI()
         self.login_checker = LogInCheck()
         self.destinationLL = DestinationLL(self.dlapi)
-        self.dlapi = DLAPI()
         
     def ID_login(self, id):
         return self.login_checker.ID_login(id)
