@@ -37,6 +37,7 @@ class MainMenu:
                 housing_menu = print("here goes the housing menu")
                 # housing_menu.draw_options()
             elif command == '4' and self.LLAPI.supervisor_check():
+                employee_menu = EmployeeMenu(self.LLAPI)
                 return_option = employee_menu.draw_options()
                 # employees_menu.draw_options()
             elif command == '5' and self.LLAPI.supervisor_check():
