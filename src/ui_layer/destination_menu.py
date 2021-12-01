@@ -1,4 +1,6 @@
-class Destination:
+from src.logic_layer.LLAPI import LLAPI
+
+class DestinationMenu:
     def __init__(self, llapi):
         # random.seed(69)
         self.llapi = llapi
@@ -12,5 +14,19 @@ class Destination:
             print(f"\t{all_options.index(index) + 1}. {index}")
         print("\tQ. Return\n")
         return self.prompt_input()
+
+    def prompt_input(self):
+        while True:
+            command = input("Enter an option: ")
+            if command == "1":
+                pass
+            elif command  == "2":
+                pass
+            elif command  == "3":
+                pass
+            elif command  == "4":
+                pass
+            elif command  == "5":
+                pass
 
     
