@@ -4,7 +4,7 @@ from src.models.housing import Housing
 
 class HousingDL:
     def __init__(self):
-        self.filepath = "data/Housing.csv"
+        self.filepath = "src/data/Housing.csv"
 
     def add_housing(self, hous):
         with open(self.filepath, 'a', newline='', encoding='utf-8') as csvfile:
@@ -17,7 +17,7 @@ class HousingDL:
         with open(self.filepath, newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                emp = Housing(row["property_number"], row["street_name"], row["street_number"], row["location"], row["size"], row["nr_of_rooms"], row["type"])
+                emp = Housing(row["property_number"], row["street_name"], row["street_number"], row["location"], row["size"], row["nr_of_rooms"], row["type"], row ["requires_maintenance"])
                 ret_list.append(emp)
         return ret_list
     

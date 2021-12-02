@@ -2,6 +2,7 @@ from src.logic_layer.LLAPI import LLAPI
 from src.ui_layer.work_request_menu import WorkRequestMenu
 from src.ui_layer.employee_menu import EmployeeMenu
 from src.ui_layer.destination_menu import DestinationMenu
+from src.ui_layer.housing_menu import HousingMenu
 import time
 
 class MainMenu:
@@ -16,7 +17,7 @@ class MainMenu:
         all_options.extend(self.employee_options)
         if self.LLAPI.supervisor_check():
             all_options.extend(self.supervisor_options)
-        print("Menu:")
+        print(f"\tMenu:")
         for index in all_options:
             print(f"\t{all_options.index(index) + 1}. {index}")
         print("\tQ. Log out\n")
@@ -37,8 +38,8 @@ class MainMenu:
                 contractor_menu = print("here goes the contractor menu")
                 # contractor_menu.draw_options()
             elif command == '3':
-                housing_menu = print("here goes the housing menu")
-                # housing_menu.draw_options()
+                housing_menu = HousingMenu(self.LLAPI)
+                return_option = housing_menu.draw_options()
             elif command == '4' and self.LLAPI.supervisor_check():
                 employee_menu = EmployeeMenu(self.LLAPI)
                 return_option = employee_menu.draw_options()
@@ -57,4 +58,3 @@ class MainMenu:
         while not self.LLAPI.ID_login(login):
             print("Invalid ID")
             login = input("Enter your ID: ")
-            
