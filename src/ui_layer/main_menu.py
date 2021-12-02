@@ -9,13 +9,13 @@ class MainMenu:
     def __init__(self):
         self.supervisor_options = ["Employees", "Destination"]
         self.employee_options = ["Work request", "Contractors", "Housing"]
-        self.LLAPI = LLAPI()
+        self.llapi = LLAPI()
         
     def draw_options(self):
-        self.LLAPI.clear_console()
+        self.llapi.clear_console()
         all_options = []
         all_options.extend(self.employee_options)
-        if self.LLAPI.supervisor_check():
+        if self.llapi.supervisor_check():
             all_options.extend(self.supervisor_options)
         print(f"\tMenu:")
         for index in all_options:
@@ -32,20 +32,20 @@ class MainMenu:
             command = input("\tEnter an option: ")
             
             if command == '1':
-                work_request_menu = WorkRequestMenu(self.LLAPI)
+                work_request_menu = WorkRequestMenu(self.llapi)
                 return_option = work_request_menu.draw_options()
             elif command == '2':
                 contractor_menu = print("here goes the contractor menu")
                 # contractor_menu.draw_options()
             elif command == '3':
-                housing_menu = HousingMenu(self.LLAPI)
+                housing_menu = HousingMenu(self.llapi)
                 return_option = housing_menu.draw_options()
-            elif command == '4' and self.LLAPI.supervisor_check():
-                employee_menu = EmployeeMenu(self.LLAPI)
+            elif command == '4' and self.llapi.supervisor_check():
+                employee_menu = EmployeeMenu(self.llapi)
                 return_option = employee_menu.draw_options()
                 # employees_menu.draw_options()
-            elif command == '5' and self.LLAPI.supervisor_check():
-                destination_menu = DestinationMenu(self.LLAPI)
+            elif command == '5' and self.llapi.supervisor_check():
+                destination_menu = DestinationMenu(self.llapi)
                 return_option = destination_menu.draw_options()
             elif command.lower() == 'q':
                 return
@@ -55,6 +55,6 @@ class MainMenu:
             
     def login(self):
         login = input("Enter your ID: ")
-        while not self.LLAPI.ID_login(login):
+        while not self.llapi.ID_login(login):
             print("Invalid ID")
             login = input("Enter your ID: ")
