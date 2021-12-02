@@ -50,8 +50,11 @@ class LLAPI:
         return self.employeell.all_employees()
             
         # Work Request Logic
-    def all_work_requests(self):
-        return self.workrequestLL.all_work_requests()
+    def all_open_work_requests(self):
+        return self.workrequestLL.all_open_work_requests()
+    
+    def all_closed_work_requests(self):
+        return self.workrequestLL.all_closed_work_requests()
     
     def search_id(self, wr_id):
         return self.workrequestLL.search_id(wr_id)
@@ -64,6 +67,9 @@ class LLAPI:
     
     def append_finnished_work_req(self, req):
         return self.workrequestLL.append_finnished_work_req(req)
+    
+    def open_request(self, wr_id):
+        return self.workrequestLL.open_request(wr_id)
     
     def close_request(self, wr_id):
         return self.workrequestLL.close_request(wr_id)
