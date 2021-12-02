@@ -16,6 +16,7 @@ class LLAPI:
         self.employeell = EmployeeLL(self.dlapi)
         self.workrequestLL = WorkRequestLL(self.dlapi)
         self.housLL = HousingLL(self.dlapi)
+        self.contractormenuLL = ContractorMenuLL(self.dlapi)
         
     def ID_login(self, id):
         return self.login_checker.ID_login(id)
@@ -61,7 +62,7 @@ class LLAPI:
         return self.housLL.housing_list()
 
     def get_contractor_list(self):
-        pass
+        return self.contractormenuLL.list_all_contractors(self)
 
     def add_new_contractor(self):
-        return self.housLL.housing_list()
+        return self.contractormenuLL.add_new_contractor(self)
