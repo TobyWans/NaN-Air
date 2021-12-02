@@ -1,12 +1,14 @@
 from src.storage_layer.destinationDL import DestinationDL
 from src.storage_layer.work_requestDL import WorkRequestDL
 from src.storage_layer.housingDL import HousingDL
+from src.storage_layer.employeeDL import EmployeeDL
 
 class DLAPI:
     def __init__(self):
         self.destDL = DestinationDL()
         self.ReqDL = WorkRequestDL()
         self.housDL = HousingDL()
+        self.employee = EmployeeDL
         
     def get_all_work_requests(self):
         return self.ReqDL.get_all_work_requests()
@@ -18,19 +20,19 @@ class DLAPI:
         return self.destDL.destination_info()
 
     def create_new_employee(self):
-        pass
+        return self.employee.create_new_employee()
 
     def change_employee(self):
-        pass
+        return self.employee.change_employee()
 
     def get_all_employees(self):
-        pass
+        return self.employee.get_all_employees()
 
     def search_employee_by_id(self):
-        pass
+        return self.employee.search_employee_by_ID()
 
     def search_employee_by_location(self):
-        pass
+        return self.employee.search_employee_by_location()
 
     def add_housing(self, hous):
         return self.housDL.add_housing(hous)
