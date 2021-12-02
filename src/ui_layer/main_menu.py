@@ -37,7 +37,7 @@ class MainMenu:
                 return_option = work_request_menu.prompt_input()
             elif command == '2':
                 contractor_menu = ContractorMenu(self.llapi)
-                return_option = contractor_menu.draw_options()
+                return_option = contractor_menu.prompt_input()
             elif command == '3':
                 housing_menu = HousingMenu(self.llapi)
                 return_option = housing_menu.prompt_input()

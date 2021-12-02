@@ -22,10 +22,11 @@ class ContractorMenu:
         for index in all_options:
             print(f"\t{all_options.index(index) + 1}. {index}")
         print("\tR. Return\n")
-        return self.prompt_input()
+        
 
     def prompt_input(self): # listinn herna þarf að vera dynamic. Einhverjar betri aðferðir?
         while True:
+            self.draw_options()
             command = input("Enter number: ")
             if command == '1':
                 pass
