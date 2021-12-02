@@ -10,5 +10,5 @@ class ContractorMenuLL:
     def add_new_contractor(self): # talar við DLAPI
         pass
 
-    def list_all_contractors(self): # líka
+    def get_contractor_list(self): # líka
         pass
