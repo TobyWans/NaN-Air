@@ -21,15 +21,17 @@ class WorkRequestMenu:
         for index in all_options:
             print(f"\t{all_options.index(index) + 1}. {index}")
         print("\tR. Return\n")
-        self.prompt_input()
     
     def prompt_input(self):
         while True:
+            self.draw_options()
             command = input("\tEnter an option: ")
             if command == '1':
                 all_work_requests = self.llapi.all_work_requests()
                 for request in all_work_requests:
                     print(request)
+                back = input("Press enter to continue")
+                self.llapi.clear_console()
             elif command == '2':
                 search_id = self.llapi.search_id() # bæta við llapi
             elif command == '3':
@@ -49,8 +51,6 @@ class WorkRequestMenu:
                 return 'r'
             else:
                 print("Invalid option, please try again ")
-        time.sleep(2)
-        self.draw_options()
             
         
     def create_new_request(self):

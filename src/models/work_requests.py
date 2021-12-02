@@ -7,4 +7,4 @@ class Work_Request:
         self.priority = priority
         
     def __str__(self):
-        return f"Title: {self.title}\nWhere: {self.where}\nHousing: {self.housing_id}\nDescription:\n{self.description}\nPriority: {self.priority}"
+        return f"Title: {self.title}\nWhere: {self.where}\nHousing: {self.housing_id}\nDescription:\n{self.description}\nPriority: {self.priority}\n"

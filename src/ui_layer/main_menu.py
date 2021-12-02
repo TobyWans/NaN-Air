@@ -21,7 +21,6 @@ class MainMenu:
         for index in all_options:
             print(f"\t{all_options.index(index) + 1}. {index}")
         print("\tQ. Log out\n")
-        self.prompt_input()
         
 
         
@@ -29,11 +28,12 @@ class MainMenu:
     def prompt_input(self):
         return_option = ''
         while True:
+            self.draw_options()
             command = input("\tEnter an option: ")
             
             if command == '1':
                 work_request_menu = WorkRequestMenu(self.llapi)
-                return_option = work_request_menu.draw_options()
+                return_option = work_request_menu.prompt_input()
             elif command == '2':
                 contractor_menu = print("here goes the contractor menu")
                 # contractor_menu.draw_options()
@@ -51,7 +51,6 @@ class MainMenu:
                 return
             else:
                 print("Invalid option, please try again ")
-            self.draw_options()
             
     def login(self):
         login = input("Enter your ID: ")

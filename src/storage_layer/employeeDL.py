@@ -1,6 +1,6 @@
 import csv
 
-from models.employee import Employee
+from src.models.employee import Employee
 
 class EmployeeDL:
     def __init__(self):
