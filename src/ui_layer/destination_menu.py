@@ -3,9 +3,8 @@ from src.logic_layer.LLAPI import LLAPI
 
 class DestinationMenu:
     def __init__(self, llapi):
-        # random.seed(69)
         self.llapi = llapi
-        self.supervisor_options = ["Nuuk, Grænland", "Kulusuk, Grænland", "Þórshöfn, Færeyjar", "Tingwall, Hjaltlandseyjum", "Longyearbyen, Svalbarði"]
+        self.supervisor_options = ["Nuuk, Grænland", "Þórshöfn, Færeyjar", "Longyearbyen, Svalbarði", "Kulusuk, Grænland", "Tingwall, Hjaltlandseyjum"]
 
     def draw_options(self):
         self.llapi.clear_console()

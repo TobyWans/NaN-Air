@@ -10,7 +10,7 @@ class DestinationDL:
         with open(self.filepath, newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                dest = Destination(row["country"], row["airport"], row["phone"], row["opening_hour"], row["closing_hour"], row["supervisor"])
+                dest = Destination(row["destination"], row["country"], row["airport"], row["phone"], row["opening_hour"], row["closing_hour"], row["supervisor"])
                 ret_list.append(dest)
         return ret_list
 
