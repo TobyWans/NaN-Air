@@ -1,4 +1,5 @@
-from LLAPI import LLAPI
+from src.storage_layer.DLAPI import DLAPI
+from src.models.contractors import contractors
 
 class ContractorMenuLL:
     def __init__(self): # Þörf á init?
