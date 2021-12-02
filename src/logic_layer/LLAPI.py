@@ -61,4 +61,4 @@ class LLAPI:
         pass
 
     def add_new_contractor(self):
-        pass
+        return self.housLL.housing_list()
