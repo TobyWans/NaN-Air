@@ -15,6 +15,9 @@ class DLAPI:
     
     def create_new_request(self, req):
         return self.ReqDL.create_new_request(req)
+    
+    def work_req_count(self):
+        return self.ReqDL.work_req_count()
 
     def destination_info(self):
         return self.destDL.destination_info()

@@ -1,3 +1,5 @@
-title,where,housing_id,description,priority
-Gera kjarnaofn subcritical.,Longyearbyen - Svalbarða,AA999-1,OK-650VV kjarnaofninn er voru hannaðir um 1970. Þeir eiga það þó til að ofhitna ef þeim er ekki sint sem skyldi. Reglulega (amk. 1 sinni í viku) þarf sáldra smá boron í kerfið. ATH! Við þetta þarf verktaka sem á góðan gúmígalla því þetta er allt frekar blautt og heitt; og svo er ekki verra að vita eitthvað hvað maður er að gera.,High
-Leki í glugga,Nuuk Greenland,AA999-1,Leki í öllum gluggum sem er í kjarnaofni,High
+id,title,where,housing_id,description,priority
+1,Gera kjarnaofn subcritical.,Longyearbyen - Svalbarða,AA999-1,OK-650VV kjarnaofninn er voru hannaðir um 1970. Þeir eiga það þó til að ofhitna ef þeim er ekki sint sem skyldi. Reglulega (amk. 1 sinni í viku) þarf sáldra smá boron í kerfið. ATH! Við þetta þarf verktaka sem á góðan gúmígalla því þetta er allt frekar blautt og heitt; og svo er ekki verra að vita eitthvað hvað maður er að gera.,High
+2,Leki í glugga,Nuuk Greenland,AA999-1,Leki í öllum gluggum sem er í kjarnaofni,High
+3,Chuck að koma í hreinlætis skoðun,Everywhere,all,"Þrífa öll húsnæði má ekki vera ein nanó ögn, Chuck sér allt.",High
+4,Big bang þrif,Nuuk - Greenland,64-3875-6,There was a contained big bang in the house and there are particles everywhere that need to be cleaned.,Medium

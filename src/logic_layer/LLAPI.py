@@ -49,6 +49,9 @@ class LLAPI:
     
     def create_new_request(self, req):
         return self.workrequestLL.create_new_request(req)
+    
+    def work_req_count(self):
+        return self.workrequestLL.work_req_count()
 
     def add_housing(self, hous):
         return self.housLL.add_housing(hous)
