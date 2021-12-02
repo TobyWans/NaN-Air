@@ -13,9 +13,6 @@ class ContractorMenu:
     def add_new_contractor(self):
         self.llapi.add_new_contractor()   #
 
-    def list_all_contractors(self):
-        self.llapi.list_all_contractors() # gera þessi föll í LLAPI?
-
     def draw_options(self):
         self.llapi.clear_console()
         all_options = []

@@ -29,9 +29,6 @@ class HousingMenu:
                 print("Invalid option. Try again!")
             print(self.options)
 
-    def housing_list():
-        pass
-
     def add_housing(self):
         property_number = input("Property_number: ")
         street_name = input("Street_name: ")
@@ -41,14 +38,7 @@ class HousingMenu:
         nr_of_rooms = input("Number of rooms: ")
         type = input("Type: ")
         requires_maintenance = input("Requires maintenance: ")
-
         hous = Housing(property_number, street_name, street_number, location, size, nr_of_rooms, type, requires_maintenance)
         self.llapi.add_housing(hous)
-
-    def change_housing():
-        pass
-
-    def renting_status():
-        pass
             
     

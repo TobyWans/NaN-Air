@@ -10,4 +10,4 @@ class Housing:
         self.requires_maintenance = requires_maintenance
 
     def __str__(self):
-        return f"Property_number: {self.property_number}, Adress: {self.street_name} {self.street_number}, {self.location}, Size: {self.size}, Number of rooms: {self.nr_of_rooms}, Type of house: {self.type}, Requires maintenance: {self.requires_maintenance}" 
+        return f"{self.property_number:30s}|{self.street_name:20s} {self.street_number:5s}|{self.location:15s}|{self.size:10s}|{self.nr_of_rooms:15s}|{self.type}"

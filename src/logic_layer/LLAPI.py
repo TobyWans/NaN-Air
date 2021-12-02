@@ -4,6 +4,7 @@ from src.storage_layer.DLAPI import DLAPI
 from src.logic_layer.employeeLL import EmployeeLL
 from src.logic_layer.work_requestLL import WorkRequestLL
 from src.logic_layer.housingLL import HousingLL
+from src.logic_layer.contractorsLL import ContractorMenuLL
 import os
 
 
@@ -52,3 +53,12 @@ class LLAPI:
 
     def add_housing(self, hous):
         return self.housLL.add_housing(hous)
+    
+    def housing_list(self):
+        return self.housLL.housing_list()
+
+    def get_contractor_list(self):
+        pass
+
+    def add_new_contractor(self):
+        pass
