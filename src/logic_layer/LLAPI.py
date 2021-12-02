@@ -18,6 +18,7 @@ class LLAPI:
         self.housLL = HousingLL(self.dlapi)
         self.contractormenuLL = ContractorMenuLL(self.dlapi)
         
+        # Misc Logic
     def ID_login(self, id):
         return self.login_checker.ID_login(id)
     
@@ -27,10 +28,12 @@ class LLAPI:
     def clear_console(self):
         clear_cmd = os.system('cls' if os.name in ('nt', 'dos') else 'clear')
         return clear_cmd
-
+        
+        # Destination Logic
     def destination_info(self):
         return self.destinationLL.destination_info()
-
+        
+        # Employee Logic
     def create_new_employee(self):
         return self.employeell.create_new_employee()
 
@@ -45,22 +48,34 @@ class LLAPI:
 
     def all_employees(self):
         return self.employeell.all_employees()
-    
+            
+        # Work Request Logic
     def all_work_requests(self):
         return self.workrequestLL.all_work_requests()
     
     def create_new_request(self, req):
         return self.workrequestLL.create_new_request(req)
     
+    def finnished_work_req(self):
+        return self.workrequestLL.finnished_work_req()
+    
+    def append_finnished_work_req(self, req):
+        return self.workrequestLL.append_finnished_work_req(req)
+    
+    def close_request(self, wr_id):
+        return self.workrequestLL.close_request(wr_id)
+    
     def work_req_count(self):
         return self.workrequestLL.work_req_count()
-
+        
+        # Housing Logic
     def add_housing(self, hous):
         return self.housLL.add_housing(hous)
     
     def housing_list(self):
         return self.housLL.housing_list()
-
+        
+        # Constructor Logic
     def get_contractor_list(self):
         return self.contractormenuLL.list_all_contractors(self)
 
