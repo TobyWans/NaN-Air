@@ -2,32 +2,41 @@ from src.logic_layer.LLAPI import LLAPI
 from src.models.housing import Housing
 
 class HousingMenu:
-    def __init__(self, llapi):
+    def __init__(self, llapi:LLAPI):
         self.llapi = llapi
         self.supervisor_options = ["List of housing", "Add housing", "Renting status"]
-        self.employee_options = self.housing_list()
+        self.employee_options = self.llapi.housing_list()
     
     def draw_options(self):
         self.llapi.clear_console()
         all_options = []
-        all_options.extend(self.supervisor_options)
+        all_options.extend(self.employee_options)
+        if self.llapi.supervisor_check():
+            all_options = self.supervisor_options
+            print(f"\tHousing Menu:")
         for index in all_options:
             print(f"\t{all_options.index(index) + 1}. {index}")
-        print("\tQ. Return\n")
-        return self.prompt_input()
+        print("\tR. Return\n")
 
+        
     def prompt_input(self):
         while True:
-            command = input("Enter your input: ")
+            self.draw_options()
+            command = input(f"\tEnter your input: ")
             if command == "1":
-                self.housing_list()
-            if command == "2":
+                housing_list = self.llapi.housing_list()
+                for hous in housing_list:
+                    print(hous)
+                back = input("Enter to continue")
+                self.llapi.clear_console()
+            elif command == "2":
                 self.add_housing()
-            elif command == "r":
+            elif command == "3":
                 self.renting_status()
+            elif command.lower() == "r":
+                return
             else:
                 print("Invalid option. Try again!")
-            print(self.options)
 
     def add_housing(self):
         property_number = input("Property_number: ")

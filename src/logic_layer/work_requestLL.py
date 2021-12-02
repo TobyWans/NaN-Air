@@ -2,7 +2,7 @@ from src.storage_layer.DLAPI import DLAPI
 
 
 class WorkRequestLL:
-    def __init__(self, dlapi):
+    def __init__(self, dlapi: DLAPI):
         self.dlapi = dlapi
         
     def all_work_requests(self):
@@ -28,6 +28,9 @@ class WorkRequestLL:
     
     def close_request(self):
         pass
+    
+    def work_req_count(self):
+        return self.dlapi.work_req_count()
     
     
 if __name__=='__main__':

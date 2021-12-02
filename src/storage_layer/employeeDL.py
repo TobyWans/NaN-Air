@@ -1,6 +1,6 @@
 import csv
 
-from models.employee import Employee
+from src.models.employee import Employee
 
 class EmployeeDL:
     def __init__(self):
@@ -15,7 +15,7 @@ class EmployeeDL:
                 ret_list.append(emp)
         return ret_list
 
-    def create_employee(self, emp):
+    def create_new_employee(self, emp):
         with open(self.filepath, 'a', newline='', encoding='utf-8') as csvfile:
             fieldnames = ["name","email","address","phone","mobile", "location"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)

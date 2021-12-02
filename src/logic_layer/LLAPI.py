@@ -34,22 +34,25 @@ class LLAPI:
         return self.employeell.create_new_employee()
 
     def change_employee(self):
-        pass
+        return self.employeell.change_employee()
 
     def search_employee_by_id(self):
-        pass
+        return self.employeell.search_employee_by_id()
 
     def search_employee_by_location(self):
-        pass
+        return self.employeell.serch_employee_by_location()
 
     def all_employees(self):
-        pass
+        return self.employeell.all_employees()
     
     def all_work_requests(self):
         return self.workrequestLL.all_work_requests()
     
     def create_new_request(self, req):
         return self.workrequestLL.create_new_request(req)
+    
+    def work_req_count(self):
+        return self.workrequestLL.work_req_count()
 
     def add_housing(self, hous):
         return self.housLL.add_housing(hous)
