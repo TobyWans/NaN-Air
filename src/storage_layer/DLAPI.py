@@ -14,6 +14,9 @@ class DLAPI:
     def get_all_work_requests(self):
         return self.ReqDL.get_all_work_requests()
     
+    def search_id(self, user_id):
+        return self.ReqDL.search_id(user_id)
+    
     def create_new_request(self, req):
         return self.ReqDL.create_new_request(req)
     

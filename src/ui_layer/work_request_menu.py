@@ -33,19 +33,31 @@ class WorkRequestMenu:
                 back = input("Press enter to continue")
                 self.llapi.clear_console()
             elif command == '2':
-                search_id = self.llapi.search_id() # bæta við llapi
+                id_input = input("Please enter the ID of your work request: ")
+                search_id = self.llapi.search_id(id_input) # bæta við llapi
+                print(search_id)
+                wait = input("Press enter to contine")
             elif command == '3':
                 search_date = self.llapi.search_date() # bæta við llapi
             elif command == '4':
                 user_open_requests = self.llapi.user_open_requests() # bæta við llapi
             elif command == '5':
-                finished_requests = self.llapi.finished_requests() # bæta við llapi
+                finished_requests = self.llapi.finnished_work_req() # bæta við llapi
+                for request in finished_requests:
+                    print(request)
+                back = input("Press enter to continue")
+                self.llapi.clear_console()
             elif command == '6':
                 self.create_new_request()
             elif command == '7':
                 open_change_request = self.llapi.open_change_request() # bæta við llapi
             elif command == '8':
-                close_request = self.llapi.close_request() # bæta við llapi
+                all_work_requests = self.llapi.all_work_requests()
+                for request in all_work_requests:
+                    print(request)
+                close_id = input("Please enter work request ID you want to close: ")
+                self.llapi.clear_console()
+                close_request = self.llapi.close_request(close_id) # bæta við llapi
             elif command.lower() == 'r':
                 self.llapi.clear_console()
                 return 'r'
