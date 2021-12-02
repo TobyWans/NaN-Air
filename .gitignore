@@ -129,5 +129,5 @@ dmypy.json
 .pyre/
 
 # Debugs
-TobbiDebugg.py
+TobbiDebug.py
 Nikki_debug.py

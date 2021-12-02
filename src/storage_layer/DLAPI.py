@@ -11,8 +11,11 @@ class DLAPI:
         self.employee = EmployeeDL
                 
         # Work Request Logic
-    def get_all_work_requests(self):
-        return self.ReqDL.get_all_work_requests()
+    def get_all_open_work_requests(self):
+        return self.ReqDL.get_all_open_work_requests()
+    
+    def get_all_closed_work_requests(self):
+        return self.ReqDL.get_all_closed_work_requests()
     
     def search_id(self, user_id):
         return self.ReqDL.search_id(user_id)
@@ -22,6 +25,9 @@ class DLAPI:
     
     def close_request(self, wr_id):
         return self.ReqDL.close_request(wr_id)
+    
+    def open_request(self, wr_id):
+        return self.ReqDL.open_request(wr_id)
     
     def finnished_work_req(self):
         return self.ReqDL.finnished_work_req()

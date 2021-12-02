@@ -5,8 +5,11 @@ class WorkRequestLL:
     def __init__(self, dlapi: DLAPI):
         self.dlapi = dlapi
         
-    def all_work_requests(self):
-        return self.dlapi.get_all_work_requests()
+    def all_open_work_requests(self):
+        return self.dlapi.get_all_open_work_requests()
+    
+    def all_closed_work_requests(self):
+        return self.dlapi.get_all_closed_work_requests()
     
     def search_id(self, user_id):
         return self.dlapi.search_id(user_id)
@@ -26,8 +29,8 @@ class WorkRequestLL:
     def create_new_request(self, req):
         return self.dlapi.create_new_request(req)
     
-    def open_change_request(self):
-        pass
+    def open_request(self, wr_id):
+        return self.dlapi.open_request(wr_id)
     
     def close_request(self, wr_id):
         return self.dlapi.close_request(wr_id)
