@@ -33,16 +33,16 @@ class LLAPI:
         return self.employeell.create_new_employee()
 
     def change_employee(self):
-        pass
+        return self.employeell.change_employee()
 
     def search_employee_by_id(self):
-        pass
+        return self.employeell.search_employee_by_id()
 
     def search_employee_by_location(self):
-        pass
+        return self.employeell.serch_employee_by_location()
 
     def all_employees(self):
-        pass
+        return self.employeell.all_employees()
     
     def all_work_requests(self):
         return self.workrequestLL.all_work_requests()
