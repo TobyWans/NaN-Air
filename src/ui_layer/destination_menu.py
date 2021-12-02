@@ -2,7 +2,7 @@ from src.logic_layer.LLAPI import LLAPI
 
 
 class DestinationMenu:
-    def __init__(self, llapi):
+    def __init__(self, llapi: LLAPI):
         self.llapi = llapi
         self.supervisor_options = ["Nuuk, Grænland", "Þórshöfn, Færeyjar", "Longyearbyen, Svalbarði", "Kulusuk, Grænland", "Tingwall, Hjaltlandseyjum"]
 
@@ -12,18 +12,20 @@ class DestinationMenu:
         all_options.extend(self.supervisor_options)
         for index in all_options:
             print(f"\t{all_options.index(index) + 1}. {index}")
-        print("\tQ. Return\n")
+        print("\tR. Return\n")
         return self.prompt_input()
 
     def prompt_input(self):
         while True:
-            command = input("Enter an option: ")
             print_destination = self.llapi.destination_info()
+            command = input("Enter an option: ")
             dest_str_list = []
             for dest in print_destination:
                 dest_str_list.append(dest)
             if command == "1":
                 print(dest_str_list[0])
+                back = input("Press enter to continue")
+                self.llapi.clear_console()
             elif command  == "2":
                 print(dest_str_list[1])
             elif command  == "3":
@@ -32,5 +34,10 @@ class DestinationMenu:
                 pass
             elif command  == "5":
                 pass
+            elif command.lower() == 'r':
+                self.llapi.clear_console()
+                return 'r'
+            else:
+                print("Invalid option, please try again ")
 
     
