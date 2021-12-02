@@ -13,12 +13,12 @@ class DestinationMenu:
         for index in all_options:
             print(f"\t{all_options.index(index) + 1}. {index}")
         print("\tR. Return\n")
-        return self.prompt_input()
 
     def prompt_input(self):
         while True:
-            print_destination = self.llapi.destination_info()
+            self.draw_options()
             command = input("Enter an option: ")
+            print_destination = self.llapi.destination_info()
             dest_str_list = []
             for dest in print_destination:
                 dest_str_list.append(dest)
@@ -28,8 +28,12 @@ class DestinationMenu:
                 self.llapi.clear_console()
             elif command  == "2":
                 print(dest_str_list[1])
+                back = input("Press enter to continue")
+                self.llapi.clear_console()
             elif command  == "3":
                 print(dest_str_list[2])
+                back = input("Press enter to continue")
+                self.llapi.clear_console()
             elif command  == "4":
                 pass
             elif command  == "5":

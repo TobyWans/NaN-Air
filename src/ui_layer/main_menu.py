@@ -47,7 +47,7 @@ class MainMenu:
                 # employees_menu.draw_options()
             elif command == '5' and self.llapi.supervisor_check():
                 destination_menu = DestinationMenu(self.llapi)
-                return_option = destination_menu.draw_options()
+                return_option = destination_menu.prompt_input()
             elif command.lower() == 'q':
                 return
             else:
