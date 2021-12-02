@@ -6,3 +6,6 @@ class DestinationLL:
 
     def destination_info(self):
         return self.dlapi.destination_info()
+    
+    def get_only_city(self):
+        return self.dlapi.get_only_city()

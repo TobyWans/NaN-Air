@@ -1,7 +1,5 @@
 from src.models.work_requests import Work_Request
 from src.logic_layer.LLAPI import LLAPI
-import random
-import time
 
 PRIORITY = ('low', 'medium', 'high')
 
@@ -26,29 +24,36 @@ class WorkRequestMenu:
         while True:
             self.draw_options()
             command = input("\tEnter an option: ")
+            
             if command == '1':
                 all_work_requests = self.llapi.all_open_work_requests()
                 for request in all_work_requests:
                     print(request)
                 back = input("Press enter to continue")
                 self.llapi.clear_console()
+                
             elif command == '2':
                 id_input = input("Please enter the ID of your work request: ")
                 search_id = self.llapi.search_id(id_input)
                 print(search_id)
                 wait = input("Press enter to contine")
+                
             elif command == '3':
                 search_date = self.llapi.search_date() # bæta við llapi
+                
             elif command == '4':
                 user_open_requests = self.llapi.user_open_requests() # bæta við llapi
+                
             elif command == '5':
                 finished_requests = self.llapi.all_closed_work_requests() # bæta við llapi
                 for request in finished_requests:
                     print(request)
                 back = input("Press enter to continue")
                 self.llapi.clear_console()
+                
             elif command == '6':
                 self.create_new_request()
+                
             elif command == '7':
                 all_closed_work_requests = self.llapi.all_closed_work_requests()
                 for request in all_closed_work_requests:
@@ -56,6 +61,7 @@ class WorkRequestMenu:
                 open_id = int(input("Please enter work request ID you want to open and change: "))
                 self.llapi.clear_console()
                 open_change_request = self.llapi.open_request(open_id)
+                
             elif command == '8':
                 all_open_work_requests = self.llapi.all_open_work_requests()
                 for request in all_open_work_requests:
@@ -63,6 +69,7 @@ class WorkRequestMenu:
                 close_id = int(input("Please enter work request ID you want to close: "))
                 self.llapi.clear_console()
                 close_request = self.llapi.close_request(close_id)
+                
             elif command.lower() == 'r':
                 self.llapi.clear_console()
                 return 'r'
@@ -75,7 +82,9 @@ class WorkRequestMenu:
         work_request_ID = self.llapi.work_req_count()
         print(f"Work request ID: {self.llapi.work_req_count()}")
         title = input("Title: ")
+        print("Available Locations:", ' - '.join(self.llapi.get_only_city()))
         where = input("Location: ")
+        print("Housing in that area")
         housing = input("Housing: ")
         description = input("Description: ")
         while running:

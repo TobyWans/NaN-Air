@@ -41,6 +41,9 @@ class DLAPI:
         # Destination Logic
     def destination_info(self):
         return self.destDL.destination_info()
+    
+    def get_only_city(self):
+        return self.destDL.get_only_city()
         
         # Employee Logic
     def create_new_employee(self):

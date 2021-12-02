@@ -13,5 +13,12 @@ class DestinationDL:
                 dest = Destination(row["destination"], row["country"], row["airport"], row["phone"], row["opening_hour"], row["closing_hour"], row["supervisor"])
                 ret_list.append(dest)
         return ret_list
-
-
+    
+    def get_only_city(self):
+        dest_list = []
+        with open(self.filepath, newline='', encoding='utf-8') as destfile:
+            reader = csv.reader(destfile)
+            next(reader)
+            for row in reader:
+                dest_list.append(row[0])
+        return dest_list

@@ -32,6 +32,9 @@ class LLAPI:
         # Destination Logic
     def destination_info(self):
         return self.destinationLL.destination_info()
+    
+    def get_only_city(self):
+        return self.destinationLL.get_only_city()
         
         # Employee Logic
     def create_new_employee(self):
