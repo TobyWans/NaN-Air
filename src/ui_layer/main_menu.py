@@ -3,6 +3,7 @@ from src.ui_layer.work_request_menu import WorkRequestMenu
 from src.ui_layer.employee_menu import EmployeeMenu
 from src.ui_layer.destination_menu import DestinationMenu
 from src.ui_layer.housing_menu import HousingMenu
+from src.ui_layer.contractor_menu import ContractorMenu
 import time
 
 class MainMenu:
@@ -35,8 +36,8 @@ class MainMenu:
                 work_request_menu = WorkRequestMenu(self.llapi)
                 return_option = work_request_menu.prompt_input()
             elif command == '2':
-                contractor_menu = print("here goes the contractor menu")
-                # contractor_menu.draw_options()
+                contractor_menu = ContractorMenu(self.llapi)
+                return_option = contractor_menu.draw_options()
             elif command == '3':
                 housing_menu = HousingMenu(self.llapi)
                 return_option = housing_menu.prompt_input()

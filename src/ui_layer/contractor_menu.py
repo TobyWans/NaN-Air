@@ -4,14 +4,14 @@ from src.models.contractors import contractors
 class ContractorMenu:
     def __init__(self, llapi):
         self.supervisor_options = ["Add new contractor"]
-        self.employee_options = [self.llapi.get_contractor_list()]
+        self.employee_options = ["self.llapi.get_contractor_list()"]
         self.llapi = llapi
         self.llapi.ID_login("1111") # Place holder for testing. Veit ekki hvernig user id flakkast á milli klasa...
         self.max_size_list = len(self.employee_options[0])
 
 
     def add_new_contractor(self):
-        self.llapi.add_new_contractor()   #
+        self.llapi.add_new_contractor()   
 
     def draw_options(self):
         self.llapi.clear_console()
@@ -22,6 +22,7 @@ class ContractorMenu:
         for index in all_options:
             print(f"\t{all_options.index(index) + 1}. {index}")
         print("\tR. Return\n")
+        return self.prompt_input()
 
     def prompt_input(self): # listinn herna þarf að vera dynamic. Einhverjar betri aðferðir?
         while True:
@@ -32,5 +33,7 @@ class ContractorMenu:
                 pass
             elif command.lower() == 'r':
                 return
+            else:
+                print("Invalid option, please try again.")
         
         
