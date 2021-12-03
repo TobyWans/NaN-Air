@@ -8,7 +8,7 @@ class contractors:
         self.location = location
         self.rating = rating
 
-    def show_all_info(self):
+    def __str__(self):
         return f"Contractor: {self.contractor}\nPhone: {self.phone}\nName: {self.name}\nOpening Hours: {self.opening_hours}\nLocation: {self.location}\nProfession: {self.profession}\nRating: {self.rating}\n"
 
     def  display(self):
