@@ -1,4 +1,4 @@
-from models.employee import Employee
+from src.models.employee import Employee
 from src.logic_layer.LLAPI import LLAPI
 
 
