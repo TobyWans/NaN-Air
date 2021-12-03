@@ -36,13 +36,13 @@ class HousingMenu:
             elif command == "2":
                 self.add_housing()
             elif command == "3":
-                search_by_housing_id = "Invalid input!"
+                search_by_housing_id = "Invalid input!" #Gæti vera fasta, og kanski getum við gert þetta öðruvisi
                 while search_by_housing_id == "Invalid input!": 
                     id_input = input("Please enter the property ID: ")
                     search_by_housing_id = self.llapi.search_by_housing_id(id_input)
                     print(search_by_housing_id)
                 wait = input("Press enter to contine")
-
+                #Bæta quit
             elif command == "3":
                 self.renting_status()
             elif command.lower() == "r":
@@ -51,6 +51,7 @@ class HousingMenu:
                 print("Invalid option. Try again!")
 
     def add_housing(self):
+        supervisor = input("Enter your full name:") # Should probably automaticly adding the name of supervisor which is loged in 
         property_number = input("Property_number: ")
         street_name = input("Street_name: ")
         street_number = input("Street_number: ")
@@ -59,7 +60,8 @@ class HousingMenu:
         nr_of_rooms = input("Number of rooms: ")
         type = input("Type: ")
         requires_maintenance = input("Requires maintenance: ")
-        hous = Housing(property_number, street_name, street_number, location, size, nr_of_rooms, type, requires_maintenance)
+        rental_status = input("Please enter rental status(free to rent/booked): ")
+        hous = Housing(supervisor, property_number, street_name, street_number, location, size, nr_of_rooms, type, requires_maintenance, rental_status)
         self.llapi.add_housing(hous)
             
     
