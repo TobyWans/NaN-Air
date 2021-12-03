@@ -92,12 +92,15 @@ class LLAPI:
     
     def housing_list(self):
         return self.housLL.housing_list()
+
+    def location_list(self):
+        return self.housLL.get_location_list()
     
     def search_by_housing_id(self, entered_id):
         return self.housLL.search_by_housing_id(entered_id)
     
-    def rental_status(self):
-        return self.housLL.rental_status()
+    def get_rental_status(self):
+        return self.housLL.get_rental_status()
         
         # Constructor Logic
     def get_contractor_list(self):
