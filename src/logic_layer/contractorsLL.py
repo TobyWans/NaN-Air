@@ -11,4 +11,4 @@ class ContractorMenuLL:
         pass
 
     def get_contractor_list(self): # líka
-        pass
+        return self.dlapi.get_contractor_list()
