@@ -2,7 +2,7 @@ from src.storage_layer.DLAPI import DLAPI
 from src.models.contractors import contractors
 
 class ContractorMenuLL:
-    def __init__(self, dlapi): # Þörf á init?
+    def __init__(self, dlapi):
         self.dlapi = dlapi
         self.contractor = []
         self.contractors_list = []
