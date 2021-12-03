@@ -1,5 +1,6 @@
 from src.models.employee import Employee
 from src.logic_layer.LLAPI import LLAPI
+import uuid
 
 
 
@@ -24,15 +25,7 @@ class EmployeeMenu:
         while True:
             command = input("Enter an option: ")
             if command == '1':
-                self.llapi.clear_console()
-                name = input("Enter name: ")
-                e_mail = input("Enter e-mail: ")
-                address = input("Enter address: ")
-                phone = input("Enter phone number: ")
-                mobile = input("Enter mobile number ")
-                location = input("Enter location: ")
-                new_employee = Employee(name, e_mail, address, phone, mobile, location)
-                self.llapi.create_new_employee(new_employee)
+                self.create_employee()
             elif command == '2':
                 change_employee = self.llapi.change_employee() 
             elif command == '3':
@@ -47,3 +40,16 @@ class EmployeeMenu:
                 return
             else:
                 print("Invalid option, please try again ")
+                
+    def create_employee(self):
+        self.llapi.clear_console()
+        emp_id = str(uuid.uuid1())[:4]
+        print(emp_id)
+        name = input("Enter name: ")
+        e_mail = input("Enter e-mail: ")
+        address = input("Enter address: ")
+        phone = input("Enter phone number: ")
+        mobile = input("Enter mobile number ")
+        location = input("Enter location: ")
+        new_employee = Employee(name, e_mail, address, phone, mobile, location, emp_id)
+        self.llapi.create_new_employee(new_employee)

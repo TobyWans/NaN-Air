@@ -1,7 +1,7 @@
-name, email, address, phone, mobile, location
-Jacob Yxa, jacob.yxa@nanair.is, Vei 224 3B; Longyearbyen; Svalbard, +47 92 09 77 01, +354 777 1338, Svalbard
-Nanna Daema, nanna.daema@nanair.is, Ivan Starostin st. 109; Barantsburg; Svalbard, +47 92 09 77 02, +354 777 1339, Svalbard
-Aqqaluk Lynge, aqqaluk.lynge@nanair.is, Qattaaq 44; 3905; Nuuk; Greenland, +299 35 24 66, +354 777 1362, Nuuk
-Nauja Lynge, nauja.lynge@nanair.is, Qunguleq 3759; 3905; Nuuk; Greenland, +299 31 21 64, +354 777 1363, Nuuk
-Áki Knudsen, aki.knudsen@nanair.is, Traðartún 3; 108; Argir; Faroe Islands, +298 617210, +354 777 1381, Faroe Islands
-André Hjaltalin, Andre.hjaltalin@nanair.is, Í Lágni 19; 100; Tórshavn; Faroe Islands, +298 661441, +354 777 1382, Faroe Islands
+name,email,address,phone,mobile,location,id
+Jacob Yxa,jacob.yxa@nanair.is,"Vei 224 3B, Longyearbyen, Svalbard",+47 92 09 77 01,+354 777 1338,Svalbard
+Nanna Daema,nanna.daema@nanair.is,"Ivan Starostin st. 109, Barantsburg, Svalbard",+47 92 09 77 02,+354 777 1339,Svalbard
+Aqqaluk Lynge,aqqaluk.lynge@nanair.is,"Qattaaq 44, 3905, Nuuk, Greenland",+299 35 24 66,+354 777 1362,Nuuk
+Nauja Lynge,nauja.lynge@nanair.is,"Qunguleq 3759, 3905, Nuuk, Greenland",+299 31 21 64,+354 777 1363,Nuuk
+Áki Knudsen,aki.knudsen@nanair.is,"Traðartún 3, 108, Argir, Faroe Islands",+298 617210,+354 777 1381,Faroe Islands
+André Hjaltalin,Andre.hjaltalin@nanair.is,"Í Lágni 19, 100, Tórshavn, Faroe Islands",+298 661441,+354 777 1382,Faroe Islands

@@ -1,5 +1,5 @@
 # Þetta er bara til að prófa login, þurfum að búa til eh file með öllu starfsfólki
-import tempfile
+import uuid
 
 class LogInCheck:
     def __init__(self):
@@ -34,3 +34,21 @@ class LogInCheck:
             return True
         else:
             return False
+        
+    def rng_id(self):
+        decimal = False
+        while not decimal:
+            rand_id = str(uuid.uuid4())[:4]
+            if rand_id.isdecimal():
+                decimal = True
+        return rand_id
+    
+    
+    
+    
+    
+    
+        # generate uuid
+        # if uuid contains a letter
+        # regenerate until there are no letters.
+        # return uuid with only numbers

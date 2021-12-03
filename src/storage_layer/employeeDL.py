@@ -11,15 +11,15 @@ class EmployeeDL:
         with open(self.filepath, newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                emp = Employee(row["name"], row["email"], row["address"], row["phone"], row["mobile"], row["location"])
+                emp = Employee(**row)
                 ret_list.append(emp)
         return ret_list
 
     def create_new_employee(self, new_employee):
         with open(self.filepath, 'a', newline='', encoding='utf-8') as csvfile:
-            fieldnames = ["name", "email", "address", "phone", "mobile", "location"]
+            fieldnames = ["name", "email", "address", "phone", "mobile", "location", "id"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            writer.writerow({'name': new_employee.name, "email": new_employee.email, "address": new_employee.address, "phone": new_employee.phone, "mobile": new_employee.mobile, "location": new_employee.location})
+            writer.writerow({'name': new_employee.name, "email": new_employee.email, "address": new_employee.address, "phone": new_employee.phone, "mobile": new_employee.mobile, "location": new_employee.location, "id": new_employee.id})
        
     def change_employee(self, emp):
         pass
