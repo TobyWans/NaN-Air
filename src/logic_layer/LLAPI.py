@@ -106,5 +106,5 @@ class LLAPI:
     def get_contractor_list(self):
         return self.contractormenuLL.get_contractor_list()
 
-    def add_new_contractor(self, contractor_mdl):
-        return self.contractormenuLL.add_new_contractor(contractor_mdl)
+    def add_new_contractor(self, Contractor_mdl):
+        return self.contractormenuLL.add_new_contractor(Contractor_mdl)

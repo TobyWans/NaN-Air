@@ -18,8 +18,8 @@ class ContractorMenu:
         opening_hours = input("Enter opening hours: ")
         location = input("Enter location: ")
         rating = input("Enter rating: ")
-        contractor_mdl = contractors(contractor, name, profession, phone, opening_hours, location, rating)
-        return self.llapi.add_new_contractor(contractor_mdl)
+        Contractor_mdl = contractors(contractor, name, profession, phone, opening_hours, location, rating)
+        return self.llapi.add_new_contractor(Contractor_mdl)
 
     def draw_options(self):
         self.llapi.clear_console()
@@ -45,7 +45,7 @@ class ContractorMenu:
                 try:
                     index = int(command) - 1
                     self.llapi.clear_console()
-                    print(self.list_of_contractors_objects[index].show_all_info())
+                    print(self.list_of_contractors_objects[index])
                     input("Enter to continue")
                 except:
                     print("Invalid option, please try again.")

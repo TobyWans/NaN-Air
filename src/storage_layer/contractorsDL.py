@@ -5,11 +5,11 @@ class ContractorMenuDL:
     def __init__(self):
         self.contractor_file = 'src\data\Contractors.csv'
 
-    def add_new_contractor(self, mdl):
+    def add_new_contractor(self, Mdl):
         with open(self.contractor_file, 'a', newline='', encoding='utf-8') as contr_file:
             fieldnames = ['contractor','name','profession','phone','opening_hours','location','rating']
             writer = csv.DictWriter(contr_file, fieldnames=fieldnames)
-            writer.writerow({'contractor':mdl.contractor, 'name':mdl.name, 'profession':mdl.profession, 'phone':mdl.phone, 'opening_hours':mdl.opening_hours, 'location':mdl.location, 'rating':mdl.rating})
+            writer.writerow({'contractor':Mdl.contractor, 'name':Mdl.name, 'profession':Mdl.profession, 'phone':Mdl.phone, 'opening_hours':Mdl.opening_hours, 'location':Mdl.location, 'rating':Mdl.rating})
             contr_file.close()
             return
 
@@ -20,7 +20,7 @@ class ContractorMenuDL:
             reader = csv.DictReader(contr_file)
             for row in reader:
                 if first_run != True:
-                    contractor = contractors(**row)
-                    contractor_list.append(contractor)
+                    Contractor = contractors(**row)
+                    contractor_list.append(Contractor)
                 first_run = False
             return contractor_list
