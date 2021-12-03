@@ -13,11 +13,11 @@ class HousingMenu:
         if self.llapi.supervisor_check():
             print(f"\tHousing Menu:")
             for line in supervisor_options:
-                print(f"\t{supervisor_options.index(line) + 1}. {line}")
+                print(f"\t{supervisor_options.index(line) + 1}. {line}")         
         else:
             print(f"\tHousing List:")
             self.sort_by_location()
-        print("\tR. Return\n")
+        print("\n\tR. Return\n") 
 
     def prompt_input(self):
         while True:
@@ -61,7 +61,8 @@ class HousingMenu:
                 if location in row.values():
                     hous = Housing(**row)
                     print(f"{hous}")
-        wait = input("Press enter to contine") #it can be constant
+        if self.llapi.supervisor_check():
+            wait = input("Press enter to contine")
 
     def rental_status(self):
         free_to_rent, booked = self.llapi.get_rental_status()
