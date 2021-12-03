@@ -1,5 +1,4 @@
 from src.logic_layer.LLAPI import LLAPI
-from src.models.destination import Destination
 import time
 
 
@@ -20,17 +19,16 @@ class DestinationMenu:
         while True:
             self.draw_options()
             command = input("Enter an option: ")
-            print_destination = self.llapi.destination_info()
-            dest_str_list = []
-            for dest in print_destination:
-                dest_str_list.append(dest)
+
+            dest_list = self.llapi.destination_info()
+
             if command == "1":
                 search_city = self.llapi.search_des_file_by_city("Nuuk")
                 if search_city == None:
                     print("Sorry, there's no information about this destination")
                     time.sleep(1)
                 else:
-                    print(dest_str_list[0])
+                    print(dest_list[0])
                     back = input("Press enter to continue")
                     self.llapi.clear_console()
             elif command  == "2":
@@ -39,7 +37,7 @@ class DestinationMenu:
                     print("Sorry, there's no information about this destination")
                     time.sleep(1)
                 else:
-                    print(dest_str_list[1])
+                    print(dest_list[1])
                     back = input("Press enter to continue")
                     self.llapi.clear_console()
             elif command  == "3":
@@ -48,7 +46,7 @@ class DestinationMenu:
                     print("Sorry, there's no information about this destination")
                     time.sleep(1)
                 else:
-                    print(dest_str_list[2])
+                    print(dest_list[2])
                     back = input("Press enter to continue")
                     self.llapi.clear_console()
             elif command  == "4":
@@ -57,7 +55,7 @@ class DestinationMenu:
                     print("Sorry, there's no information about this destination")
                     time.sleep(1)
                 else:
-                    print(dest_str_list[3])
+                    print(dest_list[3])
                     back = input("Press enter to continue")
                     self.llapi.clear_console()
             elif command  == "5":
@@ -66,7 +64,7 @@ class DestinationMenu:
                     print("Sorry, there's no information about this destination")
                     time.sleep(1)
                 else:
-                    print(dest_str_list[4])
+                    print(dest_list[4])
                     back = input("Press enter to continue")
                     self.llapi.clear_console()
             elif command.lower() == 'r':
