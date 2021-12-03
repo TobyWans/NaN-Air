@@ -38,7 +38,7 @@ class LLAPI:
         
         # Employee Logic
     def create_new_employee(self, new_employee):
-        return self.employeell.create_new_employee(self, new_employee)
+        return self.employeell.create_new_employee(new_employee)
 
     def change_employee(self):
         return self.employeell.change_employee()
@@ -49,8 +49,8 @@ class LLAPI:
     def search_employee_by_location(self):
         return self.employeell.serch_employee_by_location()
 
-    def all_employees(self):
-        return self.employeell.all_employees()
+    def get_all_employees(self):
+        return self.employeell.get_all_employees()
             
         # Work Request Logic
     def all_open_work_requests(self):

@@ -40,7 +40,9 @@ class EmployeeMenu:
             elif command == '4':
                 search_employee_by_location = self.llapi.search_employee_by_location() 
             elif command == '5':
-                all_employees = self.llapi.all_employees() 
+                all_employees = self.llapi.get_all_employees()
+                for employee in all_employees:
+                    print(employee)
             elif command.lower() == 'q':
                 return
             else:

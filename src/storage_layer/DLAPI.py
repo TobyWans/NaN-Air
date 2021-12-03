@@ -8,7 +8,7 @@ class DLAPI:
         self.destDL = DestinationDL()
         self.ReqDL = WorkRequestDL()
         self.housDL = HousingDL()
-        self.employee = EmployeeDL
+        self.employee = EmployeeDL()
                 
         # Work Request Logic
     def get_all_open_work_requests(self):
@@ -53,7 +53,7 @@ class DLAPI:
         return self.employee.change_employee(self)
 
     def get_all_employees(self):
-        return self.employee.get_all_employees(self)
+        return self.employee.get_all_employees()
 
     def search_employee_by_id(self):
         return self.employee.search_employee_by_ID(self)

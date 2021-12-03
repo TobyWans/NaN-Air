@@ -3,10 +3,10 @@ from src.models.employee import Employee
 
 
 class EmployeeLL:
-    def __init__(self, dlapi):
+    def __init__(self, dlapi: DLAPI):
         self.dlapi = dlapi
     
-    def all_employees(self):
+    def get_all_employees(self):
         return self.dlapi.get_all_employees()
 
     def create_new_employee(self, new_employee):

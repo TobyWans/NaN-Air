@@ -4,7 +4,7 @@ from src.models.employee import Employee
 
 class EmployeeDL:
     def __init__(self):
-        self.filepath = "csv_files/Employee.csv"
+        self.filepath = 'src/data/Employee.csv'
     
     def get_all_employees(self):
         ret_list = []
