@@ -12,15 +12,26 @@ class HousingDL:
             fieldnames = ["supervisor", "property_number" ,"street_name" ,"street_number", "location" ,"size", "nr_of_rooms" ,"type", "requires_maintenance", "rental_status"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writerow({"supervisor": hous.supervisor,"property_number": hous.property_number, "street_name": hous.street_name, "street_number": hous.street_number, "location": hous.location, "size": hous.size, "nr_of_rooms": hous.nr_of_rooms, "type": hous.type, "requires_maintenance": hous.requires_maintenance, "rental_status": hous.rental_status})
-    
+
     def get_housing_list(self):
-        ret_list = []
+            hous_list = []
+            with open(self.filepath, newline='', encoding='utf-8') as csvfile:
+                reader = csv.DictReader(csvfile)
+                for row in reader:
+                    hous_list.append(row)
+            return hous_list
+    
+    
+    def get_location_list(self):
+        location_list = []
         with open(self.filepath, newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                emp = Housing(**row)
-                ret_list.append(emp)
-        return ret_list
+                if row['location'] in location_list:
+                    continue
+                else:
+                    location_list.append(row['location'])
+        return location_list
     
     def search_by_housing_id(self, entered_property_number):
         
@@ -35,7 +46,7 @@ class HousingDL:
     def change_housing():
         pass
 
-    def rental_status(self): #List of free to book and booked requests
+    def get_rental_status(self): #List of free to book and booked requests
         free_to_book = []
         booked = []
         with open(self.filepath, newline='', encoding='utf-8') as csvfile:
@@ -48,3 +59,8 @@ class HousingDL:
                     booked.append(hous)
                     
         return free_to_book, booked
+
+
+'''    
+
+'''
