@@ -87,4 +87,4 @@ class DLAPI:
         return self.contractorDL.get_contractor_list()
 
     def add_new_contractor(self, contractor_mdl):
-        return self.contractorDL.get_contractor_list(contractor_mdl)
+        return self.contractorDL.add_new_contractor(contractor_mdl)
