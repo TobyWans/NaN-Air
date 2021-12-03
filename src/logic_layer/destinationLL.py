@@ -9,3 +9,6 @@ class DestinationLL:
     
     def get_only_city(self):
         return self.dlapi.get_only_city()
+
+    def search_des_file_by_city(self, city):
+        return self.dlapi.search_des_file_by_city(city)

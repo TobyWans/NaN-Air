@@ -61,6 +61,9 @@ class LLAPI:
     
     def search_id(self, wr_id):
         return self.workrequestLL.search_id(wr_id)
+
+    def search_des_file_by_city(self, city):
+        return self.destinationLL.search_des_file_by_city(city)
     
     def search_date(self, date):
         return self.workrequestLL.search_date(date)

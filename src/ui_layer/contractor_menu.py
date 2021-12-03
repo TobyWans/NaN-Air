@@ -1,5 +1,6 @@
 from src.logic_layer.LLAPI import LLAPI
 from src.models.contractors import contractors
+import time
 
 class ContractorMenu:
     def __init__(self, llapi):
@@ -36,12 +37,16 @@ class ContractorMenu:
         while True:
             self.draw_options()
             command = input("Enter number: ")
-            
-            if command == str(self.all_options.index("Add new contractor")+1):
+            if self.llapi.supervisor_check() and command == str(self.all_options.index("Add new contractor")+1):
                 return self.add_new_contractor()
             elif command.lower() == 'r':
                 return
             else:
-                print("Invalid option, please try again.")
+                try:
+                    index = int(command) - 1
+                    self.list_of_contractors[index].show_all_info()
+                except:
+                    print("Invalid option, please try again.")
+                    time.sleep(1)
         
         
