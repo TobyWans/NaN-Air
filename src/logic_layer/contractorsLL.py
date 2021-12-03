@@ -3,7 +3,7 @@ from src.models.contractors import contractors
 
 
 class ContractorMenuLL:
-    def __init__(self, dlapi):
+    def __init__(self, dlapi: DLAPI):
         self.dlapi = dlapi
     
     def add_new_contractor(self, Contractor_mdl):

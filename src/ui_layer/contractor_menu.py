@@ -3,7 +3,7 @@ from src.models.contractors import contractors
 import time
 
 class ContractorMenu:
-    def __init__(self, llapi):
+    def __init__(self, llapi: LLAPI):
         self.llapi = llapi
         self.list_of_contractors, self.list_of_contractors_objects = self.llapi.get_contractor_list()
         self.supervisor_options = ["Add new contractor"]
@@ -18,8 +18,9 @@ class ContractorMenu:
         opening_hours = input("Enter opening hours: ")
         location = input("Enter location: ")
         rating = input("Enter rating: ")
-        Contractor_mdl = contractors(contractor, name, profession, phone, opening_hours, location, rating)
-        return self.llapi.add_new_contractor(Contractor_mdl)
+        if input("Confirm?") == 'y':
+            Contractor_mdl = contractors(contractor, name, profession, phone, opening_hours, location, rating)
+            return self.llapi.add_new_contractor(Contractor_mdl)
 
     def draw_options(self):
         self.llapi.clear_console()
@@ -38,7 +39,7 @@ class ContractorMenu:
             self.draw_options()
             command = input("Enter number: ")
             if self.llapi.supervisor_check() and command == str(self.all_options.index("Add new contractor")+1):
-                return self.add_new_contractor()
+                self.add_new_contractor()
             elif command.lower() == 'r':
                 return
             else:
