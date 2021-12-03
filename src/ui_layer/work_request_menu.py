@@ -25,7 +25,8 @@ class WorkRequestMenu:
     def prompt_input(self):
         while True:
             self.draw_options()
-            command = input("\tEnter an option:\n")
+            command = input("\tEnter an option:")
+            print()
             
             if command == '1': # List all Work Requests
                 all_work_requests = self.llapi.all_open_work_requests()

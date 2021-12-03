@@ -14,8 +14,12 @@ class ContractorMenuDL:
         with open(self.contractor_file, newline='', encoding='utf-8') as contr_file:
             reader = csv.reader(contr_file)
             for row in reader:
+<<<<<<< Updated upstream
                 if first_run != True:
                     contractor = contractors(*row)
                     contractor_list.append(contractor)
                 first_run = False
             return contractor_list
+=======
+                pass
+>>>>>>> Stashed changes
