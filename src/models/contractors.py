@@ -11,5 +11,5 @@ class contractors:
     def __str__(self):
         return f"Contractor: {self.contractor}\nPhone: {self.phone}\nName: {self.name}\nOpening Hours: {self.opening_hours}\nLocation: {self.location}\nProfession: {self.profession}\nRating: {self.rating}\n"
 
-    def  display(self):
+    def display(self):
         return f"{self.contractor} | {self.profession}"

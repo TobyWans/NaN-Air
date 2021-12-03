@@ -6,15 +6,7 @@ class ContractorMenuLL:
     def __init__(self, dlapi):
         self.dlapi = dlapi
     
-    def add_new_contractor(self):
-        contractor = input("Enter contractor: ")
-        name = input("Enter name: ")
-        profession = input("Enter profession: ")
-        phone = input("Enter phone: ")
-        opening_hours = input("Enter opening hours: ")
-        location = input("Enter location: ")
-        rating = input("Enter rating: ")
-        contractor_mdl = contractors(contractor, name, profession, phone, opening_hours, location, rating)
+    def add_new_contractor(self, contractor_mdl):
         self.dlapi.add_new_contractor(contractor_mdl)
 
     def get_contractor_list(self):
