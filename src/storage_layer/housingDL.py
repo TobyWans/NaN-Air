@@ -35,5 +35,16 @@ class HousingDL:
     def change_housing():
         pass
 
-    def renting_status():
-        pass
+    def rental_status(self): #List of free to book and booked requests
+        free_to_book = []
+        booked = []
+        with open(self.filepath, newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                hous = Housing(**row)
+                if row['rental_status'] == 'free to rent':
+                    free_to_book.append(hous)
+                else: 
+                    booked.append(hous)
+                    
+        return free_to_book, booked

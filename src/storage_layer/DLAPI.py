@@ -70,5 +70,8 @@ class DLAPI:
     
     def search_by_housing_id(self, entered_id):
         return self.housDL.search_by_housing_id(entered_id)
+    
+    def rental_status(self):
+        return self.housDL.rental_status()
             
         # Constructor Logic
