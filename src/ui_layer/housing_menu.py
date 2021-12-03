@@ -5,53 +5,32 @@ class HousingMenu:
     def __init__(self, llapi:LLAPI):
         self.llapi = llapi
         self.supervisor_options = ["List of housing", "Add housing","Change housing", "Renting status"]
-        self.employee_options = self.llapi.housing_list()
+        self.employee_options = []
     
     def draw_options(self):
         self.llapi.clear_console()
-        all_options = []
-        all_options.extend(self.employee_options)
+        supervisor_options = self.supervisor_options
         if self.llapi.supervisor_check():
-            all_options = self.supervisor_options
             print(f"\tHousing Menu:")
-            for line in all_options:
-                print(f"\t{all_options.index(line) + 1}. {line}")
+            for line in supervisor_options:
+                print(f"\t{supervisor_options.index(line) + 1}. {line}")
         else:
             print(f"\tHousing List:")
-            for line in all_options:
-                print(f"{line}")
+            self.sort_by_location()
         print("\tR. Return\n")
 
-        
     def prompt_input(self):
         while True:
             self.draw_options()
             command = input(f"\tEnter your input: ")
             if command == "1":
-                    housing_list = self.llapi.housing_list()
-                    for hous in housing_list:
-                        print(hous)
-                    back = input("Enter to continue")
-                    self.llapi.clear_console()
+                self.sort_by_location()
             elif command == "2":
-                    self.add_housing()
+                self.add_housing()
             elif command == "3":
-                    search_by_housing_id = "Invalid input!" #it can be constant
-                    while search_by_housing_id == "Invalid input!": 
-                        id_input = input("Please enter the property ID: ")
-                        search_by_housing_id = self.llapi.search_by_housing_id(id_input)
-                        print(search_by_housing_id)
-                    wait = input("Press enter to contine") #it can be constant
-                #Bæta quit
+                self.search_by_id()
             elif command == "4":
-                free_to_rent, booked = self.llapi.rental_status()
-                print (f"\tFree to rent: ")
-                for line in free_to_rent:
-                    print(f"{line}")
-                print("\n\tBooked:")
-                for line in booked:
-                    print(f"{line}")
-                wait = input("Press enter to contine") #maybe it can be constant
+                self.rental_status()
             elif command.lower() == "r":
                 return
             else:
@@ -70,5 +49,35 @@ class HousingMenu:
         rental_status = input("Please enter rental status(free to rent/booked): ")
         hous = Housing(supervisor, property_number, street_name, street_number, location, size, nr_of_rooms, type, requires_maintenance, rental_status)
         self.llapi.add_housing(hous)
-            
     
+    def sort_by_location(self):
+        hous_list = []
+        housing_list = self.llapi.housing_list()
+        location_list = self.llapi.location_list()
+        hous_list.extend(housing_list)
+        for location in location_list:
+            print(f"\n\t***{location}***")
+            for row in hous_list:
+                if location in row.values():
+                    hous = Housing(**row)
+                    print(f"{hous}")
+        wait = input("Press enter to contine") #it can be constant
+
+    def rental_status(self):
+        free_to_rent, booked = self.llapi.get_rental_status()
+        print (f"\tFree to rent: ")
+        for line in free_to_rent:
+            print(f"{line}")
+        print("\n\tBooked:")
+        for line in booked:
+            print(f"{line}")
+        wait = input("Press enter to contine") #maybe it can be constant
+
+    def search_by_id(self):
+        search_by_housing_id = "Invalid input!" #it can be constant
+        while search_by_housing_id == "Invalid input!": 
+            id_input = input("Please enter the property ID: ")
+            search_by_housing_id = self.llapi.search_by_housing_id(id_input)
+            print(search_by_housing_id)
+        wait = input("Press enter to contine") #it can be constant
+    #Bæta quit
