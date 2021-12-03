@@ -89,6 +89,9 @@ class LLAPI:
         # Housing Logic
     def add_housing(self, hous):
         return self.housLL.add_housing(hous)
+
+    def change_housing(self, hous):
+        return self.housLL.change_housing(hous)
     
     def housing_list(self):
         return self.housLL.housing_list()

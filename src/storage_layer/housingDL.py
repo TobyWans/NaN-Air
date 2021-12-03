@@ -13,6 +13,9 @@ class HousingDL:
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writerow({"supervisor": hous.supervisor,"property_number": hous.property_number, "street_name": hous.street_name, "street_number": hous.street_number, "location": hous.location, "size": hous.size, "nr_of_rooms": hous.nr_of_rooms, "type": hous.type, "requires_maintenance": hous.requires_maintenance, "rental_status": hous.rental_status})
 
+    def change_housing(self, hous):
+        pass
+
     def get_housing_list(self):
             hous_list = []
             with open(self.filepath, newline='', encoding='utf-8') as csvfile:
@@ -20,7 +23,6 @@ class HousingDL:
                 for row in reader:
                     hous_list.append(row)
             return hous_list
-    
     
     def get_location_list(self):
         location_list = []

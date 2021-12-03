@@ -72,6 +72,9 @@ class DLAPI:
         # Housing Logic
     def add_housing(self, hous):
         return self.housDL.add_housing(hous)
+    
+    def change_housing(self,hous):
+        return self.housDL.change_housing(hous)
 
     def get_housing_list(self):
         return self.housDL.get_housing_list()

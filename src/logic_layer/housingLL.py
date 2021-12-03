@@ -8,6 +8,9 @@ class HousingLL:
     def add_housing(self, hous):
         self.dlapi.add_housing(hous)
 
+    def change_housing(self,hous):
+        return self.dlapi.change_housing(hous)
+
     def housing_list(self):
         return self.dlapi.get_housing_list()
 
