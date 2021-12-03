@@ -1,3 +1,4 @@
+from models.employee import Employee
 from src.logic_layer.LLAPI import LLAPI
 
 
@@ -23,14 +24,15 @@ class EmployeeMenu:
         while True:
             command = input("Enter an option: ")
             if command == '1':
-                 
+                self.llapi.clear_console()
                 name = input("Enter name: ")
                 e_mail = input("Enter e-mail: ")
                 address = input("Enter address: ")
                 phone = input("Enter phone number: ")
                 mobile = input("Enter mobile number ")
                 location = input("Enter location: ")
-                create_new_employee = self.llapi.create_new_employee(name, e_mail, address, phone, mobile, location)
+                new_employee = Employee(name, e_mail, address, phone, mobile, location)
+                self.llapi.create_new_employee(new_employee)
             elif command == '2':
                 change_employee = self.llapi.change_employee() 
             elif command == '3':

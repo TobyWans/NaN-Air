@@ -46,8 +46,8 @@ class DLAPI:
         return self.destDL.get_only_city()
         
         # Employee Logic
-    def create_new_employee(self):
-        return self.employee.create_new_employee(self)
+    def create_new_employee(self, new_employee):
+        return self.employee.create_new_employee(self, new_employee)
 
     def change_employee(self):
         return self.employee.change_employee(self)

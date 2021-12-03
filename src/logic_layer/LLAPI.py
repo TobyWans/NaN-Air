@@ -37,8 +37,8 @@ class LLAPI:
         return self.destinationLL.get_only_city()
         
         # Employee Logic
-    def create_new_employee(self):
-        return self.employeell.create_new_employee()
+    def create_new_employee(self, new_employee):
+        return self.employeell.create_new_employee(self, new_employee)
 
     def change_employee(self):
         return self.employeell.change_employee()
