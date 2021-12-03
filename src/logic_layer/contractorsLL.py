@@ -5,13 +5,19 @@ from src.models.contractors import contractors
 class ContractorMenuLL:
     def __init__(self, dlapi):
         self.dlapi = dlapi
-        self.contractor = []
-        self.contractors_list = []
+    
+    def add_new_contractor(self):
+        contractor = input("Enter contractor: ")
+        name = input("Enter name: ")
+        profession = input("Enter profession: ")
+        phone = input("Enter phone: ")
+        opening_hours = input("Enter opening hours: ")
+        location = input("Enter location: ")
+        rating = input("Enter rating: ")
+        contractor_mdl = contractors(contractor, name, profession, phone, opening_hours, location, rating)
+        self.dlapi.add_new_contractor(contractor_mdl)
 
-    def add_new_contractor(self): # talar við DLAPI
-        pass
-
-    def get_contractor_list(self): # líka
+    def get_contractor_list(self):
         contractor_list = self.dlapi.get_contractor_list()
         self.contractor_list_str = []
         for contractor in contractor_list:
