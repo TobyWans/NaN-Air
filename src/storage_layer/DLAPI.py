@@ -56,10 +56,10 @@ class DLAPI:
         return self.employee.get_all_employees(self)
 
     def search_employee_by_id(self):
-        return self.employee.search_employee_by_ID()
+        return self.employee.search_employee_by_ID(self)
 
     def search_employee_by_location(self):
-        return self.employee.search_employee_by_location()
+        return self.employee.search_employee_by_location(self)
         
         # Housing Logic
     def add_housing(self, hous):
