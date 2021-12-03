@@ -11,9 +11,12 @@ class HousingLL:
     def housing_list(self):
         return self.dlapi.get_housing_list()
 
+    def get_location_list(self):
+        return self.dlapi.get_location_list()
+
     def search_by_housing_id(self, entered_id):
         return self.dlapi.search_by_housing_id(entered_id)
     
-    def rental_status(self):
-        return self.dlapi.rental_status()
+    def get_rental_status(self):
+        return self.dlapi.get_rental_status()
     
