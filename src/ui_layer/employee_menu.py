@@ -23,15 +23,22 @@ class EmployeeMenu:
         while True:
             command = input("Enter an option: ")
             if command == '1':
-                create_new_employee = self.llapi.create_new_employee() # bæta við llapi
+                 
+                name = input("Enter name: ")
+                e_mail = input("Enter e-mail: ")
+                address = input("Enter address: ")
+                phone = input("Enter phone number: ")
+                mobile = input("Enter mobile number ")
+                location = input("Enter location: ")
+                create_new_employee = self.llapi.create_new_employee(name, e_mail, address, phone, mobile, location)
             elif command == '2':
-                change_employee = self.llapi.change_employee() # bæta við llapi
+                change_employee = self.llapi.change_employee() 
             elif command == '3':
-                search_employee_by_id = self.llapi.search_employee_by_id() # bæta við llapi
+                search_employee_by_id = self.llapi.search_employee_by_id() 
             elif command == '4':
-                search_employee_by_location = self.llapi.search_employee_by_location() # bæta við llapi
+                search_employee_by_location = self.llapi.search_employee_by_location() 
             elif command == '5':
-                all_employees = self.llapi.all_employees() # bæta við í llapi
+                all_employees = self.llapi.all_employees() 
             elif command.lower() == 'q':
                 return
             else:
