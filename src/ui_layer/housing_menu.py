@@ -62,14 +62,14 @@ class HousingMenu:
                     hous = Housing(**row)
                     print(f"{hous}")
         if self.llapi.supervisor_check():
-            wait = input("Press enter to contine")
+            wait = input("Press enter to continue")
 
     def rental_status(self):
         free_to_rent, booked = self.llapi.get_rental_status()
-        print (f"\tFree to rent: ")
+        print (f"\t***Free to rent***")
         for line in free_to_rent:
             print(f"{line}")
-        print("\n\tBooked:")
+        print("\n\t***Booked***")
         for line in booked:
             print(f"{line}")
         wait = input("Press enter to contine") #maybe it can be constant
