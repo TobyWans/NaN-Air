@@ -9,8 +9,13 @@ class ContractorMenuDL:
         pass
 
     def get_contractor_list(self):
+        first_run = True
         contractor_list = []
         with open(self.contractor_file, newline='', encoding='utf-8') as contr_file:
-            reader = csv.DictReader(contr_file)
+            reader = csv.reader(contr_file)
             for row in reader:
-                if 
+                if first_run != True:
+                    contractor = contractors(*row)
+                    contractor_list.append(contractor)
+                first_run = False
+            return contractor_list

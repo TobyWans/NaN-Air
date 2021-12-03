@@ -1,6 +1,7 @@
 from src.storage_layer.DLAPI import DLAPI
 from src.models.contractors import contractors
 
+
 class ContractorMenuLL:
     def __init__(self, dlapi):
         self.dlapi = dlapi
@@ -11,4 +12,9 @@ class ContractorMenuLL:
         pass
 
     def get_contractor_list(self): # líka
-        return self.dlapi.get_contractor_list()
+        contractor_list = self.dlapi.get_contractor_list()
+        self.contractor_list_str = []
+        for contractor in contractor_list:
+            contr_str = contractor.display()
+            self.contractor_list_str.append(contr_str)
+        return self.contractor_list_str

@@ -7,7 +7,7 @@ class ContractorMenu:
         self.llapi = llapi
         self.list_of_contractors = self.llapi.get_contractor_list()
         self.supervisor_options = ["Add new contractor"]
-        self.employee_options = [self.list_of_contractors]
+        self.employee_options = self.list_of_contractors
 
     def add_new_contractor(self):
         self.llapi.clear_console()
