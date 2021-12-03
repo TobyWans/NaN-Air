@@ -67,5 +67,8 @@ class DLAPI:
 
     def get_housing_list(self):
         return self.housDL.get_housing_list()
+    
+    def search_by_housing_id(self, entered_id):
+        return self.housDL.search_by_housing_id(entered_id)
             
         # Constructor Logic

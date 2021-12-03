@@ -1,7 +1,8 @@
 from src.models.housing import Housing
+from src.storage_layer.DLAPI import DLAPI
 
 class HousingLL:
-    def __init__(self, dlapi):
+    def __init__(self, dlapi:DLAPI):
         self.dlapi = dlapi
 
     def add_housing(self, hous):
@@ -9,3 +10,7 @@ class HousingLL:
 
     def housing_list(self):
         return self.dlapi.get_housing_list()
+
+    def search_by_housing_id(self, entered_id):
+        return self.dlapi.search_by_housing_id(entered_id)
+    

@@ -1,6 +1,7 @@
 import csv
 
 from src.models.housing import Housing
+from src.models.housing import Particular_real_estate
 
 class HousingDL:
     def __init__(self):
@@ -21,6 +22,15 @@ class HousingDL:
                 ret_list.append(emp)
         return ret_list
     
+    def search_by_housing_id(self, entered_property_number):
+        with open(self.filepath, newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                if row["property_number"] == entered_property_number:
+                    property = Particular_real_estate(**row)
+                    return property
+            return "Invalid input!"
+
     def change_housing():
         pass
 

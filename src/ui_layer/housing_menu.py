@@ -4,7 +4,7 @@ from src.models.housing import Housing
 class HousingMenu:
     def __init__(self, llapi:LLAPI):
         self.llapi = llapi
-        self.supervisor_options = ["List of housing", "Add housing", "Renting status"]
+        self.supervisor_options = ["List of housing", "Add housing","Change housing", "Renting status"]
         self.employee_options = self.llapi.housing_list()
     
     def draw_options(self):
@@ -14,8 +14,12 @@ class HousingMenu:
         if self.llapi.supervisor_check():
             all_options = self.supervisor_options
             print(f"\tHousing Menu:")
-        for index in all_options:
-            print(f"\t{all_options.index(index) + 1}. {index}")
+            for line in all_options:
+                print(f"\t{all_options.index(line) + 1}. {line}")
+        else:
+            print(f"\tHousing List:")
+            for line in all_options:
+                print(f"{line}")
         print("\tR. Return\n")
 
         
@@ -31,6 +35,14 @@ class HousingMenu:
                 self.llapi.clear_console()
             elif command == "2":
                 self.add_housing()
+            elif command == "3":
+                search_by_housing_id = "Invalid input!"
+                while search_by_housing_id == "Invalid input!": 
+                    id_input = input("Please enter the property ID: ")
+                    search_by_housing_id = self.llapi.search_by_housing_id(id_input)
+                    print(search_by_housing_id)
+                wait = input("Press enter to contine")
+
             elif command == "3":
                 self.renting_status()
             elif command.lower() == "r":
