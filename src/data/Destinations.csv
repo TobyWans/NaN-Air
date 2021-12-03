@@ -1,6 +1,6 @@
-destination,country,airport,phone,opening_hour,closing_hour,supervisor
+city,country,airport,phone,opening_hour,closing_hour,supervisor
 Nuuk,Greenland,Nuuk International Airport,+299 32 60 05,7:00,19:00,Minik Wallace
-Þórshöfn,Faroe Islands,Vágar Airport,+298 685614,7:00,19:00,Annette Djurhuus
+Tórshavn,Faroe Islands,Vágar Airport,+298 685614,7:00,19:00,Annette Djurhuus
 Longyearbyen,Svalbard,Svaldbard Airport,+47 79 79 45 32,8:00,18:00,Jan Jacobsen
 Kulusuk,Greenland,Kulusuk Airport,+299 98 69 88,8:00,14:00,
 Tingwall,Shetland Islands,Tingwall Airport,+44 1595 840246,8:00,17:00,

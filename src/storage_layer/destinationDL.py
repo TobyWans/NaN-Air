@@ -10,7 +10,7 @@ class DestinationDL:
         with open(self.filepath, newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                dest = Destination(row["destination"], row["country"], row["airport"], row["phone"], row["opening_hour"], row["closing_hour"], row["supervisor"])
+                dest = Destination(**row)
                 ret_list.append(dest)
         return ret_list
     
@@ -22,3 +22,13 @@ class DestinationDL:
             for row in reader:
                 dest_list.append(row[0])
         return dest_list
+    
+    def search_des_file_by_city(self, city):
+        with open(self.filepath, newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                if row['city'] == city:
+                    des = Destination(**row)
+                    return des
+        return None
+

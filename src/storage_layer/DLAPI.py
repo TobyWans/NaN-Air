@@ -44,6 +44,9 @@ class DLAPI:
     
     def get_only_city(self):
         return self.destDL.get_only_city()
+
+    def search_des_file_by_city(self, city):
+        return self.destDL.search_des_file_by_city(city)
         
         # Employee Logic
     def create_new_employee(self, new_employee):
