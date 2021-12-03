@@ -1,5 +1,7 @@
 from src.models.work_requests import Work_Request
 from src.logic_layer.LLAPI import LLAPI
+from datetime import datetime
+import time
 
 PRIORITY = ('low', 'medium', 'high')
 
@@ -25,36 +27,53 @@ class WorkRequestMenu:
             self.draw_options()
             command = input("\tEnter an option: ")
             
-            if command == '1':
+            if command == '1': # List all Work Requests
                 all_work_requests = self.llapi.all_open_work_requests()
                 for request in all_work_requests:
                     print(request)
                 back = input("Press enter to continue")
                 self.llapi.clear_console()
                 
-            elif command == '2':
+            elif command == '2': # Search Work Requests by ID
+                running = True
                 id_input = input("Please enter the ID of your work request: ")
-                search_id = self.llapi.search_id(id_input)
-                print(search_id)
-                wait = input("Press enter to contine")
+                while running:
+                    search_id = self.llapi.search_id(id_input)
+                    if search_id == None:
+                        print("Sorry, there are no requests with that ID")
+                        id_input = input("Please try again")
+                    else:
+                        print(search_id)
+                        running = False
+                input("Press enter to contine")
                 
-            elif command == '3':
-                search_date = self.llapi.search_date() # bæta við llapi
+            elif command == '3': # Search Work Requests by date
+                running = True
+                date_input = input("Please enter a date in the format dd/mm/yy\n\t\t")
+                while running:
+                    search_date = self.llapi.search_date(date_input)
+                    if search_date == None:
+                        print("Sorry, there is no requests with that date")
+                        date_input = input("Please try again | dd/mm/yy")
+                    else:
+                        print(search_date)
+                        running = False
+                input("Press enter to contine")
                 
             elif command == '4':
                 user_open_requests = self.llapi.user_open_requests() # bæta við llapi
                 
-            elif command == '5':
-                finished_requests = self.llapi.all_closed_work_requests() # bæta við llapi
+            elif command == '5': # List Finnished Requests
+                finished_requests = self.llapi.all_closed_work_requests()
                 for request in finished_requests:
                     print(request)
                 back = input("Press enter to continue")
                 self.llapi.clear_console()
                 
-            elif command == '6':
+            elif command == '6': # Create new Request
                 self.create_new_request()
                 
-            elif command == '7':
+            elif command == '7': # Open Request
                 all_closed_work_requests = self.llapi.all_closed_work_requests()
                 for request in all_closed_work_requests:
                     print(request)
@@ -62,7 +81,7 @@ class WorkRequestMenu:
                 self.llapi.clear_console()
                 open_change_request = self.llapi.open_request(open_id)
                 
-            elif command == '8':
+            elif command == '8': # Close Request
                 all_open_work_requests = self.llapi.all_open_work_requests()
                 for request in all_open_work_requests:
                     print(request)
@@ -75,9 +94,12 @@ class WorkRequestMenu:
                 return 'r'
             else:
                 print("Invalid option, please try again ")
+                time.sleep(1)
             
         
     def create_new_request(self):
+        today = datetime.today()
+        day = today.strftime("%d/%m/%y")
         running = True
         work_request_ID = self.llapi.work_req_count()
         print(f"Work request ID: {self.llapi.work_req_count()}")
@@ -94,7 +116,7 @@ class WorkRequestMenu:
             else:
                 running = False
         status = 'Open'
-        req = Work_Request(work_request_ID, title, where,  housing, description, priority, status)
+        req = Work_Request(work_request_ID, title, where,  housing, description, priority, status, day)
         self.llapi.create_new_request(req)
     
     def close_request(self):

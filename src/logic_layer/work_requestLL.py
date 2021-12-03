@@ -14,8 +14,8 @@ class WorkRequestLL:
     def search_id(self, user_id):
         return self.dlapi.search_id(user_id)
     
-    def search_date(self, date="01.01.2020"):
-        pass
+    def search_date(self, date):
+        return self.dlapi.search_date(date)
     
     def user_open_requests(self):
         pass

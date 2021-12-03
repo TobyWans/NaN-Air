@@ -26,20 +26,30 @@ class WorkRequestDL:
         return req_list
     
     def search_id(self, user_id):
-        search_list = []
         with open(self.work_req_file, newline='', encoding='utf-8') as WRfile:
             reader = csv.DictReader(WRfile)
             for row in reader:
-                    if row['id'] == user_id:
-                        req = Work_Request(**row)
-                        return req
+                if row['id'] == user_id:
+                    req = Work_Request(**row)
+                    return req
+        return None
+    
+    def search_date(self, date):
+        req_list = []
+        with open(self.work_req_file, 'r', newline='', encoding='utf-8') as wrfile:
+            reader = csv.DictReader(wrfile)
+            for row in reader:
+                if row['date'] == date:
+                    req = Work_Request(**row)
+                    req_list.append(req)
+            return req_list
         return None
                         
     def create_new_request(self, req):
         with open(self.work_req_file, 'a', newline='', encoding='utf-8') as wrfile:
-            fieldnames = ['id', 'title', 'where', 'housing_id', 'description', 'priority', 'status']
+            fieldnames = ['id', 'title', 'where', 'housing_id', 'description', 'priority', 'status', 'date']
             writer = csv.DictWriter(wrfile, fieldnames=fieldnames)
-            writer.writerow({'id': req.id, 'title': req.title, 'where': req.where, 'housing_id': req.housing_id, 'description': req.description, 'priority': req.priority, 'status': req.status})
+            writer.writerow({'id': req.id, 'title': req.title, 'where': req.where, 'housing_id': req.housing_id, 'description': req.description, 'priority': req.priority, 'status': req.status, 'date': req.date})
     
     def finnished_work_req(self):
         pass

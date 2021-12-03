@@ -1,5 +1,11 @@
-id,title,where,housing_id,description,priority,status
-1,Gera kjarnaofn subcritical.,Longyearbyen - Svalbarða,AA999-1,OK-650VV kjarnaofninn er voru hannaðir um 1970. Þeir eiga það þó til að ofhitna ef þeim er ekki sint sem skyldi. Reglulega (amk. 1 sinni í viku) þarf sáldra smá boron í kerfið. ATH! Við þetta þarf verktaka sem á góðan gúmígalla því þetta er allt frekar blautt og heitt; og svo er ekki verra að vita eitthvað hvað maður er að gera.,High,Closed
-2,Leki í glugga,Nuuk Greenland,AA999-1,Leki í öllum gluggum sem er í kjarnaofni,High,Closed
-3,Chuck að koma í hreinlætis skoðun,Everywhere,all,"Þrífa öll húsnæði má ekki vera ein nanó ögn, Chuck sér allt.",High,Closed
-4,asd,egeg,efwef,wefwef,low,Open
+id,title,where,housing_id,description,priority,status,date
+1,Gera kjarnaofn subcritical.,Longyearbyen - Svalbarða,AA999-1,OK-650VV kjarnaofninn er voru hannaðir um 1970. Þeir eiga það þó til að ofhitna ef þeim er ekki sint sem skyldi. Reglulega (amk. 1 sinni í viku) þarf sáldra smá boron í kerfið. ATH! Við þetta þarf verktaka sem á góðan gúmígalla því þetta er allt frekar blautt og heitt; og svo er ekki verra að vita eitthvað hvað maður er að gera.,High,Closed,01/12/21
+2,Leki í glugga,Nuuk Greenland,AA999-1,Leki í öllum gluggum sem er í kjarnaofni,High,Closed,02/12/21
+3,Chuck að koma í hreinlætis skoðun,Everywhere,all,"Þrífa öll húsnæði má ekki vera ein nanó ögn, Chuck sér allt.",High,Open,27/11/21
+4,asd,egeg,efwef,wefwef,low,Open,03/12/21
+5,asfasf,asfasf,fwf2f,efwefwefwefwefwfsdsdc,high,Open,03/12/21
+6,sdfsdfs,sdsfsdfwefwef,wefwefwdedwd,wefwefwefwefwefwefwef,low,Open,03/12/21
+7,adfewfwe,fwefwefwef,wefwef,wefwefwefwef,medium,Open,03/12/21
+8,fwef,wefwef,wefwef,wefwefwe,low,Open,03/12/21
+9,sfdfwefwe,wefwefwef,wefwefwef,wefwefwefwe,low,Open,03/12/21
+10,wefwefwef,wefwefwefwe,wefwefwef,wefwefwefwefwf,medium,Open,03/12/21
