@@ -62,6 +62,9 @@ class LLAPI:
     def search_id(self, wr_id):
         return self.workrequestLL.search_id(wr_id)
     
+    def search_date(self, date):
+        return self.workrequestLL.search_date(date)
+    
     def create_new_request(self, req):
         return self.workrequestLL.create_new_request(req)
     

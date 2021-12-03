@@ -35,15 +35,17 @@ class WorkRequestDL:
         return None
     
     def search_date(self, date):
-        req_list = []
-        with open(self.work_req_file, 'r', newline='', encoding='utf-8') as wrfile:
+        reqs_list = []
+        with open(self.work_req_file, newline='', encoding='utf-8') as wrfile:
             reader = csv.DictReader(wrfile)
             for row in reader:
                 if row['date'] == date:
                     req = Work_Request(**row)
-                    req_list.append(req)
-            return req_list
-        return None
+                    reqs_list.append(req)
+        if len(reqs_list):
+            return reqs_list
+        else:
+            return None
                         
     def create_new_request(self, req):
         with open(self.work_req_file, 'a', newline='', encoding='utf-8') as wrfile:

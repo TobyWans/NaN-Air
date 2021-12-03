@@ -20,6 +20,9 @@ class DLAPI:
     def search_id(self, user_id):
         return self.ReqDL.search_id(user_id)
     
+    def search_date(self, date):
+        return self.ReqDL.search_date(date)
+    
     def create_new_request(self, req):
         return self.ReqDL.create_new_request(req)
     

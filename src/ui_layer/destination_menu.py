@@ -19,19 +19,16 @@ class DestinationMenu:
             self.draw_options()
             command = input("Enter an option: ")
             print_destination = self.llapi.destination_info()
-            dest_str_list = []
-            for dest in print_destination:
-                dest_str_list.append(dest)
             if command == "1":
-                print(dest_str_list[0])
+                print(print_destination[0])
                 back = input("Press enter to continue")
                 self.llapi.clear_console()
             elif command  == "2":
-                print(dest_str_list[1])
+                print(print_destination[1])
                 back = input("Press enter to continue")
                 self.llapi.clear_console()
             elif command  == "3":
-                print(dest_str_list[2])
+                print(print_destination[2])
                 back = input("Press enter to continue")
                 self.llapi.clear_console()
             elif command  == "4":
