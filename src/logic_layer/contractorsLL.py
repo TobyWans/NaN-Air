@@ -17,4 +17,4 @@ class ContractorMenuLL:
         for contractor in contractor_list:
             contr_str = contractor.display()
             self.contractor_list_str.append(contr_str)
-        return self.contractor_list_str
+        return self.contractor_list_str, contractor_list

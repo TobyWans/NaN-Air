@@ -5,7 +5,7 @@ import time
 class ContractorMenu:
     def __init__(self, llapi):
         self.llapi = llapi
-        self.list_of_contractors = self.llapi.get_contractor_list()
+        self.list_of_contractors, self.list_of_contractors_objects = self.llapi.get_contractor_list()
         self.supervisor_options = ["Add new contractor"]
         self.employee_options = self.list_of_contractors
 
@@ -44,7 +44,9 @@ class ContractorMenu:
             else:
                 try:
                     index = int(command) - 1
-                    self.list_of_contractors[index].show_all_info()
+                    self.llapi.clear_console()
+                    print(self.list_of_contractors_objects[index].show_all_info())
+                    input("Enter to continue")
                 except:
                     print("Invalid option, please try again.")
                     time.sleep(1)
