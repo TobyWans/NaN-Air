@@ -1,7 +1,7 @@
 supervisor,property_number,street_name,street_number,location,size,nr_of_rooms,type,requires_maintenance,rental_status
 
-Jan Jacobsen,F959594,Vei,217,Svalbard,150m2,4 herbergi,Villas,None,booked
-Jan Jacobsen,AA999-1 til og með AA999-81,Longyearbyen Harbor,1,Svalbard,5000m2,80 herbergi,Submarine,sauna; weight room; kjarnaofn, free to rent
+Jan Jacobsen,F959594,Vei,217,Svalbard,150m2,4 herbergi,Villas,None, free to rent
+Jan Jacobsen,AA999-1 til og með AA999-81,Longyearbyen Harbor,1,Svalbard,5000m2,80 herbergi,Submarine,"sauna, weight room, kjarnaofn", booked
 
 Minik Wallace,64-3900,iGloo-Ville,0,Nuuk,35fm2,1 herbergi,reception and restaurant,None,free to rent
 Minik Wallace,64-3901,iGloo-Ville,1,Nuuk,35fm2,1 herbergi,Snow house,None,free to rent
