@@ -47,13 +47,13 @@ class DLAPI:
         
         # Employee Logic
     def create_new_employee(self):
-        return self.employee.create_new_employee()
+        return self.employee.create_new_employee(self)
 
     def change_employee(self):
-        return self.employee.change_employee()
+        return self.employee.change_employee(self)
 
     def get_all_employees(self):
-        return self.employee.get_all_employees()
+        return self.employee.get_all_employees(self)
 
     def search_employee_by_id(self):
         return self.employee.search_employee_by_ID()
