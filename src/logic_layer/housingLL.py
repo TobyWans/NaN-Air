@@ -14,3 +14,6 @@ class HousingLL:
     def search_by_housing_id(self, entered_id):
         return self.dlapi.search_by_housing_id(entered_id)
     
+    def rental_status(self):
+        return self.dlapi.rental_status()
+    

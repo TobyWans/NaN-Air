@@ -28,23 +28,30 @@ class HousingMenu:
             self.draw_options()
             command = input(f"\tEnter your input: ")
             if command == "1":
-                housing_list = self.llapi.housing_list()
-                for hous in housing_list:
-                    print(hous)
-                back = input("Enter to continue")
-                self.llapi.clear_console()
+                    housing_list = self.llapi.housing_list()
+                    for hous in housing_list:
+                        print(hous)
+                    back = input("Enter to continue")
+                    self.llapi.clear_console()
             elif command == "2":
-                self.add_housing()
+                    self.add_housing()
             elif command == "3":
-                search_by_housing_id = "Invalid input!" #Gæti vera fasta, og kanski getum við gert þetta öðruvisi
-                while search_by_housing_id == "Invalid input!": 
-                    id_input = input("Please enter the property ID: ")
-                    search_by_housing_id = self.llapi.search_by_housing_id(id_input)
-                    print(search_by_housing_id)
-                wait = input("Press enter to contine")
+                    search_by_housing_id = "Invalid input!" #it can be constant
+                    while search_by_housing_id == "Invalid input!": 
+                        id_input = input("Please enter the property ID: ")
+                        search_by_housing_id = self.llapi.search_by_housing_id(id_input)
+                        print(search_by_housing_id)
+                    wait = input("Press enter to contine") #it can be constant
                 #Bæta quit
-            elif command == "3":
-                self.renting_status()
+            elif command == "4":
+                free_to_rent, booked = self.llapi.rental_status()
+                print (f"\tFree to rent: ")
+                for line in free_to_rent:
+                    print(f"{line}")
+                print("\n\tBooked:")
+                for line in booked:
+                    print(f"{line}")
+                wait = input("Press enter to contine") #maybe it can be constant
             elif command.lower() == "r":
                 return
             else:
