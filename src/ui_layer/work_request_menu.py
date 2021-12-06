@@ -176,7 +176,6 @@ class WorkRequestMenu:
                 print("Invalid option, please try again ")
                 time.sleep(1.4)
             
-        
     def create_new_request(self):
         today = datetime.today()
         day = today.strftime("%d/%m/%y")
@@ -198,6 +197,3 @@ class WorkRequestMenu:
         status = 'Open'
         req = Work_Request(work_request_ID, title, where,  housing, description, priority, status, day)
         self.llapi.create_new_request(req)
-    
-    def close_request(self):
-        pass

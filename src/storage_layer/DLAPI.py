@@ -3,6 +3,7 @@ from src.storage_layer.work_requestDL import WorkRequestDL
 from src.storage_layer.housingDL import HousingDL
 from src.storage_layer.employeeDL import EmployeeDL
 from src.storage_layer.contractorsDL import ContractorMenuDL
+from src.storage_layer.login_checkerDL import LoginCheckerDL
 
 class DLAPI:
     def __init__(self):
@@ -11,6 +12,14 @@ class DLAPI:
         self.housDL = HousingDL()
         self.employee = EmployeeDL()
         self.contractorDL = ContractorMenuDL()
+        self.logincheckerDL = LoginCheckerDL()
+        
+        # Login Checker Logic
+    def get_logins(self):
+        return self.logincheckerDL.get_logins()
+    
+    def login_writer(self, id_check):
+        return self.logincheckerDL.login_writer(id_check)
                 
         # Work Request Logic
     def get_all_open_work_requests(self):

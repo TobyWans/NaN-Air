@@ -35,20 +35,24 @@ class LogInCheck:
         else:
             return False
         
-    def rng_id(self):
+    def employee_rng_id(self):
         decimal = False
         while not decimal:
             rand_id = str(uuid.uuid4())[:4]
-            if rand_id.isdecimal():
+            if rand_id.isdecimal() and rand_id[3] != '1':
                 decimal = True
+            if rand_id.isdecimal() and rand_id in get_logins():
+                decimal = False
+                print(f"{rand_id}Match!!!")
         return rand_id
     
-    
-    
-    
-    
-    
-        # generate uuid
-        # if uuid contains a letter
-        # regenerate until there are no letters.
-        # return uuid with only numbers
+    def supervisor_rng_id(self):
+        decimal = False
+        while not decimal:
+            rand_id = str(uuid.uuid4())[:3]
+            if rand_id.isdecimal():
+                decimal = True
+            if rand_id.isdecimal() and rand_id + '1' in get_logins():
+                decimal = False
+                print(f"{rand_id + '1'}Match!!!")
+        return rand_id + '1'

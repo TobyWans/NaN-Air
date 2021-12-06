@@ -5,13 +5,14 @@ from src.logic_layer.employeeLL import EmployeeLL
 from src.logic_layer.work_requestLL import WorkRequestLL
 from src.logic_layer.housingLL import HousingLL
 from src.logic_layer.contractorsLL import ContractorMenuLL
+from src.logic_layer.login_checker import LogInCheck
 import os
 
 
 class LLAPI:
     def __init__(self):
         self.dlapi = DLAPI()
-        self.login_checker = LogInCheck()
+        self.login_checker = LogInCheck(self.dlapi)
         self.destinationLL = DestinationLL(self.dlapi)
         self.employeell = EmployeeLL(self.dlapi)
         self.workrequestLL = WorkRequestLL(self.dlapi)
