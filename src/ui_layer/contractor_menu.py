@@ -30,7 +30,7 @@ class ContractorMenu:
             self.all_options.extend(self.supervisor_options)
         print("Contractors Menu")
         for index in self.all_options:
-            print(f"\t{self.all_options.index(index) + 1}. {index}")
+            print(f"\t{str(self.all_options.index(index) + 1)+'.':<5} {index}")
         print("\tR. Return\n")
         
 
