@@ -4,7 +4,7 @@ from src.models.housing import Housing
 class HousingMenu:
     def __init__(self, llapi:LLAPI):
         self.llapi = llapi
-        self.supervisor_options = ["List of housing", "Add housing","Change housing", "Renting status"]
+        self.supervisor_options = ["List of housing", "Add housing","Check/Change housing", "Renting status"]
         self.employee_options = []
     
     def draw_options(self):
@@ -13,7 +13,7 @@ class HousingMenu:
         if self.llapi.supervisor_check():
             print(f"\tHousing Menu:")
             for line in supervisor_options:
-                print(f"\t{supervisor_options.index(line) + 1}. {line}")         
+                print(f"\t{supervisor_options.index(line) + 1}. {line}")
         else:
             print(f"\tHousing List:")
             self.sort_by_location()
@@ -25,6 +25,10 @@ class HousingMenu:
             command = input(f"\tEnter your input: ")
             if command == "1":
                 self.sort_by_location()
+                if self.llapi.supervisor_check():
+                    self.id_menu_option()
+
+
             elif command == "2":
                 self.add_housing()
             elif command == "3":
@@ -49,6 +53,9 @@ class HousingMenu:
         rental_status = input("Please enter rental status(free to rent/booked): ")
         hous = Housing(supervisor, property_number, street_name, street_number, location, size, nr_of_rooms, type, requires_maintenance, rental_status)
         self.llapi.add_housing(hous)
+
+    def change_housing(self):
+        pass
     
     def sort_by_location(self):
         hous_list = []
@@ -61,8 +68,15 @@ class HousingMenu:
                 if location in row.values():
                     hous = Housing(**row)
                     print(f"{hous}")
-        if self.llapi.supervisor_check():
-            wait = input("Press enter to continue")
+        
+    def id_menu_option(self):
+        print("S. Search by Id") 
+        print(f"Press enter to continue")
+        command = (input(f"\tEnter your input: "))
+        if command.lower() == "s":
+            self.llapi.clear_console()
+            self.search_by_id()
+            
 
     def rental_status(self):
         free_to_rent, booked = self.llapi.get_rental_status()
