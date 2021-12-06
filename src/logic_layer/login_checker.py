@@ -43,6 +43,7 @@ class LogInCheck:
                 decimal = True
             if rand_id.isdecimal() and rand_id in self.dlapi.get_logins():
                 decimal = False
+        self.dlapi.login_writer(rand_id)
         return rand_id
     
     def supervisor_rng_id(self):
@@ -53,4 +54,5 @@ class LogInCheck:
                 decimal = True
             if rand_id.isdecimal() and rand_id + '1' in self.dlapi.get_logins():
                 decimal = False
+        self.dlapi.login_writer(rand_id + '1')
         return rand_id + '1'

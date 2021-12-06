@@ -10,7 +10,7 @@ class EmployeeLL:
         return self.dlapi.get_all_employees()
 
     def create_new_employee(self, new_employee):
-        self.dlapi.create_new_employee(self, new_employee)
+        return self.dlapi.create_new_employee(new_employee)
     
     def get_employees_that_started_working_before(self, date):
         pass

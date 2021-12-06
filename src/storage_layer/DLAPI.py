@@ -64,7 +64,7 @@ class DLAPI:
         
         # Employee Logic
     def create_new_employee(self, new_employee):
-        return self.employee.create_new_employee(self, new_employee)
+        return self.employee.create_new_employee(new_employee)
 
     def change_employee(self):
         return self.employee.change_employee(self)
