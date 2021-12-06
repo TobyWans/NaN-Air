@@ -25,7 +25,7 @@ class WorkRequestMenu:
     def prompt_input(self):
         while True:
             self.draw_options()
-            command = input("\tEnter an option:")
+            command = input("\tEnter an option: ")
             print()
             
             if command == '1': # List all Work Requests
@@ -39,7 +39,9 @@ class WorkRequestMenu:
                 
             elif command == '2': # Search Work Requests by ID
                 running = True
-                id_input = input("Please enter the ID of your work request: ")
+                id_input = input("Please enter the ID of your work request or type r to return: ")
+                if id_input == 'r':
+                    running = False
                 print()
                 while running:
                     search_id = self.llapi.search_id(id_input)
@@ -49,22 +51,31 @@ class WorkRequestMenu:
                         print()
                     else:
                         print(search_id)
-                        running = False
-                input("Press enter to contine")
+                        id_input = input("Enter another ID to search or type r to return: ")
+                        self.llapi.clear_console()
+                        if id_input == 'r':
+                            running = False
                 
             elif command == '3': # Search Work Requests by date
                 running = True
-                date_input = input("Please enter a date in the format dd/mm/yy\n\t      ")
+                date_input = input("Please enter a date in the format dd/mm/yy or type r to return\n\t      ")
+                if date_input == 'r':
+                    running = False
                 while running:
                     search_date = self.llapi.search_date(date_input)
                     if search_date == None:
                         print("Sorry, there is no requests with that date")
-                        date_input = input("Please try another date | dd/mm/yy\n\t      ")
+                        date_input = input("Please try another date | dd/mm/yy | or type r to return\n\t      ")
+                        self.llapi.clear_console()
+                        if date_input == 'r':
+                            running = False
                     else:
                         for req in search_date:
                             print(req)
-                        running = False
-                input("Press enter to contine")
+                        date_input = input("Enter another date | dd/mm/yy | or type r to return\n\t      ")
+                        self.llapi.clear_console()
+                        if date_input == 'r':
+                            running = False
                 
             elif command == '4':
                 user_open_requests = self.llapi.user_open_requests() # bæta við llapi
@@ -82,38 +93,88 @@ class WorkRequestMenu:
                 self.create_new_request()
                 
             elif command == '7': # Open Request
+                running = True
                 all_closed_work_requests = self.llapi.all_closed_work_requests()
                 self.llapi.clear_console()
                 for request in all_closed_work_requests:
                     print(request)
-                open_id = int(input("Please enter work request ID you want to open and change: "))
+                try:
+                    open_id = int(input("Please enter work request ID you want to open and change(0 to return): "))
+                except ValueError:
+                    open_id = None
+                if open_id == 0:
+                    running = False
                 self.llapi.clear_console()
-                open_change_request = self.llapi.open_request(open_id)
-                # while running:
-                #     search_id = self.llapi.search_id(id_input)
-                #     if search_id == None:
-                #         print("Sorry, there are no requests with that ID\n")
-                #         id_input = input("Please try another ID: ")
-                #         print()
-                #     else:
-                #         print(search_id)
-                #         running = False
+                while running:
+                    open_change_request = self.llapi.open_request(open_id)
+                    if open_change_request == None:
+                        print("Sorry, there are no requests with that ID\n")
+                        time.sleep(1.4)
+                        self.llapi.clear_console()
+                        all_closed_work_requests = self.llapi.all_closed_work_requests()
+                        for request in all_closed_work_requests:
+                            print(request)
+                        try:
+                            open_id = int(input("Please try another ID: "))
+                        except ValueError:
+                            open_id = None
+                        print()
+                    elif open_change_request == 69:
+                        print("That work request is already open")
+                        time.sleep(1.4)
+                        self.llapi.clear_console()
+                        all_closed_work_requests = self.llapi.all_closed_work_requests()
+                        for request in all_closed_work_requests:
+                            print(request)
+                        open_id = int(input("Please try another ID: "))
+                    else:
+                        print("Work request successfully changed!")
+                        time.sleep(1.3)
+                        running = False
                 
             elif command == '8': # Close Request
+                running = True
                 all_open_work_requests = self.llapi.all_open_work_requests()
                 self.llapi.clear_console()
                 for request in all_open_work_requests:
                     print(request)
-                close_id = int(input("Please enter work request ID you want to close: "))
+                close_id = int(input("Please enter work request ID you want to close(0 to return): "))
+                if close_id == 0:
+                    running = False
                 self.llapi.clear_console()
-                close_request = self.llapi.close_request(close_id)
+                while running:
+                    close_request = self.llapi.close_request(close_id)
+                    if close_request == None:
+                        print("Sorry, there are no requests with that ID\n")
+                        time.sleep(1.4)
+                        self.llapi.clear_console()
+                        all_open_work_requests = self.llapi.all_open_work_requests()
+                        for request in all_open_work_requests:
+                            print(request)
+                        try:
+                            close_id = int(input("Please try another ID: "))
+                        except ValueError:
+                            close_id = None
+                        print()
+                    elif close_request == 69:
+                        print("That work request is already closed")
+                        time.sleep(1.4)
+                        self.llapi.clear_console()
+                        all_open_work_requests = self.llapi.all_open_work_requests()
+                        for request in all_open_work_requests:
+                            print(request)
+                        close_id = int(input("Please try another ID: "))
+                    else:
+                        print("Work request successfully changed!")
+                        time.sleep(1.3)
+                        running = False
                 
             elif command.lower() == 'r':
                 self.llapi.clear_console()
                 return 'r'
             else:
                 print("Invalid option, please try again ")
-                time.sleep(1)
+                time.sleep(1.4)
             
         
     def create_new_request(self):

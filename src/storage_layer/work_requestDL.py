@@ -60,22 +60,38 @@ class WorkRequestDL:
         pass
             
     def close_request(self, wr_id):
-        with open(self.work_req_file, newline='', encoding='utf-8') as wrfile:
-            reader = csv.reader(wrfile)
-            lines = list(reader)
-            lines[wr_id][6] = 'Closed'
+        if wr_id == None:
+            return None
+        try:
+            with open(self.work_req_file, newline='', encoding='utf-8') as wrfile:
+                reader = csv.reader(wrfile)
+                lines = list(reader)
+                if lines[wr_id][6] == 'Closed':
+                    return 69
+                lines[wr_id][6] = 'Closed'
+        except (IndexError, ValueError):
+            return None
         with open(self.work_req_file, 'w', newline='', encoding='utf-8') as wrfile:
             writer = csv.writer(wrfile)
             writer.writerows(lines)
+            return True
             
     def open_request(self, wr_id):
-        with open(self.work_req_file, newline='', encoding='utf-8') as wrfile:
-            reader = csv.reader(wrfile)
-            lines = list(reader)
-            lines[wr_id][6] = 'Open'
+        if wr_id == None:
+            return None
+        try:
+            with open(self.work_req_file, newline='', encoding='utf-8') as wrfile:
+                reader = csv.reader(wrfile)
+                lines = list(reader)
+                if lines[wr_id][6] == 'Open':
+                    return 69
+                lines[wr_id][6] = 'Open'
+        except (IndexError, ValueError):
+            return None
         with open(self.work_req_file, 'w', newline='', encoding='utf-8') as wrfile:
             writer = csv.writer(wrfile)
             writer.writerows(lines)
+        return True
        
     def work_req_count(self):
         with open(self.work_req_file, newline='', encoding='utf-8') as wrfile:

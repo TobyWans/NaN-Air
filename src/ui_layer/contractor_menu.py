@@ -46,11 +46,7 @@ class ContractorMenu:
                 try:
                     index = int(command) - 1
                     self.llapi.clear_console()
-<<<<<<< Updated upstream
                     print(self.list_of_contractors_objects[index])
-=======
-                    self.llapi.get_contractor_list()
->>>>>>> Stashed changes
                     input("Enter to continue")
                 except:
                     print("Invalid option, please try again.")
