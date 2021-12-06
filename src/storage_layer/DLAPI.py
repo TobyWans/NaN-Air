@@ -80,6 +80,9 @@ class DLAPI:
     
     def confirm_emp_login(self, emp_id):
         return self.employee.confirm_emp_login(emp_id)
+
+    def location_check(self, id):
+        return self.employee.location_check(id)
         
         # Housing Logic
     def add_housing(self, hous):

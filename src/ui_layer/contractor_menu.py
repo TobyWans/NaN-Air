@@ -6,6 +6,7 @@ class ContractorMenu:
     def __init__(self, llapi: LLAPI):
         self.llapi = llapi
         self.list_of_contractors, self.list_of_contractors_objects = self.llapi.get_contractor_list()
+        self.location = self.llapi.location_check()
         self.supervisor_options = ["Add new contractor"]
         self.employee_options = self.list_of_contractors
 
@@ -33,7 +34,6 @@ class ContractorMenu:
             print(f"\t{str(self.all_options.index(index) + 1)+'.':<5} {index}")
         print("\tR. Return\n")
         
-
     def prompt_input(self):
         while True:
             self.draw_options()

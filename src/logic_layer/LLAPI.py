@@ -20,6 +20,7 @@ class LLAPI:
         
         # Misc Logic
     def ID_login(self, id):
+        #self.id = id
         return self.login_checker.ID_login(id)
     
     def supervisor_check(self):
@@ -60,6 +61,10 @@ class LLAPI:
     
     def confirm_emp_login(self, emp_id):
         return self.employeell.confirm_emp_login(emp_id)
+
+    def location_check(self):
+        id = self.login_checker.user_id
+        return self.employeell.location_check(id)
             
         # Work Request Logic
     def all_open_work_requests(self):

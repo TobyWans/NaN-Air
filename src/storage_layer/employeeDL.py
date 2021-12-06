@@ -37,3 +37,10 @@ class EmployeeDL:
                 if row['id'] == emp_id:
                     return True
         return None
+
+    def location_check(self, id):
+        with open(self.filepath, newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                if row['id'] == str(id):
+                    return row['location']

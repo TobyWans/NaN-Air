@@ -26,3 +26,6 @@ class EmployeeLL:
     
     def confirm_emp_login(self, emp_id):
         return self.dlapi.confirm_emp_login(emp_id)
+
+    def location_check(self, id):
+        return self.dlapi.location_check(id)
