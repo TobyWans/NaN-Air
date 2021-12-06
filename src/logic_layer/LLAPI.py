@@ -61,7 +61,7 @@ class LLAPI:
     def confirm_emp_login(self, emp_id):
         return self.employeell.confirm_emp_login(emp_id)
 
-    def location_check(self):
+    def location_check(self): # returnar location í string Td. 'Svalbard'
         id = self.login_checker.user_id
         return self.employeell.location_check(id)
             
