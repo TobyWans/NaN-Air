@@ -5,7 +5,6 @@ from src.logic_layer.employeeLL import EmployeeLL
 from src.logic_layer.work_requestLL import WorkRequestLL
 from src.logic_layer.housingLL import HousingLL
 from src.logic_layer.contractorsLL import ContractorMenuLL
-from src.logic_layer.login_checker import LogInCheck
 import os
 
 
@@ -29,6 +28,12 @@ class LLAPI:
     def clear_console(self):
         clear_cmd = os.system('cls' if os.name in ('nt', 'dos') else 'clear')
         return clear_cmd
+    
+    def employee_rng_id(self):
+        return self.login_checker.employee_rng_id()
+    
+    def supervisor_rng_id(self):
+        return self.login_checker.supervisor_rng_id()
         
         # Destination Logic
     def destination_info(self):

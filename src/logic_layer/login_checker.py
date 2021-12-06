@@ -1,9 +1,10 @@
 # Þetta er bara til að prófa login, þurfum að búa til eh file með öllu starfsfólki
 import uuid
+from src.storage_layer.DLAPI import DLAPI
 
 class LogInCheck:
-    def __init__(self):
-        self.emp_dict = {"joi": "1234", "chuck": "1111", "mike": "1221", "klaus": "1755", }
+    def __init__(self, dlapi: DLAPI):
+        self.dlapi = dlapi
         
     # log in validation
     # kannski hægt að gera þetta auðveldara?
@@ -41,9 +42,8 @@ class LogInCheck:
             rand_id = str(uuid.uuid4())[:4]
             if rand_id.isdecimal() and rand_id[3] != '1':
                 decimal = True
-            if rand_id.isdecimal() and rand_id in get_logins():
+            if rand_id.isdecimal() and rand_id in self.dlapi.get_logins():
                 decimal = False
-                print(f"{rand_id}Match!!!")
         return rand_id
     
     def supervisor_rng_id(self):
@@ -52,7 +52,6 @@ class LogInCheck:
             rand_id = str(uuid.uuid4())[:3]
             if rand_id.isdecimal():
                 decimal = True
-            if rand_id.isdecimal() and rand_id + '1' in get_logins():
+            if rand_id.isdecimal() and rand_id + '1' in self.dlapi.get_logins():
                 decimal = False
-                print(f"{rand_id + '1'}Match!!!")
         return rand_id + '1'
