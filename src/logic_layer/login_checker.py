@@ -15,8 +15,7 @@ class LogInCheck:
         elif len(login) < 4:
             return False
         else:
-            search_ID = self.search(self.emp_dict, login)
-            if search_ID != None:
+            if self.dlapi.confirm_emp_login(login):
                 return True
             else:
                 return False

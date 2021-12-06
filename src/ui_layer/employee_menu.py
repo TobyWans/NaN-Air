@@ -5,7 +5,7 @@ import uuid
 
 
 class EmployeeMenu:
-    def __init__(self, llapi):
+    def __init__(self, llapi: LLAPI):
         self.llapi = llapi
         self.supervisor_options = ["Add employee", "Change employee","Search by ID", "Search by location", "All employees"]
         
@@ -43,7 +43,7 @@ class EmployeeMenu:
                 
     def create_employee(self):
         self.llapi.clear_console()
-        emp_id = str(uuid.uuid1())[:4]
+        emp_id = self.llapi.employee_rng_id()
         print(emp_id)
         name = input("Enter name: ")
         e_mail = input("Enter e-mail: ")

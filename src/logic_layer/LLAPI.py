@@ -57,6 +57,9 @@ class LLAPI:
 
     def get_all_employees(self):
         return self.employeell.get_all_employees()
+    
+    def confirm_emp_login(self, emp_id):
+        return self.employeell.confirm_emp_login(emp_id)
             
         # Work Request Logic
     def all_open_work_requests(self):

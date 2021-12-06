@@ -29,4 +29,11 @@ class EmployeeDL:
 
     def search_employee_by_ID(self, emp):
         pass
-
+    
+    def confirm_emp_login(self, emp_id):
+        with open(self.filepath, newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                if row['id'] == emp_id:
+                    return True
+        return None
