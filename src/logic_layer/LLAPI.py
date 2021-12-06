@@ -20,7 +20,6 @@ class LLAPI:
         
         # Misc Logic
     def ID_login(self, id):
-        #self.id = id
         return self.login_checker.ID_login(id)
     
     def supervisor_check(self):
@@ -125,3 +124,6 @@ class LLAPI:
 
     def add_new_contractor(self, Contractor_mdl):
         return self.contractormenuLL.add_new_contractor(Contractor_mdl)
+
+    def sort_contractors_by_location(self, location):
+        return self.contractormenuLL.sort_contractors_by_location(location)

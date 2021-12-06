@@ -109,3 +109,6 @@ class DLAPI:
 
     def add_new_contractor(self, contractor_mdl):
         return self.contractorDL.add_new_contractor(contractor_mdl)
+
+    def sort_contractors_by_location(self, location):
+        return self.contractorDL.sort_contractors_by_location(location)

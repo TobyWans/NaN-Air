@@ -5,8 +5,11 @@ import time
 class ContractorMenu:
     def __init__(self, llapi: LLAPI):
         self.llapi = llapi
-        self.list_of_contractors, self.list_of_contractors_objects = self.llapi.get_contractor_list()
         self.location = self.llapi.location_check()
+        if self.llapi.supervisor_check():
+            self.list_of_contractors, self.list_of_contractors_objects = self.llapi.get_contractor_list()
+        else:
+            self.list_of_contractors, self.list_of_contractors_objects = self.llapi.sort_contractors_by_location(self.location)
         self.supervisor_options = ["Add new contractor"]
         self.employee_options = self.list_of_contractors
 
@@ -27,12 +30,12 @@ class ContractorMenu:
         self.llapi.clear_console()
         self.all_options = []
         self.all_options.extend(self.employee_options)
+        print("Contractors Menu")
         if self.llapi.supervisor_check():
             self.all_options.extend(self.supervisor_options)
-        print("Contractors Menu")
         for index in self.all_options:
             print(f"\t{str(self.all_options.index(index) + 1)+'.':<5} {index}")
-        print("\tR. Return\n")
+        print("\tR.    Return\n")
         
     def prompt_input(self):
         while True:

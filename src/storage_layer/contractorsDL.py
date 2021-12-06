@@ -20,3 +20,13 @@ class ContractorMenuDL:
                 Contractor = contractors(**row)
                 contractor_list.append(Contractor)
             return contractor_list
+        
+    def sort_contractors_by_location(self, location):
+        sorted_list = []
+        with open(self.contractor_file, newline='', encoding='utf-8') as contr_file:
+            reader = csv.DictReader(contr_file)
+            for row in reader:
+                if row['location'] == location:
+                    contractor = contractors(**row)
+                    sorted_list.append(contractor)
+        return sorted_list
