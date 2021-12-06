@@ -9,7 +9,7 @@ class contractors:
         self.rating = rating
 
     def __str__(self):
-        return f"Contractor: {self.contractor}\nPhone: {self.phone}\nName: {self.name}\nOpening Hours: {self.opening_hours}\nLocation: {self.location}\nProfession: {self.profession}\nRating: {self.rating}\n"
+        return f"{'Contractor:':<25} {self.contractor}\n{'Phone:':<25} {self.phone}\n{'Name:':<25} {self.name}\n{'Opening Hours:':<25} {self.opening_hours}\n{'Location:':<25} {self.location}\n{'Profession:':<25} {self.profession}\n{'Rating:':<25} {self.rating}\n"
 
     def display(self):
-        return f"{self.contractor} | {self.profession}"
+        return f"{self.contractor:<25} - {self.profession}"

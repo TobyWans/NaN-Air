@@ -10,7 +10,6 @@ class ContractorMenuDL:
             fieldnames = ['contractor','name','profession','phone','opening_hours','location','rating']
             writer = csv.DictWriter(contr_file, fieldnames=fieldnames)
             writer.writerow({'contractor':Mdl.contractor, 'name':Mdl.name, 'profession':Mdl.profession, 'phone':Mdl.phone, 'opening_hours':Mdl.opening_hours, 'location':Mdl.location, 'rating':Mdl.rating})
-            #contr_file.close()
             return
 
     def get_contractor_list(self):
