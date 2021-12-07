@@ -22,7 +22,7 @@ class ContractorMenu:
         opening_hours = input("Enter opening hours: ")
         location = input("Enter location: ")
         rating = input("Enter rating: ")
-        if input("Confirm?") == 'y':
+        if input("Confirm? (Y/N): ") == 'y':
             Contractor_mdl = contractors(contractor, name, profession, phone, opening_hours, location, rating)
             return self.llapi.add_new_contractor(Contractor_mdl)
 
@@ -40,7 +40,7 @@ class ContractorMenu:
     def prompt_input(self):
         while True:
             self.draw_options()
-            command = input("Enter number: ")
+            command = input("Enter an option: ")
             if self.llapi.supervisor_check() and command == str(self.all_options.index("Add new contractor")+1):
                 self.add_new_contractor()
             elif command.lower() == 'r':

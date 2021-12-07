@@ -17,7 +17,7 @@ class HousingMenu:
         else:
             print(f"\tHousing List:")
             self.sort_by_location()
-        print("\n\tR. Return\n") 
+        
 
     def prompt_input(self):
         while True:
@@ -27,7 +27,8 @@ class HousingMenu:
                 self.sort_by_location()
                 if self.llapi.supervisor_check():
                     self.id_menu_option()
-
+                else:
+                    print("\n\tR. Return\n") 
 
             elif command == "2":
                 self.add_housing()
@@ -68,6 +69,8 @@ class HousingMenu:
                 if location in row.values():
                     hous = Housing(**row)
                     print(f"{hous}")
+        if not self.llapi.supervisor_check():
+            print("\n\tR. Return\n") 
         
     def id_menu_option(self):
         print("S. Search by Id") 
@@ -77,6 +80,14 @@ class HousingMenu:
             self.llapi.clear_console()
             self.search_by_id()
             
+    def search_by_id(self):
+        search_by_housing_id = "Invalid input!" #it can be constant
+        while search_by_housing_id == "Invalid input!": 
+            id_input = input("Please enter the property ID: ")
+            search_by_housing_id = self.llapi.search_by_housing_id(id_input)
+            print(search_by_housing_id)
+        wait = input("Press enter to contine") #it can be constant
+        #Bæta quit
 
     def rental_status(self):
         free_to_rent, booked = self.llapi.get_rental_status()
@@ -88,11 +99,4 @@ class HousingMenu:
             print(f"{line}")
         wait = input("Press enter to contine") #maybe it can be constant
 
-    def search_by_id(self):
-        search_by_housing_id = "Invalid input!" #it can be constant
-        while search_by_housing_id == "Invalid input!": 
-            id_input = input("Please enter the property ID: ")
-            search_by_housing_id = self.llapi.search_by_housing_id(id_input)
-            print(search_by_housing_id)
-        wait = input("Press enter to contine") #it can be constant
-    #Bæta quit
+
