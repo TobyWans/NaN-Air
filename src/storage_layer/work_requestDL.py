@@ -52,9 +52,9 @@ class WorkRequestDL:
                         
     def create_new_request(self, req):
         with open(self.work_req_file, 'a', newline='', encoding='utf-8') as wrfile:
-            fieldnames = ['req_id', 'title', 'where', 'housing_id', 'description', 'priority', 'status', 'date', 'user_id']
+            fieldnames = ['req_id', 'title', 'where', 'housing_id', 'description', 'priority', 'status', 'date', 'employee']
             writer = csv.DictWriter(wrfile, fieldnames=fieldnames)
-            writer.writerow({'req_id': req.req_id, 'title': req.title, 'where': req.where, 'housing_id': req.housing_id, 'description': req.description, 'priority': req.priority, 'status': req.status, 'date': req.date, 'user_id': req.user_id})
+            writer.writerow({'req_id': req.req_id, 'title': req.title, 'where': req.where, 'housing_id': req.housing_id, 'description': req.description, 'priority': req.priority, 'status': req.status, 'date': req.date, 'employee': req.employee})
     
     def finnished_work_req(self):
         pass

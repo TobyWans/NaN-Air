@@ -23,3 +23,11 @@ class HousingLL:
     def get_rental_status(self):
         return self.dlapi.get_rental_status()
     
+    def get_housing_id_by_location(self, location):
+        get_housing = self.dlapi.get_housing_id_by_location(location)
+        housing_id_list = []
+        for row in get_housing:
+            id_only = row.only_housing_id()
+            housing_id_list.append(id_only)
+        return housing_id_list
+    

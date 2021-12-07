@@ -23,6 +23,16 @@ class HousingDL:
                 for row in reader:
                     hous_list.append(row)
             return hous_list
+        
+    def get_housing_id_by_location(self, location):
+        housing_id_list = []
+        with open(self.filepath, newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                if row['location'] == location:
+                    housing_id = Housing(**row)
+                    housing_id_list.append(housing_id)
+        return housing_id_list
     
     def get_location_list(self):
         location_list = []

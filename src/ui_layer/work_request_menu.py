@@ -97,6 +97,8 @@ class WorkRequestMenu:
                 
             elif command == '6': # Create new Request
                 self.create_new_request()
+                print("Work request created successfully")
+                time.sleep(1.8)
                 
             elif command == '7': # Open Request
                 running = True
@@ -186,12 +188,15 @@ class WorkRequestMenu:
         today = datetime.today()
         day = today.strftime("%d/%m/%y")
         running = True
+        employee = self.llapi.curent_user
         work_request_ID = self.llapi.work_req_count()
         print(f"Work request ID: {self.llapi.work_req_count()}")
         title = input("Title: ")
-        print("Available Locations:", ' - '.join(self.llapi.get_only_city()))
+        print("Available Locations:", ' - '.join(self.llapi.location_list()))
         where = input("Location: ")
-        print("Housing in that area")
+        print("Available housing:")
+        locations = self.llapi.get_housing_id_by_location(where)
+        print(' - '.join(locations))
         housing = input("Housing: ")
         description = input("Description: ")
         while running:
@@ -201,5 +206,5 @@ class WorkRequestMenu:
             else:
                 running = False
         status = 'Open'
-        req = Work_Request(work_request_ID, title, where,  housing, description, priority, status, day)
+        req = Work_Request(work_request_ID, title, where,  housing, description, priority, status, day, employee)
         self.llapi.create_new_request(req)
