@@ -1,4 +1,3 @@
-from os import close
 from src.models.work_requests import Work_Request
 from src.logic_layer.LLAPI import LLAPI
 from datetime import datetime
@@ -12,17 +11,24 @@ class WorkRequestMenu:
         self.supervisor_options = ["Create new request", "Open/Change request", "Close request"]
         self.employee_options = ["All work requests", "Search by ID", "Search by date", "Your open requests", "Finished request"]
         self.current_user = self.llapi.curent_user
+        self.splash_screen = """_____   __                   ____________        
+___  | / /_____ _______      ___    |__(_)_______
+__   |/ /_  __ `/_  __ \     __  /| |_  /__  ___/
+_  /|  / / /_/ /_  / / /     _  ___ |  / _  /    
+/_/ |_/  \__,_/ /_/ /_/      /_/  |_/_/  /_/     
+                                                 """
     
     def draw_options(self):
         self.llapi.clear_console()
+        print(self.splash_screen)
         all_options = []
         all_options.extend(self.employee_options)
         if self.llapi.supervisor_check():
             all_options.extend(self.supervisor_options)
-        print("Work Request Menu:")
+        print("Work Request Menu".center(48, '-'))
         for index in all_options:
-            print(f"\t{all_options.index(index) + 1}. {index}")
-        print("\tR. Return\n")
+            print(f"\t\t{all_options.index(index) + 1}. {index}")
+        print("\t\tR. Return\n")
     
     def prompt_input(self):
         while True:
@@ -33,7 +39,7 @@ class WorkRequestMenu:
             if command == '1': # List all Work Requests
                 all_work_requests = self.llapi.all_open_work_requests()
                 self.llapi.clear_console()
-                print("List of all open work requests:\n")
+                print("List of all open work requests".center(48, '-'))
                 for request in all_work_requests:
                     print(request)
                 back = input("Press enter to continue")
@@ -86,10 +92,10 @@ class WorkRequestMenu:
                         print(row)
                 input("Press enter to continue")
                     
-            elif command == '5': # List Finnished Requests
+            elif command == '5': # List Finished Requests
                 finished_requests = self.llapi.all_closed_work_requests()
                 self.llapi.clear_console()
-                print("List of closed work Requests:\n")
+                print("List of closed work Requests".center(48, '-'))
                 for request in finished_requests:
                     print(request)
                 back = input("Press enter to continue")
@@ -97,7 +103,7 @@ class WorkRequestMenu:
                 
             elif command == '6': # Create new Request
                 self.create_new_request()
-                print("Work request created successfully")
+                print("Work request created successfully".center(48, '-'))
                 time.sleep(1.8)
                 
             elif command == '7': # Open Request
@@ -106,12 +112,11 @@ class WorkRequestMenu:
                 self.llapi.clear_console()
                 for request in all_closed_work_requests:
                     print(request)
-                try:
-                    open_id = int(input("Please enter work request ID you want to open and change(0 to return): "))
-                except ValueError:
-                    open_id = None
-                if open_id == 0:
+                open_id = input("Please enter work request ID you want to open or R to return: ")
+                if open_id.lower() == 'r':
                     running = False
+                    open_id = 0
+                open_id = int(open_id)
                 self.llapi.clear_console()
                 while running:
                     open_change_request = self.llapi.open_request(open_id)
@@ -136,7 +141,7 @@ class WorkRequestMenu:
                             print(request)
                         open_id = int(input("Please try another ID: "))
                     else:
-                        print("Work request successfully changed!")
+                        print("Work request successfully changed!".center(48, '-'))
                         time.sleep(1.8)
                         running = False
                 
@@ -175,7 +180,7 @@ class WorkRequestMenu:
                             print(request)
                         close_id = int(input("Please try another ID: "))
                     else:
-                        print("Work request changed successfully!")
+                        print("Work request changed successfully!".center(48, '-'))
                         time.sleep(1.8)
                         running = False
                 

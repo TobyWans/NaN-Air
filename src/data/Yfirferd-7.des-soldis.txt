@@ -8,6 +8,8 @@ Sem yfirmaður:
 
         List of housing:
 
+			Kemur R.Return eftir hvert location í lista
+
             Seinna tíma vandamál.
 			Kannski bara aðgreina staðsetningarnar betur t.d í staðin fyrir 
 

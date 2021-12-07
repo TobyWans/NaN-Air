@@ -11,17 +11,24 @@ class MainMenu:
         self.supervisor_options = ["Employees", "Destination"]
         self.employee_options = ["Work request", "Contractors", "Housing"]
         self.llapi = LLAPI()
+        self.splash_screen = """_____   __                   ____________        
+___  | / /_____ _______      ___    |__(_)_______
+__   |/ /_  __ `/_  __ \     __  /| |_  /__  ___/
+_  /|  / / /_/ /_  / / /     _  ___ |  / _  /    
+/_/ |_/  \__,_/ /_/ /_/      /_/  |_/_/  /_/     
+                                                 """
         
     def draw_options(self):
         self.llapi.clear_console()
+        print(self.splash_screen)
         all_options = []
         all_options.extend(self.employee_options)
         if self.llapi.supervisor_check():
             all_options.extend(self.supervisor_options)
-        print(f"\tMenu:")
+        print("Menu".center(48, '-'))
         for index in all_options:
-            print(f"\t{all_options.index(index) + 1}. {index}")
-        print("\tQ. Log out\n")
+            print(f"\t\t{all_options.index(index) + 1}. {index}")
+        print("\t\tQ. Log out\n")
         
 
         
@@ -52,6 +59,8 @@ class MainMenu:
                 return
             else:
                 print("Invalid option, please try again ")
+                time.sleep(1.8)
+                
             
     def login(self):
         login = input("Enter your ID: ")
