@@ -12,8 +12,7 @@ class EmployeeLL:
     def create_new_employee(self, new_employee):
         return self.dlapi.create_new_employee(new_employee)
     
-    def get_employees_that_started_working_before(self, date):
-        pass
+   
 
     def change_employee(self):
         return self.dlapi.change_employee()
