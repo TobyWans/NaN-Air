@@ -66,8 +66,8 @@ class LLAPI:
         return self.employeell.confirm_emp_login(emp_id)
 
     def location_check(self): # returnar location í string Td. 'Svalbard'
-        id = self.login_checker.user_id
-        return self.employeell.location_check(id)
+        user_id = self.login_checker.user_id
+        return self.employeell.location_check(user_id)
             
         # Work Request Logic
     def all_open_work_requests(self):
