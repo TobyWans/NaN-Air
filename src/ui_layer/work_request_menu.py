@@ -1,3 +1,4 @@
+from os import close
 from src.models.work_requests import Work_Request
 from src.logic_layer.LLAPI import LLAPI
 from datetime import datetime
@@ -145,9 +146,11 @@ class WorkRequestMenu:
                 self.llapi.clear_console()
                 for request in all_open_work_requests:
                     print(request)
-                close_id = int(input("Please enter work request ID you want to close(0 to return): "))
-                if close_id == 0:
+                close_id = input("Please enter a work request ID you want to close or R to return: ")
+                if close_id.lower() == 'r':
                     running = False
+                    close_id = 0
+                close_id = int(close_id)
                 self.llapi.clear_console()
                 while running:
                     close_request = self.llapi.close_request(close_id)
