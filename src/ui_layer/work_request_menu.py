@@ -79,10 +79,11 @@ class WorkRequestMenu:
                             running = False
                 
             elif command == '4':
-                user_req_list = self.llapi.user_open_requests(self.current_user)
+                user_req_list = self.llapi.user_open_requests(self.llapi.curent_user)
                 if user_req_list != []:
                     for row in user_req_list:
                         print(row)
+                input("Press enter to continue")
                     
                 
             elif command == '5': # List Finnished Requests

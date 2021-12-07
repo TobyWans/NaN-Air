@@ -21,8 +21,8 @@ class WorkRequestLL:
         user_req_list = []
         wr_list = self.dlapi.get_all_open_work_requests()
         for req in wr_list:
-            if user_id == req.user_id:
-                user_req_list.append
+            if user_id == req.employee:
+                user_req_list.append(req)
         return user_req_list
     
     def finnished_work_req(self):

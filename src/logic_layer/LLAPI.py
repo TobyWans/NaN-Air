@@ -85,8 +85,8 @@ class LLAPI:
     def search_date(self, date):
         return self.workrequestLL.search_date(date)
     
-    def user_open_requests(self):
-        return self.workrequestLL.user_open_requests(self.curent_user)
+    def user_open_requests(self, user_id):
+        return self.workrequestLL.user_open_requests(user_id)
     
     def create_new_request(self, req):
         return self.workrequestLL.create_new_request(req)
