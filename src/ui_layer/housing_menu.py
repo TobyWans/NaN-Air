@@ -69,13 +69,11 @@ class HousingMenu:
                 if location in row.values():
                     hous = Housing(**row)
                     print(f"{hous}")
-        if not self.llapi.supervisor_check():
-            print("\n\tR. Return\n") 
+            print("\n\tR. Return") 
         
     def id_menu_option(self):
-        print("S. Search by Id") 
-        print(f"Press enter to continue")
-        command = (input(f"\tEnter your input: "))
+        print("\tS. Search by Id") 
+        command = (input(f"\n\tEnter your input: "))
         if command.lower() == "s":
             self.llapi.clear_console()
             self.search_by_id()
