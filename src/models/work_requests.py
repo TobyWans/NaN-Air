@@ -13,6 +13,7 @@ class Work_Request:
     def __str__(self):
         return f"{'Date created:'} {self.date}\tID: {self.req_id}\n{'Title:':<13} {self.title}\n{'Where:':<13} {self.where}\n{'Housing:':<13} {self.housing_id}\n{'Description:'}\n{self.description_readability(self.description)}\n{'Priority:':<13} {self.priority}\n{'Status:':<13} {self.status}\n"
     
+        # Code to make the description more readable
     def description_readability(self, desc):
         desc_list = list()
         count = 0

@@ -17,6 +17,7 @@ class WorkRequestLL:
     def search_date(self, date):
         return self.dlapi.search_date(date)
     
+        # gets all requests linked to the users account
     def user_open_requests(self, user_id):
         user_req_list = []
         wr_list = self.dlapi.get_all_open_work_requests()

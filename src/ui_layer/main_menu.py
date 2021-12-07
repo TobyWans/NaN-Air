@@ -18,6 +18,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
 /_/ |_/  \__,_/ /_/ /_/      /_/  |_/_/  /_/     
                                                  """
         
+        # Prints out the menu and checks if user is supervisor
     def draw_options(self):
         self.llapi.clear_console()
         print(self.splash_screen)
@@ -32,7 +33,8 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         
 
         
-        
+        # Prompt for options
+        # to choose what menu you want
     def prompt_input(self):
         return_option = ''
         while True:
@@ -51,7 +53,6 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
             elif command == '4' and self.llapi.supervisor_check():
                 employee_menu = EmployeeMenu(self.llapi)
                 return_option = employee_menu.draw_options()
-                # employees_menu.draw_options()
             elif command == '5' and self.llapi.supervisor_check():
                 destination_menu = DestinationMenu(self.llapi)
                 return_option = destination_menu.prompt_input()
@@ -61,7 +62,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                 print("Invalid option, please try again ")
                 time.sleep(1.8)
                 
-            
+            # Login prompt for user
     def login(self):
         login = input("Enter your ID: ")
         while not self.llapi.ID_login(login):
