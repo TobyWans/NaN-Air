@@ -21,8 +21,8 @@ class EmployeeLL:
     def search_employee_by_id(self, id):
         return self.dlapi.search_employee_by_id(id)
 
-    def serch_employee_by_location(self):
-        return self.dlapi.search_employee_by_location(self)
+    def serch_employee_by_location(self, location):
+        return self.dlapi.search_employee_by_location(location)
     
     def confirm_emp_login(self, emp_id):
         return self.dlapi.confirm_emp_login(emp_id)

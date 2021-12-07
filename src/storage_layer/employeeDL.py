@@ -24,8 +24,16 @@ class EmployeeDL:
     def change_employee(self, emp):
         pass
 
-    def search_employee_by_location(self, emp):
-        pass
+    def search_employee_by_location(self, location):
+        emp_location = []
+        with open(self.filepath, newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                if row['location'] == location:
+                    emp = Employee(**row)
+                    emp_location.append(emp)
+                    
+        return emp_location
 
     def search_employee_by_ID(self, id):
         with open(self.filepath, newline='', encoding='utf-8') as csvfile:

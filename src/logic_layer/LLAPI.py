@@ -56,8 +56,8 @@ class LLAPI:
     def search_employee_by_id(self, id):
         return self.employeell.search_employee_by_id(id)
 
-    def search_employee_by_location(self):
-        return self.employeell.serch_employee_by_location()
+    def search_employee_by_location(self, location):
+        return self.employeell.serch_employee_by_location(location)
 
     def get_all_employees(self):
         return self.employeell.get_all_employees()

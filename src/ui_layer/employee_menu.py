@@ -32,7 +32,9 @@ class EmployeeMenu:
                 search_employee_by_id = self.llapi.search_employee_by_id(id) 
                 print(search_employee_by_id)
             elif command == '4':
-                search_employee_by_location = self.llapi.search_employee_by_location() 
+                location = input("Enter location: ")
+                search_employee_by_location = self.llapi.search_employee_by_location(location)
+                print(search_employee_by_location) 
             elif command == '5':
                 all_employees = self.llapi.get_all_employees()
                 for employee in all_employees:
