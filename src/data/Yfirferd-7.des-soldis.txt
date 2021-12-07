@@ -1,26 +1,14 @@
 Sem yfirmaður:
 
-	Work Request:
-
-
-
-		Close request:
-
-			"0 to return"... afhverju ekki "r"?
-
-
-	Contractors:
-
-
-
-		"Enter a number"  --> frekar "Enter an option"
-
-		Kemur fyrst 1. , 2. , 3. 3x og svo allir. --> laga þetta
-
 	Housing:
 
-		List of housing:
+		Change Housing:
 
+            Þarf að græja það
+
+        List of housing:
+
+            Seinna tíma vandamál.
 			Kannski bara aðgreina staðsetningarnar betur t.d í staðin fyrir 
 
 
@@ -53,24 +41,21 @@ Sem yfirmaður:
 	Employees:
 
 
-		CVS File:
-
-			Ættu yfirmenn líka að vera í þessu file, eða ættum við að gera líka sér
-			file sem er bókstaflega allir starfsmenn og svo aðra með eru bara með
-			employees og ekki yfirmönnum
-		
 		Add Employee:
 		
-			Virkar ekki.
+			enter option í lokin?
+            þarf að vera hægt að hætta að adda starfsmönnum.
+            
 
 		Change Employee:
 			
-			Virkar ekki.
+			Virkar ekki. 
 
 		Search by id:
 
-			Kannski bæta við location upplýsingunum þar sem þetta snýst svo mikið 
-			um locationið.
+			hafa allar upplýsingarnar um starfsmanninninn inni
+
+            Laga villumeldinguna, þegar þú ýtir á "r" kemur none
 
 		Search by location:
 
@@ -82,14 +67,18 @@ Sem yfirmaður:
 
 			return lætur mann fara aftur í main menu, ekki employees menu
 			Kannski bæta við þegar það er búið að printa alla starfsmenn 
-			að það komi ::: R: return
+			að það komi ::: R: return eða enter to continue
 
 
 Sem Employee:
 
 	Contractors:
 
-		koma bara 2 valmöguleikar.
+		koma bara 2 valmöguleikar. það er rétt, þetta er eftir staðsetningum, væri gott að gera ehv:
+
+        Contractors in Nuuk:
+            1. Palli
+            2. Kalli
 
 	Housing:
 		
@@ -100,7 +89,9 @@ Sem Employee:
 Bæta við:
 
 	UI:
-
+        Welcome message
+        splash screen 
+        Logo
 		Þurfum að samrýma kerfið þannig að all sé frekar líkt hvort öðru.
 		Við þurfum að gera þetta flottara, er ennþá frekar hrátt, þurfum bara að 
 		komast að samkomulagi um hvernig þetta á að líta út. t.d.:
@@ -108,7 +99,7 @@ Bæta við:
 _________________________________________________
 
 	Manager Menu:
-        -------------
+    -------------
 		1. Work request
 		2. Contractors
 		3. Housing
@@ -121,7 +112,7 @@ __________________________________________________
 __________________________________________________
 
 	Employee Menu:
-        --------------
+    --------------
 		1. Work request
 		2. Contractors
 		3. Housing
