@@ -12,6 +12,12 @@ class ContractorMenu:
             self.list_of_contractors, self.list_of_contractors_objects = self.llapi.sort_contractors_by_location(self.location)
         self.supervisor_options = ["Add new contractor"]
         self.employee_options = self.list_of_contractors
+        self.splash_screen = """_____   __                   ____________        
+___  | / /_____ _______      ___    |__(_)_______
+__   |/ /_  __ `/_  __ \     __  /| |_  /__  ___/
+_  /|  / / /_/ /_  / / /     _  ___ |  / _  /    
+/_/ |_/  \__,_/ /_/ /_/      /_/  |_/_/  /_/     
+                                                 """
 
     def add_new_contractor(self):         # First instantiates all info into a model class then sends it all the way to the storage layer
         self.llapi.clear_console()
@@ -28,9 +34,10 @@ class ContractorMenu:
 
     def draw_options(self):               # Displays all the available options for the user
         self.llapi.clear_console()
+        print(self.splash_screen)
         self.all_options = []
         self.all_options.extend(self.employee_options)
-        print("Contractors Menu")
+        print("Contractors Menu".center(88, '-'))
         if self.llapi.supervisor_check():
             self.all_options.extend(self.supervisor_options)
         for index in self.all_options:
