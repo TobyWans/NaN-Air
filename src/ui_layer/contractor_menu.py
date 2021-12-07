@@ -47,7 +47,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
     def prompt_input(self):               # Finds out what option the user wants with entered key.
         while True:
             self.draw_options()
-            command = input("Enter an option: ")
+            command = input("\tEnter an option: ")
             if self.llapi.supervisor_check() and command == str(self.all_options.index("Add new contractor")+1):
                 self.add_new_contractor() # Supervisors can add a new contractor by entering the last number before the return option
             elif command.lower() == 'r':
