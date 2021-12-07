@@ -1,0 +1,137 @@
+Sem yfirmaður:
+
+	Work Request:
+
+
+
+		Close request:
+
+			"0 to return"... afhverju ekki "r"?
+
+
+	Contractors:
+
+
+
+		"Enter a number"  --> frekar "Enter an option"
+
+		Kemur fyrst 1. , 2. , 3. 3x og svo allir. --> laga þetta
+
+	Housing:
+
+		List of housing:
+
+			Kannski bara aðgreina staðsetningarnar betur t.d í staðin fyrir 
+
+
+
+            64-3831                       |Igimaq               7    |Nuuk           |10m2      |1 room         |Snow house
+            64-3812                       |Nuussuaq             4    |Nuuk           |400m2     |8 rooms        |Villas
+
+                    ***Faroe Islands***
+            ix-9331                       |Skákið               15   |Faroe Islands  |100m2     |1 room         |Townhouse
+            ix-9332                       |Skákið               15   |Faroe Islands  |100m2     |1 room         |Townhouse
+            ix-9333                       |Skákið               15   |Faroe Islands  |100m2     |1 room         |Townhouse
+
+
+
+                        VERA SVONA:
+
+
+
+            64-3831                       |Igimaq               7    |Nuuk           |10m2      |1 room         |Snow house
+            64-3812                       |Nuussuaq             4    |Nuuk           |400m2     |8 rooms        |Villas
+
+            ________________________________________________________________________________________________________________
+                                                      - Faroe Islands -
+            ----------------------------------------------------------------------------------------------------------------
+            ix-9331                       |Skákið               15   |Faroe Islands  |100m2     |1 room         |Townhouse
+            ix-9332                       |Skákið               15   |Faroe Islands  |100m2     |1 room         |Townhouse
+            ix-9333                       |Skákið               15   |Faroe Islands  |100m2     |1 room         |Townhouse
+
+
+	Employees:
+
+
+		CVS File:
+
+			Ættu yfirmenn líka að vera í þessu file, eða ættum við að gera líka sér
+			file sem er bókstaflega allir starfsmenn og svo aðra með eru bara með
+			employees og ekki yfirmönnum
+		
+		Add Employee:
+		
+			Virkar ekki.
+
+		Change Employee:
+			
+			Virkar ekki.
+
+		Search by id:
+
+			Kannski bæta við location upplýsingunum þar sem þetta snýst svo mikið 
+			um locationið.
+
+		Search by location:
+
+			Þarf að láta það virka almennilega, Gott að bæta inn valmöguleikunum
+			þannig að fólk viti hvaða staðsetningar eru í boði til þess að leita
+			eftir og að það komi líka return option
+
+		All Employees:
+
+			return lætur mann fara aftur í main menu, ekki employees menu
+			Kannski bæta við þegar það er búið að printa alla starfsmenn 
+			að það komi ::: R: return
+
+
+Sem Employee:
+
+	Contractors:
+
+		koma bara 2 valmöguleikar.
+
+	Housing:
+		
+		ættum við að hafa valmöguleikann að það sé hægt að gera search by ID eins
+		og þetta er hjá yfirmönnunum?
+
+
+Bæta við:
+
+	UI:
+
+		Þurfum að samrýma kerfið þannig að all sé frekar líkt hvort öðru.
+		Við þurfum að gera þetta flottara, er ennþá frekar hrátt, þurfum bara að 
+		komast að samkomulagi um hvernig þetta á að líta út. t.d.:
+
+_________________________________________________
+
+	Manager Menu:
+        -------------
+		1. Work request
+		2. Contractors
+		3. Housing
+		4. Employees
+		5. Destination
+		Q. Log out
+__________________________________________________
+
+
+__________________________________________________
+
+	Employee Menu:
+        --------------
+		1. Work request
+		2. Contractors
+		3. Housing
+		Q. Log out
+__________________________________________________
+
+		
+	Chuck Norris:
+
+		Við þyrftum eiginlega að búa til ehv fyrir chuck norris afþví að hann þarf að
+		að geta sett einhvern sem Yfirmann á einhverjum staðsetningum.
+		Nema að við setjum einhvern Yfirmann sjálf á alla staðina bara....
+
