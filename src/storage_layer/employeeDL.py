@@ -36,12 +36,14 @@ class EmployeeDL:
         return emp_location
 
     def search_employee_by_ID(self, id):
+        employee_id = []
         with open(self.filepath, newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 if row['id'] == str(id):
-                    employee= row['name']
-                    return employee
+                    emp = Employee(**row)
+                    employee_id.append(emp) 
+                    return employee_id
     
     def confirm_emp_login(self, emp_id):
         with open(self.filepath, newline='', encoding='utf-8') as csvfile:
