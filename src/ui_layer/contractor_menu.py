@@ -22,7 +22,7 @@ class ContractorMenu:
         opening_hours = input("Enter opening hours: ")
         location = input("Enter location: ")
         rating = input("Enter rating: ")
-        if input("Confirm? (Y/N): ") == 'y':
+        if input("Confirm? (y/n): ") == 'y':
             Contractor_mdl = contractors(contractor, name, profession, phone, opening_hours, location, rating)
             return self.llapi.add_new_contractor(Contractor_mdl)
 
