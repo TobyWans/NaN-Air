@@ -53,9 +53,9 @@ Sem yfirmaður:
 
 		Search by id:
 
-			hafa allar upplýsingarnar um starfsmanninninn inni
+			enter an option: ætti kannski bara að vera enter r to return....
 
-            Laga villumeldinguna, þegar þú ýtir á "r" kemur none
+            Laga villumeldinguna, þegar þú ýtir á "r" í ID kemur none
 
 		Search by location:
 

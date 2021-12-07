@@ -72,6 +72,6 @@ class DestinationMenu:
                 return 'r'
             else:
                 print("Invalid option, please try again ")
-                time.sleep(1.5)
+                time.sleep(1)
 
     
