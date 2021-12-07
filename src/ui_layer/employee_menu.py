@@ -16,7 +16,7 @@ class EmployeeMenu:
         all_options.extend(self.supervisor_options)
         for index in all_options:
             print(f"\t{all_options.index(index) + 1}. {index}")
-        print("\tQ. Return\n")
+        print("\tR. Return\n")
         return self.prompt_input()
 
 
@@ -28,14 +28,16 @@ class EmployeeMenu:
             elif command == '2':
                 change_employee = self.llapi.change_employee() 
             elif command == '3':
-                search_employee_by_id = self.llapi.search_employee_by_id() 
+                id = input("Enter employee id: ")
+                search_employee_by_id = self.llapi.search_employee_by_id(id) 
+                print(search_employee_by_id)
             elif command == '4':
                 search_employee_by_location = self.llapi.search_employee_by_location() 
             elif command == '5':
                 all_employees = self.llapi.get_all_employees()
                 for employee in all_employees:
                     print(employee)
-            elif command.lower() == 'q':
+            elif command.lower() == 'r':
                 return
             else:
                 print("Invalid option, please try again ")
@@ -52,3 +54,5 @@ class EmployeeMenu:
         location = input("Enter location: ")
         new_employee = Employee(name, e_mail, address, phone, mobile, location, emp_id)
         self.llapi.create_new_employee(new_employee)
+
+    

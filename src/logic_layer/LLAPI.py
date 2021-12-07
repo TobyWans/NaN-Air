@@ -53,8 +53,8 @@ class LLAPI:
     def change_employee(self):
         return self.employeell.change_employee()
 
-    def search_employee_by_id(self):
-        return self.employeell.search_employee_by_id()
+    def search_employee_by_id(self, id):
+        return self.employeell.search_employee_by_id(id)
 
     def search_employee_by_location(self):
         return self.employeell.serch_employee_by_location()
