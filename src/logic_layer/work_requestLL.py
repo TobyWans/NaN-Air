@@ -25,12 +25,6 @@ class WorkRequestLL:
                 user_req_list.append(req)
         return user_req_list
     
-    def finnished_work_req(self):
-        return self.dlapi.finnished_work_req()
-    
-    def append_finnished_work_req(self, req):
-        return self.dlapi.append_finnished_work_req(req)
-    
     def create_new_request(self, req):
         return self.dlapi.create_new_request(req)
     

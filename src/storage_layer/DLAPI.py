@@ -43,12 +43,6 @@ class DLAPI:
     def open_request(self, wr_id):
         return self.ReqDL.open_request(wr_id)
     
-    def finnished_work_req(self):
-        return self.ReqDL.finnished_work_req()
-    
-    def append_finnished_work_req(self, req):
-        return self.ReqDL.append_finnished_work_req(req)
-    
     def work_req_count(self):
         return self.ReqDL.work_req_count()
         

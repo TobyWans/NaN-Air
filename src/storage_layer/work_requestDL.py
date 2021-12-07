@@ -55,12 +55,6 @@ class WorkRequestDL:
             fieldnames = ['req_id', 'title', 'where', 'housing_id', 'description', 'priority', 'status', 'date', 'employee']
             writer = csv.DictWriter(wrfile, fieldnames=fieldnames)
             writer.writerow({'req_id': req.req_id, 'title': req.title, 'where': req.where, 'housing_id': req.housing_id, 'description': req.description, 'priority': req.priority, 'status': req.status, 'date': req.date, 'employee': req.employee})
-    
-    def finnished_work_req(self):
-        pass
-            
-    def append_finnished_work_req(self, req):
-        pass
             
     def close_request(self, wr_id):
         if wr_id == None:

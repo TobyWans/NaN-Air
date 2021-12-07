@@ -91,12 +91,6 @@ class LLAPI:
     def create_new_request(self, req):
         return self.workrequestLL.create_new_request(req)
     
-    def finnished_work_req(self):
-        return self.workrequestLL.finnished_work_req()
-    
-    def append_finnished_work_req(self, req):
-        return self.workrequestLL.append_finnished_work_req(req)
-    
     def open_request(self, wr_id):
         return self.workrequestLL.open_request(wr_id)
     

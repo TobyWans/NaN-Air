@@ -78,14 +78,13 @@ class WorkRequestMenu:
                         if date_input == 'r':
                             running = False
                 
-            elif command == '4':
+            elif command == '4': # User open Work Requests
                 user_req_list = self.llapi.user_open_requests(self.llapi.curent_user)
                 if user_req_list != []:
                     for row in user_req_list:
                         print(row)
                 input("Press enter to continue")
                     
-                
             elif command == '5': # List Finnished Requests
                 finished_requests = self.llapi.all_closed_work_requests()
                 self.llapi.clear_console()
@@ -117,7 +116,7 @@ class WorkRequestMenu:
                     open_change_request = self.llapi.open_request(open_id)
                     if open_change_request == None:
                         print("Sorry, there are no requests with that ID\n")
-                        time.sleep(1.4)
+                        time.sleep(1.8)
                         self.llapi.clear_console()
                         all_closed_work_requests = self.llapi.all_closed_work_requests()
                         for request in all_closed_work_requests:
@@ -129,7 +128,7 @@ class WorkRequestMenu:
                         print()
                     elif open_change_request == 69:
                         print("That work request is already open")
-                        time.sleep(1.4)
+                        time.sleep(1.8)
                         self.llapi.clear_console()
                         all_closed_work_requests = self.llapi.all_closed_work_requests()
                         for request in all_closed_work_requests:
@@ -137,7 +136,7 @@ class WorkRequestMenu:
                         open_id = int(input("Please try another ID: "))
                     else:
                         print("Work request successfully changed!")
-                        time.sleep(1.3)
+                        time.sleep(1.8)
                         running = False
                 
             elif command == '8': # Close Request
@@ -154,7 +153,7 @@ class WorkRequestMenu:
                     close_request = self.llapi.close_request(close_id)
                     if close_request == None:
                         print("Sorry, there are no requests with that ID\n")
-                        time.sleep(1.4)
+                        time.sleep(1.8)
                         self.llapi.clear_console()
                         all_open_work_requests = self.llapi.all_open_work_requests()
                         for request in all_open_work_requests:
@@ -166,18 +165,18 @@ class WorkRequestMenu:
                         print()
                     elif close_request == 69:
                         print("That work request is already closed")
-                        time.sleep(1.4)
+                        time.sleep(1.8)
                         self.llapi.clear_console()
                         all_open_work_requests = self.llapi.all_open_work_requests()
                         for request in all_open_work_requests:
                             print(request)
                         close_id = int(input("Please try another ID: "))
                     else:
-                        print("Work request successfully changed!")
-                        time.sleep(1.3)
+                        print("Work request changed successfully!")
+                        time.sleep(1.8)
                         running = False
                 
-            elif command.lower() == 'r':
+            elif command.lower() == 'r': # Return to Main Menu
                 self.llapi.clear_console()
                 return 'r'
             else:
