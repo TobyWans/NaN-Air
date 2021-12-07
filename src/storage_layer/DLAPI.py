@@ -66,8 +66,8 @@ class DLAPI:
     def get_all_employees(self):
         return self.employee.get_all_employees()
 
-    def search_employee_by_id(self):
-        return self.employee.search_employee_by_ID(self)
+    def search_employee_by_id(self, id):
+        return self.employee.search_employee_by_ID(id)
 
     def search_employee_by_location(self):
         return self.employee.search_employee_by_location(self)

@@ -27,8 +27,13 @@ class EmployeeDL:
     def search_employee_by_location(self, emp):
         pass
 
-    def search_employee_by_ID(self, emp):
-        pass
+    def search_employee_by_ID(self, id):
+        with open(self.filepath, newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                if row['id'] == str(id):
+                    employee= row['name']
+                    return employee
     
     def confirm_emp_login(self, emp_id):
         with open(self.filepath, newline='', encoding='utf-8') as csvfile:
