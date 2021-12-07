@@ -102,6 +102,9 @@ class DLAPI:
     
     def get_rental_status(self):
         return self.housDL.get_rental_status()
+    
+    def get_housing_id_by_location(self, location):
+        return self.housDL.get_housing_id_by_location(location)
             
         # Constructor Logic
     def get_contractor_list(self):
