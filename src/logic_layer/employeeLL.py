@@ -16,7 +16,7 @@ class EmployeeLL:
         pass
 
     def change_employee(self):
-        return self.dlapi.change_employee(self)
+        return self.dlapi.change_employee()
 
     def search_employee_by_id(self, id):
         return self.dlapi.search_employee_by_id(id)

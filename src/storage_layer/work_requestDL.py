@@ -46,9 +46,6 @@ class WorkRequestDL:
             return reqs_list
         else:
             return None
-        
-    # def user_open_requests(self, user_id):
-    #     with
                         
     def create_new_request(self, req):
         with open(self.work_req_file, 'a', newline='', encoding='utf-8') as wrfile:
