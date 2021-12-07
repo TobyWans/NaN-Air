@@ -17,8 +17,13 @@ class WorkRequestLL:
     def search_date(self, date):
         return self.dlapi.search_date(date)
     
-    def user_open_requests(self):
-        pass
+    def user_open_requests(self, user_id):
+        user_req_list = []
+        wr_list = self.dlapi.get_all_open_work_requests()
+        for req in wr_list:
+            if user_id == req.user_id:
+                user_req_list.append
+        return user_req_list
     
     def finnished_work_req(self):
         return self.dlapi.finnished_work_req()

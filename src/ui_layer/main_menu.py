@@ -58,3 +58,4 @@ class MainMenu:
         while not self.llapi.ID_login(login):
             print("Invalid ID")
             login = input("Enter your ID: ")
+        return login

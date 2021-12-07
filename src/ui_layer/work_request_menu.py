@@ -10,6 +10,7 @@ class WorkRequestMenu:
         self.llapi = llapi
         self.supervisor_options = ["Create new request", "Open/Change request", "Close request"]
         self.employee_options = ["All work requests", "Search by ID", "Search by date", "Your open requests", "Finished request"]
+        self.current_user = self.llapi.curent_user
     
     def draw_options(self):
         self.llapi.clear_console()
@@ -78,7 +79,11 @@ class WorkRequestMenu:
                             running = False
                 
             elif command == '4':
-                user_open_requests = self.llapi.user_open_requests() # bæta við llapi
+                user_req_list = self.llapi.user_open_requests(self.current_user)
+                if user_req_list != []:
+                    for row in user_req_list:
+                        print(row)
+                    
                 
             elif command == '5': # List Finnished Requests
                 finished_requests = self.llapi.all_closed_work_requests()

@@ -19,8 +19,12 @@ class LLAPI:
         self.contractormenuLL = ContractorMenuLL(self.dlapi)
         
         # Misc Logic
-    def ID_login(self, id):
-        return self.login_checker.ID_login(id)
+    def ID_login(self, user_id):
+        self.curent_user = user_id
+        return self.login_checker.ID_login(self.curent_user)
+    
+    def login_saver(self, id_num):
+        return self.login_checker.login_saver(id_num)
     
     def supervisor_check(self):
         return self.login_checker.supervisor_check()
@@ -80,6 +84,9 @@ class LLAPI:
     
     def search_date(self, date):
         return self.workrequestLL.search_date(date)
+    
+    def user_open_requests(self):
+        return self.workrequestLL.user_open_requests(self.curent_user)
     
     def create_new_request(self, req):
         return self.workrequestLL.create_new_request(req)

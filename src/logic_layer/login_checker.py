@@ -5,6 +5,7 @@ from src.storage_layer.DLAPI import DLAPI
 class LogInCheck:
     def __init__(self, dlapi: DLAPI):
         self.dlapi = dlapi
+        self.current_user = None
         
     # log in validation
     # kannski hægt að gera þetta auðveldara?
@@ -16,6 +17,7 @@ class LogInCheck:
             return False
         else:
             if self.dlapi.confirm_emp_login(login):
+                
                 return True
             else:
                 return False
