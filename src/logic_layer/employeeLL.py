@@ -28,3 +28,6 @@ class EmployeeLL:
 
     def location_check(self, id):
         return self.dlapi.location_check(id)
+
+    def employee_name(self, user_id):
+        return self.dlapi.get_employee_name(user_id)

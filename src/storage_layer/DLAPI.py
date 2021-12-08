@@ -77,6 +77,9 @@ class DLAPI:
 
     def location_check(self, id):
         return self.employee.location_check(id)
+
+    def get_employee_name(self, user_id):
+        return self.employee.get_employee_name(user_id)
         
         # Housing Logic
     def add_housing(self, hous):

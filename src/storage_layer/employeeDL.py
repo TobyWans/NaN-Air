@@ -62,3 +62,12 @@ class EmployeeDL:
             for row in reader:
                 if row['empid'] == str(empid):
                     return row['location']
+
+    def get_employee_name(self, user_id):
+        with open(self.filepath, newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                if row['empid'] == user_id:
+                    user_name = row['name']
+                    quit
+        return user_name
