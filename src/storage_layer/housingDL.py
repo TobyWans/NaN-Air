@@ -58,7 +58,8 @@ class HousingDL:
     def change_housing():
         pass
 
-    def get_rental_status(self, user_location): #List of free to book and booked requests
+    def get_rental_status_by_location(self, user_location): 
+        #List of free to book and booked requests for given location
         free_to_book = []
         booked = []
         with open(self.filepath, newline='', encoding='utf-8') as csvfile:
@@ -71,4 +72,19 @@ class HousingDL:
                     elif row['rental_status'] == 'booked':
                         booked.append(hous)
                     
+        return free_to_book, booked
+
+
+    def get_rental_status(self):
+        #List of free to book and booked requests
+        free_to_book = []
+        booked = []
+        with open(self.filepath, newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                    hous = Housing(**row)
+                    if row['rental_status'] == 'free to rent':
+                        free_to_book.append(hous)
+                    elif row['rental_status'] == 'booked':
+                        booked.append(hous)
         return free_to_book, booked

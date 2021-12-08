@@ -2,8 +2,8 @@ from src.logic_layer.LLAPI import LLAPI
 from src.models.housing import Housing
 import time
 
-WAIT = "\n\tPress enter to continue\n"
-RETURN = "\n\t\tR. Return\n"
+ENTER = "\n\tPress enter to continue"
+RETURN = "\t\tR. Return"
 INVALID = "Invalid option. Try again!"
 
 class HousingMenu:
@@ -18,6 +18,16 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
 /_/ |_/  \__,_/ /_/ /_/      /_/  |_/_/  /_/     
                                                  """
     
+    def main_header(self, text, size=48):
+        print("=".center(size, '='))
+        print(f"{text}".center(size, ' '))
+        print("=".center(size, '='))
+    
+    def header(self, text, size):
+        print("-".center(size, '-'))
+        print (f"{text}".center(size, ' '))
+        print("-".center(size, '-'))
+    
     def draw_options(self):
         self.llapi.clear_console()
         print(self.splash_screen)
@@ -25,7 +35,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         all_options.extend(self.employee_options)
         if self.llapi.supervisor_check():
             all_options.extend(self.supervisor_options)
-        print("Housing Menu:".center(48, '-'))
+        self.main_header("Housing Menu")
         for index in all_options:
             print(f"\t\t{all_options.index(index) + 1}. {index}")
         print(RETURN)
@@ -33,7 +43,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
     def prompt_input(self):
         while True:
             self.draw_options()
-            command = input(f"\tEnter your input: ")
+            command = input(f"\n\tEnter your input: ")
             if command == "1":
                 self.sort_by_location()
             elif command == "2":
@@ -52,9 +62,10 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
     def sort_by_location(self):
         housing_list = self.llapi.housing_list()
         location_list = self.llapi.location_list()
+        self.llapi.clear_console()
         if self.llapi.supervisor_check():
             for location in location_list:
-                print(f"\n\t***{location}***")
+                self.header(location, 90)
                 for row in housing_list:
                     if location in row.values():
                         hous = Housing(**row)
@@ -63,13 +74,13 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
             user_location = self.llapi.location_check()
             for location in location_list:
                 if user_location == location:
-                    print(f"\n\t***{location}***")
+                    self.header(location, 90)
                     for row in housing_list:
                         if location in row.values():
                             hous = Housing(**row)
                             print(f"{hous}")
-            input(WAIT)
-            self.llapi.clear_console()
+        input(ENTER)
+        self.llapi.clear_console()
             
     def search_by_id(self):
         running = True
@@ -83,7 +94,6 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
             search_by_id = self.llapi.search_by_housing_id(id_input)
             if search_by_id == None:
                 print("\nSorry, there are no properties with that ID\n".center(48))
-                time.sleep(1)
                 id_input = input("Please try another ID or type r to return: ")
                 if id_input.lower() == 'r':
                     running = False
@@ -96,17 +106,20 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                     running = False
 
     def rental_status(self):
-        user_location = self.llapi.location_check()
-        free_to_rent, booked = self.llapi.get_rental_status(user_location)
-        print()
-        print (f"Free to rent".center(90, '-'))
-        for line in free_to_rent:
-            print(f"{line}")
-        print()
-        print("Booked".center(90, '-'))
-        for line in booked:
-            print(f"{line}")
-        input(WAIT)
+        if not self.llapi.supervisor_check():
+            user_location = self.llapi.location_check()
+            free_to_rent, booked = self.llapi.rental_status_by_location(user_location)
+        else:
+            free_to_rent, booked = self.llapi.rental_status()
+            self.main_header("Free to rent",155)
+            for line in free_to_rent:
+                print(f"{line}")
+                print (f"-".center(155,'-'))
+            self.main_header("Booked",155)
+            for line in booked:
+                print(f"{line}")
+                print (f"-".center(155,'-'))
+        input(ENTER)
 
     def add_housing(self):
         user_id = self.llapi.curent_user
@@ -126,7 +139,3 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
 
     def change_housing(self):
         pass
-    
-
-
-
