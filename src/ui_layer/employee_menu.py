@@ -22,7 +22,10 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         print(self.splash_screen)
         all_options = []
         all_options.extend(self.supervisor_options)
-        print("Menu".center(48, '-'))
+        print("=".center(48, '='))
+        print("Employees Menu".center(48, ' '))
+        print("=".center(48, '='))
+        print()
         for index in all_options:
             print(f"\t\t{all_options.index(index) + 1}. {index}")
         print("\t\tR. Return\n")
