@@ -23,13 +23,13 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         print("=".center(48, '='))
         print()
         for index in all_options:
-            print(f"\t{all_options.index(index) + 1}. {index}")          # Prints all the available options i.e the destinations.
-        print("\tR. Return\n")
+            print(f"\t\t{all_options.index(index) + 1}. {index}")          # Prints all the available options i.e the destinations.
+        print("\t\tR. Return\n")
 
     def prompt_input(self):          # prompts for input and prints the corresponding info.
         while True:
             self.draw_options()
-            command = input("Enter an option: ")
+            command = input("\tEnter an option: ")
 
             dest_list = self.llapi.destination_info()          # The info.
 
