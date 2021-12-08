@@ -64,8 +64,19 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                 
             # Login prompt for user
     def login(self):
-        login = input("Enter your ID: ")
+        self.llapi.clear_console()
+        print(self.splash_screen)
+        print("Please login with your employee ID number".center(48, '-'))
+        print()
+        login = input("\tEnter your ID: ")
         while not self.llapi.ID_login(login):
-            print("Invalid ID")
-            login = input("Enter your ID: ")
+            print("\tInvalid ID")
+            time.sleep(1)
+            self.llapi.clear_console()
+            print(self.splash_screen)
+            print("Please login with your employee ID number".center(48, '-'))
+            print()
+            login = input("\tEnter your ID: ")
+        print("Login successful!".center(48))
+        time.sleep(1.8)
         return login
