@@ -1,5 +1,5 @@
 import csv
-
+import os
 from src.models.employee import Employee
 
 class EmployeeDL:
@@ -21,8 +21,21 @@ class EmployeeDL:
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writerow({'name': new_employee.name, "email": new_employee.email, "address": new_employee.address, "phone": new_employee.phone, "mobile": new_employee.mobile, "location": new_employee.location, "empid": new_employee.empid})
        
-    def change_employee(self, emp):
-        pass
+    def change_employee(self, emp_id):
+        with open('src/data/Employee.csv', newline='', encoding='utf-8') as inf, open('src/data/Employee_temp.csv', 'w') as outf:
+            reader = csv.reader(inf)
+            writer = csv.writer(outf)
+            fieldnames = ["name", "email", "address", "phone", "mobile", "location", "empid"]
+            for row in reader:
+                if row[6] == str(emp_id):
+                    writer = csv.DictWriter(outf, fieldnames=fieldnames)
+                    writer.writerow({'name': change.name, "email": change.email, "address": change.address, "phone": change.phone, "mobile": change.mobile, "location": change.location, "empid": emp_id})
+                    break
+                else:
+                    writer.writerow(row)
+                writer.writerows(reader)
+        os.remove('src/data/Employee.csv')
+        os.rename('src/data/Employee_temp.csv', 'src/data/Employee.csv')
 
     def search_employee_by_location(self, location):
         emp_location = []

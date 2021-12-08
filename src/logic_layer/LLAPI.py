@@ -50,8 +50,8 @@ class LLAPI:
     def create_new_employee(self, new_employee):
         return self.employeell.create_new_employee(new_employee)
 
-    def change_employee(self):
-        return self.employeell.change_employee()
+    def change_employee(self, emp_id):
+        return self.employeell.change_employee(emp_id)
 
     def search_employee_by_id(self, id):
         return self.employeell.search_employee_by_id(id)

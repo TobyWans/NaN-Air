@@ -63,8 +63,8 @@ class DLAPI:
     def create_new_employee(self, new_employee):
         return self.employee.create_new_employee(new_employee)
 
-    def change_employee(self):
-        return self.employee.change_employee(self)
+    def change_employee(self, emp_id):
+        return self.employee.change_employee(emp_id)
 
     def get_all_employees(self):
         return self.employee.get_all_employees()

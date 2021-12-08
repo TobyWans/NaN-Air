@@ -14,8 +14,8 @@ class EmployeeLL:
     
    
 
-    def change_employee(self):
-        return self.dlapi.change_employee()
+    def change_employee(self, emp_id):
+        return self.dlapi.change_employee(emp_id)
 
     def search_employee_by_id(self, id):
         return self.dlapi.search_employee_by_id(id)
