@@ -116,8 +116,8 @@ class LLAPI:
     def search_by_housing_id(self, entered_id):
         return self.housLL.search_by_housing_id(entered_id)
     
-    def get_rental_status(self):
-        return self.housLL.get_rental_status()
+    def get_rental_status(self, user_location):
+        return self.housLL.get_rental_status(user_location)
     
     def get_housing_id_by_location(self, location):
         return self.housLL.get_housing_id_by_location(location)

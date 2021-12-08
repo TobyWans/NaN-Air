@@ -20,8 +20,8 @@ class HousingLL:
     def search_by_housing_id(self, entered_id):
         return self.dlapi.search_by_housing_id(entered_id)
     
-    def get_rental_status(self):
-        return self.dlapi.get_rental_status()
+    def get_rental_status(self, user_location):
+        return self.dlapi.get_rental_status(user_location)
     
     def get_housing_id_by_location(self, location):
         get_housing = self.dlapi.get_housing_id_by_location(location)

@@ -5,7 +5,7 @@ class HousingMenu:
     def __init__(self, llapi:LLAPI):
         self.llapi = llapi
         self.supervisor_options = ["Add housing","Check/Change housing"]
-        self.employee_options = ["List of housing", "Renting status"]
+        self.employee_options = ["List of housing","Search by Id", "Renting status"]
         self.splash_screen = """_____   __                   ____________        
 ___  | / /_____ _______      ___    |__(_)_______
 __   |/ /_  __ `/_  __ \     __  /| |_  /__  ___/
@@ -33,13 +33,13 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                 self.sort_by_location()
                 if self.llapi.supervisor_check():
                     self.id_menu_option()
-                else:
-                    print("\n\tR. Return\n")
             elif command == "2":
-                self.rental_status()
+                self.search_by_id()
             elif command == "3":
-                self.add_housing()
+                self.rental_status()
             elif command == "4":
+                self.add_housing()
+            elif command == "5":
                 self.search_by_id()
             elif command.lower() == "r":
                 return
@@ -47,14 +47,12 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                 print("Invalid option. Try again!")
 
     def sort_by_location(self):
-        hous_list = []
         housing_list = self.llapi.housing_list()
         location_list = self.llapi.location_list()
-        hous_list.extend(housing_list)
         if self.llapi.supervisor_check():
             for location in location_list:
                 print(f"\n\t***{location}***")
-                for row in hous_list:
+                for row in housing_list:
                     if location in row.values():
                         hous = Housing(**row)
                         print(f"{hous}")
@@ -63,7 +61,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
             for location in location_list:
                 if user_location == location:
                     print(f"\n\t***{location}***")
-                    for row in hous_list:
+                    for row in housing_list:
                         if location in row.values():
                             hous = Housing(**row)
                             print(f"{hous}")
@@ -71,7 +69,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
             self.llapi.clear_console()
 
     def id_menu_option(self):
-        print("\tS. Search by Id")
+        print("\n\tS. Search by Id")
         print("\tR. Return")
         command = (input(f"\n\tEnter your input: "))
         if command.lower() == "s":
@@ -88,7 +86,8 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         #Bæta quit
 
     def rental_status(self):
-        free_to_rent, booked = self.llapi.get_rental_status()
+        user_location = self.llapi.location_check()
+        free_to_rent, booked = self.llapi.get_rental_status(user_location)
         print (f"\n\t***Free to rent***")
         for line in free_to_rent:
             print(f"{line}")

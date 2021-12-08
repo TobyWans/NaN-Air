@@ -2,8 +2,8 @@ supervisor,property_number,street_name,street_number,location,size,nr_of_rooms,t
 
 Jan Jacobsen,F959594,Vei,217,Svalbard,150m2,4 room,Villas,None,free to rent
 
-Jan Jacobsen,AA999-1,Longyearbyen Harbor,1,Svalbard,200m2,reception,Submarine,"sauna, weight room, kjarnaofn",free to rent
-Jan Jacobsen,AA999-2,Longyearbyen Harbor,1,Svalbard,60m2,1 room,Submarine,"sauna, weight room, kjarnaofn",free to rent
+Jan Jacobsen,AA999-1,Longyearbyen Harbor,1,Svalbard,200m2,reception,Submarine,"sauna, weight room, kjarnaofn",not applicable
+Jan Jacobsen,AA999-2,Longyearbyen Harbor,1,Svalbard,60m2,1 room,Submarine,"sauna, weight room, kjarnaofn",booked
 Jan Jacobsen,AA999-3,Longyearbyen Harbor,1,Svalbard,60m2,1 room,Submarine,"sauna, weight room, kjarnaofn",free to rent
 Jan Jacobsen,AA999-4,Longyearbyen Harbor,1,Svalbard,60m2,1 room,Submarine,"sauna, weight room, kjarnaofn",free to rent
 Jan Jacobsen,AA999-5,Longyearbyen Harbor,1,Svalbard,60m2,1 room,Submarine,"sauna, weight room, kjarnaofn",free to rent
@@ -84,7 +84,7 @@ Jan Jacobsen,AA999-79,Longyearbyen Harbor,1,Svalbard,60m2,1 room,Submarine,"saun
 Jan Jacobsen,AA999-80,Longyearbyen Harbor,1,Svalbard,60m2,1 room,Submarine,"sauna, weight room, kjarnaofn",free to rent
 Jan Jacobsen,AA999-81,Longyearbyen Harbor,1,Svalbard,60m2,1 room,Submarine,"sauna, weight room, kjarnaofn",free to rent
 
-Minik Wallace,64-3900,iGloo-Ville,0,Nuuk,35fm2,reception and restaurant,Snow house,None,free to rent
+Minik Wallace,64-3900,iGloo-Ville,0,Nuuk,35fm2,reception and restaurant,Snow house,None,not applicable
 Minik Wallace,64-3901,iGloo-Ville,1,Nuuk,35fm2,1 room,Snow house,None,free to rent
 Minik Wallace,64-3902,iGloo-Ville,2,Nuuk,35fm2,1 room,Snow house,None,free to rent
 Minik Wallace,64-3903,iGloo-Ville,3,Nuuk,35fm2,1 room,Snow house,None,free to rent
@@ -104,12 +104,12 @@ Minik Wallace,64-3812,Nuussuaq,4,Nuuk,400m2,8 rooms,Villas,None,free to rent
 
 Annette Djurhuus,ix-9331,Skákið,15,Faroe Islands,40m2,1 room,Townhouse,None,booked
 Annette Djurhuus,ix-9332,Skákið,15,Faroe Islands,30m2,1 room,Townhouse,None,booked
-Annette Djurhuus,ix-9333,Skákið,15,Faroe Islands,30m2,1 room,Townhouse,None,booked
+Annette Djurhuus,ix-9333,Skákið,15,Faroe Islands,30m2,1 room,Townhouse,None,free to rent
 
 Annette Djurhuus,ix-2239,Svalbarðsvegur,22,Faroe Islands,200m2,5 rooms,Villas,None,free to rent
 
-Annette Djurhuus,ix-9492,Nýggivegur,1,Faroe Islands,15m2,reception,Turf house,None,free to rent
-Annette Djurhuus,ix-9493,Nýggivegur,1,Faroe Islands,15m2,1 room,Turf house,None,free to rent
+Annette Djurhuus,ix-9492,Nýggivegur,1,Faroe Islands,15m2,reception,Turf house,None,not applicable
+Annette Djurhuus,ix-9493,Nýggivegur,1,Faroe Islands,15m2,1 room,Turf house,None,booked
 Annette Djurhuus,ix-9494,Nýggivegur,1,Faroe Islands,15m2,1 room,Turf house,None,free to rent
 Annette Djurhuus,ix-9495,Nýggivegur,1,Faroe Islands,15m2,1 room,Turf house,None,free to rent
 Annette Djurhuus,ix-9496,Nýggivegur,1,Faroe Islands,15m2,1 room,Turf house,None,free to rent

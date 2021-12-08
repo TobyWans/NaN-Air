@@ -94,8 +94,8 @@ class DLAPI:
     def search_by_housing_id(self, entered_id):
         return self.housDL.search_by_housing_id(entered_id)
     
-    def get_rental_status(self):
-        return self.housDL.get_rental_status()
+    def get_rental_status(self, user_location):
+        return self.housDL.get_rental_status(user_location)
     
     def get_housing_id_by_location(self, location):
         return self.housDL.get_housing_id_by_location(location)
