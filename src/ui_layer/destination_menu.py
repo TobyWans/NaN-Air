@@ -33,7 +33,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
 
             dest_list = self.llapi.destination_info()          # The info.
 
-            if command == "1":
+            if command == "1":          # info about Nuuk
                 search_city = self.llapi.search_des_file_by_city("Nuuk")
                 if search_city == None:
                     print("Sorry, there's no information about this destination")
@@ -45,7 +45,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                     print(dest_list[0])
                     back = input("Press enter to continue")
                     self.llapi.clear_console()
-            elif command  == "2":
+            elif command  == "2":          # Info about Tórshavn
                 search_city = self.llapi.search_des_file_by_city("Tórshavn")
                 if search_city == None:
                     print("Sorry, there's no information about this destination")
@@ -57,7 +57,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                     print(dest_list[1])
                     back = input("Press enter to continue")
                     self.llapi.clear_console()
-            elif command  == "3":
+            elif command  == "3":          # Info about Longyearbyen
                 search_city = self.llapi.search_des_file_by_city("Longyearbyen")
                 if search_city == None:
                     print("Sorry, there's no information about this destination")
@@ -69,7 +69,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                     print(dest_list[2])
                     back = input("Press enter to continue")
                     self.llapi.clear_console()
-            elif command  == "4":
+            elif command  == "4":          # Info about Kulusuk
                 search_city = self.llapi.search_des_file_by_city("Kulusuk")
                 if search_city == None:
                     print("Sorry, there's no information about this destination")
@@ -81,7 +81,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                     print(dest_list[3])
                     back = input("Press enter to continue")
                     self.llapi.clear_console()
-            elif command  == "5":
+            elif command  == "5":          # Info about tingwall
                 search_city = self.llapi.search_des_file_by_city("Tingwall")
                 if search_city == None:
                     print("Sorry, there's no information about this destination")
@@ -93,10 +93,10 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                     print(dest_list[4])
                     back = input("Press enter to continue")
                     self.llapi.clear_console()
-            elif command.lower() == 'r':
+            elif command.lower() == 'r':          # returns to Main menu
                 self.llapi.clear_console()
                 return 'r'
-            else:
+            else:          # 
                 print("Invalid option, please try again ")
                 time.sleep(1)
 
