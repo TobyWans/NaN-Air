@@ -1,6 +1,9 @@
 from src.logic_layer.LLAPI import LLAPI
 from src.models.housing import Housing
 
+WAIT = "\n\tPress enter to continue\n"
+RETURN = "\n\t\tR. Return\n"
+
 class HousingMenu:
     def __init__(self, llapi:LLAPI):
         self.llapi = llapi
@@ -23,7 +26,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         print("Housing Menu:".center(48, '-'))
         for index in all_options:
             print(f"\t\t{all_options.index(index) + 1}. {index}")
-        print("\t\tR. Return\n")
+        print(RETURN)
         
     def prompt_input(self):
         while True:
@@ -65,12 +68,12 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                         if location in row.values():
                             hous = Housing(**row)
                             print(f"{hous}")
-            input("\n\tPress enter to continue\n")
+            input(WAIT)
             self.llapi.clear_console()
 
     def id_menu_option(self):
         print("\n\tS. Search by Id")
-        print("\tR. Return")
+        print(RETURN)
         command = (input(f"\n\tEnter your input: "))
         if command.lower() == "s":
             self.llapi.clear_console()
@@ -79,11 +82,14 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
     def search_by_id(self):
         search_by_housing_id = "Invalid input!" #it can be constant
         while search_by_housing_id == "Invalid input!": 
-            id_input = input("Please enter the property ID: ")
+            print(RETURN)
+            id_input = input("\n\t\tPlease enter the property ID: ")
+            if id_input.lower() == "r":
+                return
+            self.llapi.clear_console()
             search_by_housing_id = self.llapi.search_by_housing_id(id_input)
             print(search_by_housing_id)
-        wait = input("Press enter to contine") #it can be constant
-        #Bæta quit
+        input(WAIT)
 
     def rental_status(self):
         user_location = self.llapi.location_check()
@@ -94,7 +100,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         print("\n\t***Booked***")
         for line in booked:
             print(f"{line}")
-        wait = input("Press enter to contine") #maybe it can be constant
+        input(WAIT)
 
     def add_housing(self):
         supervisor = input("Enter your full name:") # Should probably automaticly adding the name of supervisor which is loged in 
