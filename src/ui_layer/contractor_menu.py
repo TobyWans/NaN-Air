@@ -37,7 +37,9 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         print(self.splash_screen)
         self.all_options = []
         self.all_options.extend(self.employee_options)
-        print("Contractors Menu".center(88, '-'))
+        print("=".center(90, '='))
+        print("Contractors".center(90, ' '))
+        print("=".center(90, '='))
         if self.llapi.supervisor_check():
             self.all_options.extend(self.supervisor_options)
         for index in self.all_options:
