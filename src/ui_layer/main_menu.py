@@ -77,6 +77,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
             print("Please login with your employee ID number".center(48, '-'))
             print()
             login = input("\tEnter your ID: ")
-        print("Login successful!".center(48))
-        time.sleep(1.8)
+        print()
+        print("\tLogin successful!")
+        time.sleep(1.2)
         return login
