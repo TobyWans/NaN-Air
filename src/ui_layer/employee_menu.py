@@ -58,13 +58,19 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                         running = False
 
             elif command == '4':
+                running = True
                 print("Available locations: ", ' - '.join(self.llapi.location_list()))
-                location = input("Enter location: ")
-                search_employee_by_location = self.llapi.search_employee_by_location(location.lower)
-                for row in search_employee_by_location:
-                    print(row)
-                print("Press enter to continue")
-                time.sleep(1.8)
+                while running:
+                    location = input("Enter location: ")
+                    search_employee_by_location = self.llapi.search_employee_by_location(location.capitalize())
+                    if search_employee_by_location == None:
+                        print("Sorry, No employee with that location")
+                        location = None
+                    else:
+                        for row in search_employee_by_location:
+                            print(row)
+                        running = False
+                        input("Press enter to continue")
 
             elif command == '5':
                 all_employees = self.llapi.get_all_employees()
@@ -86,7 +92,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         phone = input("Enter phone number: ")
         mobile = input("Enter mobile number ")
         print("Available locations: ", ' - '.join(self.llapi.location_list()))
-        location = input("Enter location: ")
+        location = input("Enter location: ").capitalize()
         new_employee = Employee(name, e_mail, address, phone, mobile, location, emp_id)
         self.llapi.create_new_employee(new_employee)
 

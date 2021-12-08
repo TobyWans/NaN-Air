@@ -32,9 +32,11 @@ class EmployeeDL:
                 if row['location'] == location:
                     emp = Employee(**row)
                     emp_location.append(emp)
-                    
-        return emp_location
-
+        if len(emp_location):
+            return emp_location
+        else:
+            return None
+        
     def search_employee_by_ID(self, empid):
         employee_id = []
         with open(self.filepath, newline='', encoding='utf-8') as csvfile:
