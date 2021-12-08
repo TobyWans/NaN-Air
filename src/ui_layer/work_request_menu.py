@@ -25,7 +25,9 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         all_options.extend(self.employee_options)
         if self.llapi.supervisor_check():
             all_options.extend(self.supervisor_options)
-        print("Work Request Menu".center(48, '-'))
+        print("=".center(48, '='))
+        print("Work Request Menu".center(48, ' '))
+        print("=".center(48, '='))
         for index in all_options:
             print(f"\t\t{all_options.index(index) + 1}. {index}")
         print("\t\tR. Return\n")
@@ -71,27 +73,33 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                 
             elif command == '3': # Search Work Requests by date
                 running = True
-                print("Enter a date in the format dd/mm/yy or type r to return")
+                print("Enter a date in the format dd-mm-yy or type r to return")
                 date_input = input("".center(27))
+                date_str = datetime.strptime(date_input, "%d-%m-%y")
+                date_obj = date_str.strftime("%d/%m/%y")
                 if date_input == 'r':
                     running = False
                 while running:
                     self.llapi.clear_console()
                     print(self.splash_screen)
                     print("Search for work requests by date".center(48, '-'))
-                    search_date = self.llapi.search_date(date_input)
+                    search_date = self.llapi.search_date(date_obj)
                     if search_date == None:
                         print("\nSorry, there is no requests with that date\n".center(48))
-                        print("Try another date | dd/mm/yy | or type r to return")
+                        print("Try another date | dd-mm-yy | or type r to return")
                         date_input = input("".center(19))
+                        date_str = datetime.strptime(date_input, "%d-%m-%y")
+                        date_obj = date_str.strftime("%d/%m/%y")
                         self.llapi.clear_console()
                         if date_input == 'r':
                             running = False
                     else:
                         for req in search_date:
                             print(req)
-                        print("Enter another date | dd/mm/yy | or type r to return")
+                        print("Enter another date | dd-mm-yy | or type r to return")
                         date_input = input("".center(21))
+                        date_str = datetime.strptime(date_input, "%d-%m-%y")
+                        date_obj = date_str.strftime("%d/%m/%y")
                         self.llapi.clear_console()
                         if date_input == 'r':
                             running = False
