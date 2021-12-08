@@ -40,6 +40,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         print("=".center(90, '='))
         print("Contractors".center(90, ' '))
         print("=".center(90, '='))
+        print()
         if self.llapi.supervisor_check():
             self.all_options.extend(self.supervisor_options)
         for index in self.all_options:
