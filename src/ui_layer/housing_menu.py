@@ -1,8 +1,10 @@
 from src.logic_layer.LLAPI import LLAPI
 from src.models.housing import Housing
+import time
 
 WAIT = "\n\tPress enter to continue\n"
 RETURN = "\n\t\tR. Return\n"
+INVALID = "Invalid option. Try again!"
 
 class HousingMenu:
     def __init__(self, llapi:LLAPI):
@@ -34,8 +36,6 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
             command = input(f"\tEnter your input: ")
             if command == "1":
                 self.sort_by_location()
-                if self.llapi.supervisor_check():
-                    self.id_menu_option()
             elif command == "2":
                 self.search_by_id()
             elif command == "3":
@@ -47,7 +47,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
             elif command.lower() == "r":
                 return
             else:
-                print("Invalid option. Try again!")
+                print(INVALID)
 
     def sort_by_location(self):
         housing_list = self.llapi.housing_list()
@@ -70,44 +70,52 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                             print(f"{hous}")
             input(WAIT)
             self.llapi.clear_console()
-
-    def id_menu_option(self):
-        print("\n\tS. Search by Id")
-        print(RETURN)
-        command = (input(f"\n\tEnter your input: "))
-        if command.lower() == "s":
-            self.llapi.clear_console()
-            self.search_by_id()
             
     def search_by_id(self):
-        search_by_housing_id = "Invalid input!" #it can be constant
-        while search_by_housing_id == "Invalid input!": 
-            print(RETURN)
-            id_input = input("\n\t\tPlease enter the property ID: ")
-            if id_input.lower() == "r":
-                return
+        running = True
+        id_input = input("Please enter the ID of property or type r to return: ")
+        if id_input.lower() == 'r':
+            running = False
+        while running:
             self.llapi.clear_console()
-            search_by_housing_id = self.llapi.search_by_housing_id(id_input)
-            print(search_by_housing_id)
-        input(WAIT)
+            self.splash_screen
+            print("Search for property by ID number".center(48, '-'))
+            search_by_id = self.llapi.search_by_housing_id(id_input)
+            if search_by_id == None:
+                print("\nSorry, there are no properties with that ID\n".center(48))
+                time.sleep(1)
+                id_input = input("Please try another ID or type r to return: ")
+                if id_input.lower() == 'r':
+                    running = False
+                print()
+            else:
+                print(f"\n{search_by_id}")
+                id_input = input("\nEnter another ID to search or type r to return: ")
+                self.llapi.clear_console()
+                if id_input.lower() == 'r':
+                    running = False
 
     def rental_status(self):
         user_location = self.llapi.location_check()
         free_to_rent, booked = self.llapi.get_rental_status(user_location)
-        print (f"\n\t***Free to rent***")
+        print()
+        print (f"Free to rent".center(90, '-'))
         for line in free_to_rent:
             print(f"{line}")
-        print("\n\t***Booked***")
+        print()
+        print("Booked".center(90, '-'))
         for line in booked:
             print(f"{line}")
         input(WAIT)
 
     def add_housing(self):
-        supervisor = input("Enter your full name:") # Should probably automaticly adding the name of supervisor which is loged in 
+        user_id = self.llapi.curent_user
+        supervisor = self.llapi.employee_name(user_id)
         property_number = input("Property_number: ")
         street_name = input("Street_name: ")
         street_number = input("Street_number: ")
-        location = input("Location: ")
+        city = self.llapi.location_check()
+        location = city
         size = input("Size: ")
         nr_of_rooms = input("Number of rooms: ")
         type = input("Type: ")

@@ -53,7 +53,7 @@ class HousingDL:
                 if row["property_number"] == entered_property_number:
                     property = Particular_real_estate(**row)
                     return property
-            return "Invalid input!"
+            return None
 
     def change_housing():
         pass
