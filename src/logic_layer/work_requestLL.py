@@ -35,6 +35,9 @@ class WorkRequestLL:
     def close_request(self, wr_id):
         return self.dlapi.close_request(wr_id)
     
+    def change_req(self, req_id):
+        return self.dlapi.change_req(req_id)
+    
     def work_req_count(self):
         return self.dlapi.work_req_count()
     

@@ -93,6 +93,14 @@ class WorkRequestDL:
             writer = csv.writer(wrfile)
             writer.writerows(lines)
         return True
+    
+    def change_request_prep(self, re_id):
+        with open(self.work_req_file, newline='', encoding='utf-8') as readfile:
+            reader = csv.reader(readfile)
+            lines = list(reader)
+            for line in lines:
+                if line[re_id][0] == re_id:
+                    return line
        
        # counter for requests to id them
     def work_req_count(self):

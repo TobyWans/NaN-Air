@@ -1,3 +1,4 @@
+from os import close
 from src.models.work_requests import Work_Request
 from src.logic_layer.LLAPI import LLAPI
 from datetime import datetime
@@ -129,6 +130,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                 running = True
                 all_closed_work_requests = self.llapi.all_closed_work_requests()
                 self.llapi.clear_console()
+                print("All closed work requests".center(48, '-'))
                 for request in all_closed_work_requests:
                     print(request)
                 open_id = input("Please enter work request ID you want to open or R to return: ")
@@ -160,9 +162,18 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                             print(request)
                         open_id = int(input("Please try another ID: "))
                     else:
-                        print("Work request successfully changed!".center(48, '-'))
-                        time.sleep(1.8)
-                        running = False
+                        print("Work request successfully opened!".center(48, '-'))
+                        while running:
+                            change = input("Would you like to change the request? (Y/N): ")
+                            if change.lower() == 'y':
+                                change = self.llapi.change_req(open_id)
+                                print(change)
+                            elif change.lower() == 'n': 
+                                time.sleep(1)
+                                running = False
+                            else:
+                                continue
+                            
                 
             elif command == '8': # Close Request
                 running = True
@@ -200,8 +211,25 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                         close_id = int(input("Please try another ID: "))
                     else:
                         print("Work request changed successfully!".center(48, '-'))
-                        time.sleep(1.8)
-                        running = False
+                        again = input("Would you like to close another work request? (Y/N): ")
+                        if again.lower() == 'y':
+                            self.llapi.clear_console()
+                            all_open_work_requests = self.llapi.all_open_work_requests()
+                            for request in all_open_work_requests:
+                                print(request)
+                            close_id = input("Please enter a work request ID you want to close or R to return: ")
+                            if close_id.lower() == 'r':
+                                running = False
+                                close_id = 0
+                            elif close_id.isdigit():
+                                close_id = int(close_id)
+                            else:
+                                close_id = None
+                        elif again.lower() == 'n': 
+                            time.sleep(1)
+                            running = False
+                        else:
+                            continue
                 
             elif command.lower() == 'r': # Return to Main Menu
                 self.llapi.clear_console()
