@@ -26,7 +26,10 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         all_options.extend(self.employee_options)
         if self.llapi.supervisor_check():
             all_options.extend(self.supervisor_options)
-        print("Menu".center(48, '-'))
+        print("=".center(48, '='))
+        print("Main menu".center(48, ' '))
+        print("=".center(48, '='))
+        print()
         for index in all_options:
             print(f"\t\t{all_options.index(index) + 1}. {index}")
         print("\t\tQ. Log out\n")
@@ -66,7 +69,9 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
     def login(self):
         self.llapi.clear_console()
         print(self.splash_screen)
-        print("Please login with your employee ID number".center(48, '-'))
+        print("=".center(48, '='))
+        print("Please login with your employee ID number".center(48, ' '))
+        print("=".center(48, '='))
         print()
         login = input("\tEnter your ID: ")
         while not self.llapi.ID_login(login):
