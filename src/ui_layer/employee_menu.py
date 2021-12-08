@@ -53,12 +53,16 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                     emp_id = input("Search for another ID or type R to return: ")
                     if emp_id.lower() == 'r':
                         running = False
+
             elif command == '4':
                 print("Available locations: ", ' - '.join(self.llapi.location_list()))
                 location = input("Enter location: ")
-                search_employee_by_location = self.llapi.search_employee_by_location(location)
+                search_employee_by_location = self.llapi.search_employee_by_location(location.lower)
                 for row in search_employee_by_location:
-                    print(row) 
+                    print(row)
+                print("Press enter to continue")
+                time.sleep(1.8)
+
             elif command == '5':
                 all_employees = self.llapi.get_all_employees()
                 for employee in all_employees:
