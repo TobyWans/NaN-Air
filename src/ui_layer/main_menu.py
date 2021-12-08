@@ -52,7 +52,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                 return_option = housing_menu.prompt_input()
             elif command == '4' and self.llapi.supervisor_check():
                 employee_menu = EmployeeMenu(self.llapi)
-                return_option = employee_menu.draw_options()
+                return_option = employee_menu.prompt_input()
             elif command == '5' and self.llapi.supervisor_check():
                 destination_menu = DestinationMenu(self.llapi)
                 return_option = destination_menu.prompt_input()
