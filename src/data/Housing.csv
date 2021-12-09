@@ -1,121 +1,121 @@
 supervisor,property_number,street_name,street_number,location,size_in_m2,nr_of_rooms,type,requires_maintenance,rental_status
 
-Jan Jacobsen,F959594,Vei,217,Svalbard,150,4,Villas,None,free to rent
+Jan Jacobsen,F959594,Vei,217,Svalbard,150,4,Villas,none,free to rent
 
 Jan Jacobsen,AA999-1,Longyearbyen Harbor,1,Svalbard,200,reception,Submarine,"sauna, weight room, kjarnaofn",not applicable
-Jan Jacobsen,AA999-2,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,booked
-Jan Jacobsen,AA999-3,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-4,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-5,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-6,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-7,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-8,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-9,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-10,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-11,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-12,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-13,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-14,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-15,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-16,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-17,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-18,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-19,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-20,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-21,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-22,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-23,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-24,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-25,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-26,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-27,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-28,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-29,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-30,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-31,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-32,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-33,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-34,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-35,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-36,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-37,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-38,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-39,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-40,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-41,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-42,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-43,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-44,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-45,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-46,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-47,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-48,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-49,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-50,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-51,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-52,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-53,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-54,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-55,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-56,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-57,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-58,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-59,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-60,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-61,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-62,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-63,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-64,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-65,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-66,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-67,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-68,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-69,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-70,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-71,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-72,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-73,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-74,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-75,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-76,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-77,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-78,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-79,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-80,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
-Jan Jacobsen,AA999-81,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,None,free to rent
+Jan Jacobsen,AA999-2,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,booked
+Jan Jacobsen,AA999-3,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-4,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-5,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-6,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-7,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-8,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-9,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-10,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-11,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-12,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-13,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-14,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-15,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-16,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-17,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-18,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-19,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-20,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-21,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-22,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-23,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-24,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-25,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-26,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-27,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-28,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-29,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-30,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-31,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-32,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-33,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-34,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-35,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-36,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-37,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-38,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-39,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-40,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-41,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-42,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-43,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-44,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-45,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-46,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-47,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-48,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-49,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-50,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-51,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-52,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-53,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-54,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-55,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-56,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-57,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-58,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-59,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-60,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-61,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-62,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-63,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-64,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-65,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-66,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-67,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-68,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-69,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-70,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-71,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-72,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-73,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-74,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-75,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-76,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-77,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-78,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-79,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-80,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
+Jan Jacobsen,AA999-81,Longyearbyen Harbor,1,Svalbard,60,1,Submarine,none,free to rent
 
-Minik Wallace,64-3900,iGloo-Ville,0,Nuuk,35,reception and restaurant,Snow house,None,not applicable
-Minik Wallace,64-3901,iGloo-Ville,1,Nuuk,35,1,Snow house,None,free to rent
-Minik Wallace,64-3902,iGloo-Ville,2,Nuuk,35,1,Snow house,None,free to rent
-Minik Wallace,64-3903,iGloo-Ville,3,Nuuk,35,1,Snow house,None,free to rent
-Minik Wallace,64-3904,iGloo-Ville,4,Nuuk,35,1,Snow house,None,booked
-Minik Wallace,64-3905,iGloo-Ville,5,Nuuk,35,1,Snow house,None,booked
-Minik Wallace,64-3906,iGloo-Ville,6,Nuuk,35,1,Snow house,None,free to rent
-Minik Wallace,64-3907,iGloo-Ville,7,Nuuk,35,1,Snow house,None,free to rent
-Minik Wallace,64-3908,iGloo-Ville,8,Nuuk,35,1,Snow house,None,free to rent
-Minik Wallace,64-3909,iGloo-Ville,9,Nuuk,35,1,Snow house,None,booked
-Minik Wallace,64-3910,iGloo-Ville,10,Nuuk,35,1,Snow house,None,free to rent
+Minik Wallace,64-3900,iGloo-Ville,0,Nuuk,35,reception and restaurant,Snow house,none,not applicable
+Minik Wallace,64-3901,iGloo-Ville,1,Nuuk,35,1,Snow house,none,free to rent
+Minik Wallace,64-3902,iGloo-Ville,2,Nuuk,35,1,Snow house,none,free to rent
+Minik Wallace,64-3903,iGloo-Ville,3,Nuuk,35,1,Snow house,none,free to rent
+Minik Wallace,64-3904,iGloo-Ville,4,Nuuk,35,1,Snow house,none,booked
+Minik Wallace,64-3905,iGloo-Ville,5,Nuuk,35,1,Snow house,none,booked
+Minik Wallace,64-3906,iGloo-Ville,6,Nuuk,35,1,Snow house,none,free to rent
+Minik Wallace,64-3907,iGloo-Ville,7,Nuuk,35,1,Snow house,none,free to rent
+Minik Wallace,64-3908,iGloo-Ville,8,Nuuk,35,1,Snow house,none,free to rent
+Minik Wallace,64-3909,iGloo-Ville,9,Nuuk,35,1,Snow house,none,booked
+Minik Wallace,64-3910,iGloo-Ville,10,Nuuk,35,1,Snow house,none,free to rent
 
-Minik Wallace,64-3875,Suloraq,42,Nuuk,69,1,Appartment bilding,None,free to rent
-Minik Wallace,64-3876,Suloraq,42,Nuuk,69,1,Appartment bilding,None,free to rent
+Minik Wallace,64-3875,Suloraq,42,Nuuk,69,1,Appartment bilding,none,free to rent
+Minik Wallace,64-3876,Suloraq,42,Nuuk,69,1,Appartment bilding,none,free to rent
 
-Minik Wallace,64-3831,Igimaq,7,Nuuk,10,1,Snow house,None,free to rent
-Minik Wallace,64-3812,Nuussuaq,4,Nuuk,400,8,Villas,None,free to rent
+Minik Wallace,64-3831,Igimaq,7,Nuuk,10,1,Snow house,none,free to rent
+Minik Wallace,64-3812,Nuussuaq,4,Nuuk,400,8,Villas,none,free to rent
 
-Annette Djurhuus,ix-9331,Skákið,15,Faroe Islands,40,1,Townhouse,None,booked
-Annette Djurhuus,ix-9332,Skákið,15,Faroe Islands,30,1,Townhouse,None,booked
-Annette Djurhuus,ix-9333,Skákið,15,Faroe Islands,30,1,Townhouse,None,free to rent
+Annette Djurhuus,ix-9331,Skákið,15,Faroe Islands,40,1,Townhouse,none,booked
+Annette Djurhuus,ix-9332,Skákið,15,Faroe Islands,30,1,Townhouse,none,booked
+Annette Djurhuus,ix-9333,Skákið,15,Faroe Islands,30,1,Townhouse,none,free to rent
 
-Annette Djurhuus,ix-2239,Svalbarðsvegur,22,Faroe Islands,200,5,Villas,None,free to rent
+Annette Djurhuus,ix-2239,Svalbarðsvegur,22,Faroe Islands,200,5,Villas,none,free to rent
 
-Annette Djurhuus,ix-9492,Nýggivegur,1,Faroe Islands,15,reception,Turf house,None,not applicable
-Annette Djurhuus,ix-9493,Nýggivegur,1,Faroe Islands,15,1,Turf house,None,booked
-Annette Djurhuus,ix-9494,Nýggivegur,1,Faroe Islands,15,1,Turf house,None,free to rent
-Annette Djurhuus,ix-9495,Nýggivegur,1,Faroe Islands,15,1,Turf house,None,free to rent
-Annette Djurhuus,ix-9496,Nýggivegur,1,Faroe Islands,15,1,Turf house,None,free to rent
-Annette Djurhuus,ix-9497,Nýggivegur,1,Faroe Islands,15,1,Turf house,None,free to rent
-Annette Djurhuus,ix-9498,Nýggivegur,1,Faroe Islands,15,1,Turf house,None,free to rent
-Annette Djurhuus,ix-9499,Nýggivegur,1,Faroe Islands,15,1,Turf house,None,free to rent
-Annette Djurhuus,ix-9500,Nýggivegur,1,Faroe Islands,15,1,Turf house,None,free to rent
-Annette Djurhuus,ix-9501,Nýggivegur,1,Faroe Islands,15,1,Turf house,None,free to rent
-Annette Djurhuus,ix-9502,Nýggivegur,1,Faroe Islands,15,1,Turf house,None,free to rent
+Annette Djurhuus,ix-9492,Nýggivegur,1,Faroe Islands,15,reception,Turf house,none,not applicable
+Annette Djurhuus,ix-9493,Nýggivegur,1,Faroe Islands,15,1,Turf house,none,booked
+Annette Djurhuus,ix-9494,Nýggivegur,1,Faroe Islands,15,1,Turf house,none,free to rent
+Annette Djurhuus,ix-9495,Nýggivegur,1,Faroe Islands,15,1,Turf house,none,free to rent
+Annette Djurhuus,ix-9496,Nýggivegur,1,Faroe Islands,15,1,Turf house,none,free to rent
+Annette Djurhuus,ix-9497,Nýggivegur,1,Faroe Islands,15,1,Turf house,none,free to rent
+Annette Djurhuus,ix-9498,Nýggivegur,1,Faroe Islands,15,1,Turf house,none,free to rent
+Annette Djurhuus,ix-9499,Nýggivegur,1,Faroe Islands,15,1,Turf house,none,free to rent
+Annette Djurhuus,ix-9500,Nýggivegur,1,Faroe Islands,15,1,Turf house,none,free to rent
+Annette Djurhuus,ix-9501,Nýggivegur,1,Faroe Islands,15,1,Turf house,none,free to rent
+Annette Djurhuus,ix-9502,Nýggivegur,1,Faroe Islands,15,1,Turf house,none,free to rent

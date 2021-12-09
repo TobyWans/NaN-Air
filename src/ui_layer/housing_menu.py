@@ -165,15 +165,23 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
             except ValueError:
                 print(INVALID)
                 type = None
-        requires_maintenance = input("Requires maintenance(If nothing to add write None): ")
+        requires_maintenance = input("Requires maintenance(If nothing to add write: 'none'): ")
         rental_status = input("Please input rental status(free to rent/booked/not applicable): ")
         while rental_status.lower() != "free to rent" and rental_status.lower() != "booked" and rental_status.lower() != "not applicable":
             print(INVALID)
             rental_status = input("Please input rental status(free to rent/booked/not applicable):")
-        hous = Housing(supervisor, property_number, street_name, street_number, location, size_in_m2, nr_of_rooms, type, requires_maintenance, rental_status.lower())
-        self.llapi.add_housing(hous)
-        print("Housing successfully created")
-        time.sleep(1.8)
+        confirm = ""
+        while confirm != "y" and confirm != "n":
+            confirm = input("Confirm? (y/n): ")
+            if confirm == "y":
+                hous = Housing(supervisor, property_number, street_name, street_number, location, size_in_m2, nr_of_rooms, type, requires_maintenance.lower(), rental_status.lower())
+                self.llapi.add_housing(hous)
+                print("Housing successfully created")
+                time.sleep(1.8)
+            elif confirm == "n":
+                return
+            else:
+                print(INVALID)
 
     def change_housing(self):
         id_number = input("Input ID number: ")
