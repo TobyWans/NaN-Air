@@ -23,7 +23,6 @@ class EmployeeDL:
        
     def change_employee(self,change_employee, emp_id):
         with open('src/data/Employee.csv','r', newline='', encoding='utf-8') as inf, open('src/data/Employee_temp.csv', 'w+' ,newline='', encoding='utf-8') as outf:
-            fieldnames = ['name', 'address', 'email', 'phone', 'mobile', 'location', 'empid']
             csv_reader = csv.reader(inf)
             csv_writer = csv.writer(outf)
             for line in csv_reader:
