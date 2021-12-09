@@ -9,7 +9,7 @@ if __name__ == "__main__":
         menu.login()
         inputs = menu.prompt_input()
         if inputs == 'q':
-            quit_menu = input("Do you want to close the program?(Y/N)")
+            quit_menu = input("Do you want to close the program?(Y/N): ")
             if quit_menu.lower() == 'y':
                 running = False
             else:
