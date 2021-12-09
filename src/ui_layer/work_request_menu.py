@@ -71,6 +71,8 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                         self.llapi.clear_console()
                         if id_input == 'r':
                             running = False
+                            
+            # Bæta við search by user id
                 
             elif command == '3': # Search Work Requests by date
                 running = True
@@ -113,6 +115,10 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                 if user_req_list != []:
                     for row in user_req_list:
                         print(row)
+                # enter work id to add work report
+                # Bæta við dálk fyrir tilbúinn eða ekki
+                # Verktaki þarf að koma fram á report
+                # athugasemd frá yfirmanni
                 input("Press enter to continue")
                     
             elif command == '5': # List Finished Requests

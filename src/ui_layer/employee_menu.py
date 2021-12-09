@@ -42,10 +42,26 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                 print("Employee successfully created")
                 time.sleep(1.8)
             elif command == '2':
+                running = True
                 emp_id = input("Enter a employee ID: ")
-                change_employee = self.change_employee(emp_id)
-                print("Employee changed")
-                time.sleep(1.8) 
+                while running:
+                    if self.llapi.confirm_emp_login(emp_id):
+                        change_employee = self.change_employee(emp_id)
+                        print("Employee changed")
+                        running = False
+                        time.sleep(1.8)
+                    else:
+                        print("No employee with that ID")
+                        time.sleep(1.4)
+                        self.llapi.clear_console()
+                        print(self.splash_screen)
+                        print("=".center(48, '='))
+                        print("Employees Menu".center(48, ' '))
+                        print("=".center(48, '='))
+                        print()
+                        emp_id = input("Please choose a diffrent ID: ")
+                        
+                        
             elif command == '3':
                 emp_id = input("Enter employee id: ")
                 running = True
@@ -87,6 +103,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
             else:
                 print("Invalid option, please try again ")
                 time.sleep(1.8)
+                
     def create_employee(self):
         self.llapi.clear_console()
         emp_id = self.llapi.employee_rng_id()
