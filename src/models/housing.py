@@ -31,4 +31,4 @@ class Particular_real_estate:
         self.rental_status = rental_status
 
     def __str__(self):
-        return f"\n\t Property number: {self.property_number}\n\nSupervisor: {self.supervisor} \nAdress: {self.street_name} {self.street_number}, {self.location} \nSize: {self.size_in_m2}m2 \nNumber of rooms: {self.nr_of_rooms} \nType: {self.type} \nRequires maintenance: {self.requires_maintenance}, \nRental status: {self.rental_status}"
+        return f"\n\t Property number: {self.property_number}\n\nSupervisor: {self.supervisor} \nAdress: {self.street_name} {self.street_number}, {self.location} \nSize: {self.size_in_m2}m2 \nNumber of rooms: {self.nr_of_rooms} \nType: {self.type} \nRequires maintenance: {self.requires_maintenance}\nRental status: {self.rental_status}"

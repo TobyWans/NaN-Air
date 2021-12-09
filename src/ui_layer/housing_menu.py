@@ -165,7 +165,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
             except ValueError:
                 print(INVALID)
                 type = None
-        requires_maintenance = input("Requires maintenance(If nothing to add write: 'none'): ")
+        requires_maintenance = input("Requires maintenance(If nothing to add press enter): ")
         rental_status = input("Please input rental status(free to rent/booked/not applicable): ")
         while rental_status.lower() != "free to rent" and rental_status.lower() != "booked" and rental_status.lower() != "not applicable":
             print(INVALID)
