@@ -21,15 +21,15 @@ class EmployeeDL:
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writerow({'name': new_employee.name, "email": new_employee.email, "address": new_employee.address, "phone": new_employee.phone, "mobile": new_employee.mobile, "location": new_employee.location, "empid": new_employee.empid})
        
-    def change_employee(self, emp_id):
-        with open('src/data/Employee.csv', newline='', encoding='utf-8') as inf, open('src/data/Employee_temp.csv', 'w') as outf:
+    def change_employee(self,change_employee, emp_id):
+        with open('src/data/Employee.csv','r', newline='', encoding='utf-8') as inf, open('src/data/Employee_temp.csv', 'w' ,newline='', encoding='utf-8') as outf:
             reader = csv.reader(inf)
             writer = csv.writer(outf)
             fieldnames = ["name", "email", "address", "phone", "mobile", "location", "empid"]
             for row in reader:
-                if row[6] == str(emp_id):
+                if row[6] == emp_id:
                     writer = csv.DictWriter(outf, fieldnames=fieldnames)
-                    writer.writerow({'name': change.name, "email": change.email, "address": change.address, "phone": change.phone, "mobile": change.mobile, "location": change.location, "empid": emp_id})
+                    writer.writerow({'name': change_employee.name, "email": change_employee.email, "address": change_employee.address, "phone": change_employee.phone, "mobile": change_employee.mobile, "location": change_employee.location, "empid": emp_id})
                     break
                 else:
                     writer.writerow(row)

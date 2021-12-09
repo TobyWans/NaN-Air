@@ -41,7 +41,9 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                 time.sleep(1.8)
             elif command == '2':
                 emp_id = input("Enter a employee ID: ")
-                change_employee = self.llapi.change_employee(emp_id) 
+                change_employee = self.change_employee(emp_id)
+                print("Employee changed")
+                time.sleep(1.8) 
             elif command == '3':
                 emp_id = input("Enter employee id: ")
                 running = True
@@ -99,15 +101,15 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
 
     def change_employee(self,emp_id):
         self.llapi.clear_console
-        name = ("Enter name: ")
-        e_mail = ("Enter e-mail: ")
-        address = ("Enter address: ")
-        phone = ("Enter phone number: ")
-        mobile = ("Enter mobile number: ")
+        name = input("Enter name: ")
+        e_mail = input("Enter e-mail: ")
+        address = input("Enter address: ")
+        phone = input("Enter phone number: ")
+        mobile = input("Enter mobile number: ")
         print("Available locations: ", ' - '.join(self.llapi.location_list()))
         location = input("Enter location: ").capitalize()
-        change_employee = Employee(name, e_mail, address, phone, mobile, location)
-        self.llapi.change_employee
+        change_employee = Employee(name, e_mail, address, phone, mobile, location, emp_id)
+        self.llapi.change_employee(change_employee, emp_id)
 
 
     
