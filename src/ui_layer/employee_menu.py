@@ -139,7 +139,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         mobile = input("Enter mobile number: ")
         print("Available locations: ", ' - '.join(self.llapi.location_list()))
         location = input("Enter location: ").capitalize()
-        change_employee = Employee(name, e_mail, address, phone, mobile, location, emp_id)
+        change_employee = Employee(name, address, e_mail, phone, mobile, location, emp_id)
         self.llapi.change_employee(change_employee, emp_id)
 
 

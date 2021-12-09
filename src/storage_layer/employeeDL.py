@@ -23,17 +23,15 @@ class EmployeeDL:
        
     def change_employee(self,change_employee, emp_id):
         with open('src/data/Employee.csv','r', newline='', encoding='utf-8') as inf, open('src/data/Employee_temp.csv', 'w+' ,newline='', encoding='utf-8') as outf:
-            reader = csv.reader(inf)
-            writer = csv.writer(outf)
-            fieldnames = ["name", "email", "address", "phone", "mobile", "location", "empid"]
-            for row in reader:
-                if int(emp_id) ==  row[6]:
-                    writer = csv.DictWriter(outf, fieldnames=fieldnames)
-                    writer.writerow({'name': change_employee.name, "email": change_employee.email, "address": change_employee.address, "phone": change_employee.phone, "mobile": change_employee.mobile, "location": change_employee.location, "empid": emp_id})
-                    break
+            fieldnames = ['name', 'address', 'email', 'phone', 'mobile', 'location', 'empid']
+            csv_reader = csv.reader(inf)
+            csv_writer = csv.writer(outf)
+            for line in csv_reader:
+                if line[6] == emp_id:
+                    pass
                 else:
-                    writer.writerow(row)
-                writer.writerows(reader)
+                    csv_writer.writerow(line)
+            csv_writer.writerow([change_employee.name, change_employee.email, change_employee.address, change_employee.phone, change_employee.mobile, change_employee.location, emp_id])
         os.remove('src/data/Employee.csv')
         os.rename('src/data/Employee_temp.csv', 'src/data/Employee.csv')
 
