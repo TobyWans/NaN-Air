@@ -60,7 +60,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                 destination_menu = DestinationMenu(self.llapi)
                 return_option = destination_menu.prompt_input()
             elif command.lower() == 'q':
-                return
+                return 'q'
             else:
                 print("Invalid option, please try again ")
                 time.sleep(1.8)
