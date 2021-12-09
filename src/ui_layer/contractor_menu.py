@@ -81,8 +81,12 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                 try:                      # Tries to call the model class' __string__
                     index = int(command) - 1
                     self.llapi.clear_console()
+                    print(self.splash_screen)
+                    print("=".center(48, '='))
+                    print(self.list_of_contractors_objects[index].contractor.center(48, ' '))
+                    print("=".center(48, '='))
                     print(self.list_of_contractors_objects[index])
-                    input("Enter to continue")
+                    input("\tEnter to continue")
                 except:                   # Except when key is not found or index error
                     print("Invalid option, please try again.")
                     time.sleep(1)
