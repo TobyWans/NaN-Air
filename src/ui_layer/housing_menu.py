@@ -53,7 +53,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
             elif command == "4":
                 self.add_housing()
             elif command == "5":
-                self.search_by_id()
+                self.change_housing()
             elif command.lower() == "r":
                 return
             else:
@@ -138,4 +138,32 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         self.llapi.add_housing(hous)
 
     def change_housing(self):
-        pass
+        id_number = input("Input ID number: ")
+        print("\nWhat would you want to change?\n\n1. Street name\n2. Street number\n3. Size\n4. Numbers of rooms\n5. Type\n6. Requires maintenance\n7. Rental status")
+        change = input("\nEnter a number: ")
+        change = int(change)
+        if change == 1:
+            fieldname = "street_name"
+            parametr = input("Street_name: ")
+        elif change == 2:
+            fieldname = "street_number"
+            parametr = input("Street_number: ")
+        elif change == 3:
+            fieldname = "location"
+            parametr = input("size: ")
+        elif change == 4:
+            fieldname = "nr_of_rooms"
+            parametr = input("Numbers of rooms: ")
+        elif change == 5:
+            fieldname = "type"
+            parametr = input("Type: ")
+        elif change == 6:
+            fieldname = "requires_maintenance"
+            parametr = input("Requires maintenance: ")
+        elif change == 7:
+            fieldname = "rental_status"
+            parametr = input("Rental status: ")
+        else:
+            print(INVALID)
+
+        self.llapi.change_housing(id_number, fieldname, parametr)
