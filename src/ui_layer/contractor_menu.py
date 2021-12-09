@@ -2,6 +2,8 @@ from src.logic_layer.LLAPI import LLAPI
 from src.models.contractors import contractors
 import time
 
+from src.ui_layer.housing_menu import INVALID
+
 class ContractorMenu:
     def __init__(self, llapi: LLAPI):
         self.llapi = llapi
@@ -21,16 +23,36 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
 
     def add_new_contractor(self):         # First instantiates all info into a model class then sends it all the way to the storage layer
         self.llapi.clear_console()
-        contractor = input("Enter contractor: ")
+        city = self.llapi.location_check()
+        location = city
+        contractor = input("Enter contractor(company name): ")
         name = input("Enter name: ")
         profession = input("Enter profession: ")
-        phone = input("Enter phone: ")
-        opening_hours = input("Enter opening hours: ")
-        location = input("Enter location: ")
-        rating = input("Enter rating: ")
-        if input("Confirm? (y/n): ") == 'y':
-            Contractor_mdl = contractors(contractor, name, profession, phone, opening_hours, location, rating)
-            return self.llapi.add_new_contractor(Contractor_mdl)
+        phone_input = None
+        while phone_input == None:
+            try:
+                phone_input = int(input("Enter phone number (without dialling code): "))
+            except ValueError:
+                print(INVALID)
+                phone_input =None
+        if location == 'Svalbard':
+            phone = f'+47 {phone_input}'
+        elif location == 'Nuuk':
+            phone = f'+299 {phone_input}'
+        elif location == 'Faroe Islands':
+            phone = f'+298 {phone_input}'
+        opening_hours = input("Enter opening hours(hh:mm-hh:mm): ")
+        rating = input("Enter rating(X/10): ")
+        confirm = ""
+        while confirm != "y" and confirm != "n":
+            confirm = input("Confirm? (y/n): ")
+            if confirm =='y':
+                Contractor_mdl = contractors(contractor, name, profession, phone, opening_hours, location, rating)
+                return self.llapi.add_new_contractor(Contractor_mdl)
+            elif confirm == "n":
+                return
+            else:
+                print(INVALID)
 
     def draw_options(self):               # Displays all the available options for the user
         self.llapi.clear_console()
