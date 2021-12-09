@@ -99,8 +99,8 @@ class LLAPI:
     def close_request(self, wr_id):
         return self.workrequestLL.close_request(wr_id)
     
-    def change_req(self, req_id):
-        return self.workrequestLL.change_req(req_id)
+    def change_req(self,change_req,  req_id):
+        return self.workrequestLL.change_req(change_req, req_id)
     
     def work_req_count(self):
         return self.workrequestLL.work_req_count()

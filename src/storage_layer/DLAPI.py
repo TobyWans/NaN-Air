@@ -40,8 +40,8 @@ class DLAPI:
     def close_request(self, wr_id):
         return self.ReqDL.close_request(wr_id)
     
-    def change_req(self, req_id):
-        return self.ReqDL.change_request_prep(req_id)
+    def change_req(self,change_req, req_id):
+        return self.ReqDL.change_request_prep(change_req, req_id)
     
     def open_request(self, wr_id):
         return self.ReqDL.open_request(wr_id)

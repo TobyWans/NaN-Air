@@ -1,5 +1,5 @@
 from src.models.work_requests import Work_Request
-import csv
+import csv, os
 
 class WorkRequestDL:
     def __init__(self):
@@ -94,13 +94,43 @@ class WorkRequestDL:
             writer.writerows(lines)
         return True
     
-    def change_request_prep(self, re_id):
-        with open(self.work_req_file, newline='', encoding='utf-8') as readfile:
-            reader = csv.reader(readfile)
-            lines = list(reader)
-            for line in lines:
-                if line[re_id][0] == re_id:
-                    return line
+    def change_request_prep(self,change_req, re_id):
+        change_list = list()
+        with open(self.work_req_file, 'r', newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                print(row)
+                if str(re_id) == row['req_id']:
+                    change_list.append({'req_id': change_req.req_id, 'title': change_req.title, 'where': change_req.where, 'housing_id': change_req.housing_id, 'description': change_req.description, 'priority': change_req.priority, 'status': change_req.status, 'date': change_req.date, 'employee': change_req.employee})
+                else:
+                    change_list.append(row)
+                    
+        with open(self.work_req_file, 'w', newline='', encoding='utf-8') as csvfile:
+            fieldnames = ['req_id', 'title', 'where', 'housing_id', 'description', 'priority', 'status', 'date', 'employee']
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writerV2 = csv.writer(csvfile)
+            writerV2.writerow(fieldnames)
+            writer.writerows(change_list)
+                
+                
+        
+        
+        
+        
+        
+        
+        #     reader = csv.DictReader(readfile)
+        #     fieldnames = ['req_id', 'title', 'where', 'housing_id', 'description', 'priority', 'status', 'date', 'employee']
+        #     writer = csv.DictWriter(writefile, fieldnames=fieldnames)
+        #     for row in reader:
+        #         if str(re_id) == row[0]:
+        #             writer.writerow({'req_id': change_req.req_id, 'title': change_req.title, 'where': change_req.where, 'housing_id': change_req.housing_id, 'description': change_req.description, 'priority': change_req.priority, 'status': change_req.status, 'date': change_req.date, 'employee': change_req.employee})
+        #         else:
+        #             writer.writerow(row)
+        #     writer.writerows(reader)
+        # os.remove('src\data\Work_Requests.csv')
+        # os.rename('src/data/work_req_temp.csv', 'src\data\Work_Requests.csv')
+            
        
        # counter for requests to id them
     def work_req_count(self):

@@ -4,7 +4,7 @@ from src.logic_layer.LLAPI import LLAPI
 from datetime import datetime
 import time
 
-PRIORITY = ('low', 'medium', 'high')
+PRIORITY = ('Low', 'Medium', 'High')
 
 class WorkRequestMenu:
     def __init__(self, llapi: LLAPI):
@@ -121,12 +121,12 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                 back = input("Press enter to continue")
                 self.llapi.clear_console()
                 
-            elif command == '6': # Create new Request
+            elif command == '6' and self.llapi.supervisor_check(): # Create new Request
                 self.create_new_request()
                 print("Work request created successfully".center(48, '-'))
                 time.sleep(1.8)
                 
-            elif command == '7': # Open Request
+            elif command == '7' and self.llapi.supervisor_check(): # Open Request
                 running = True
                 all_closed_work_requests = self.llapi.all_closed_work_requests()
                 self.llapi.clear_console()
@@ -166,8 +166,10 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                         while running:
                             change = input("Would you like to change the request? (Y/N): ")
                             if change.lower() == 'y':
-                                change = self.llapi.change_req(open_id)
-                                print(change)
+                                self.change_request(open_id)
+                                print("Work request changed successfully!")
+                                time.sleep(1)
+                                running = False
                             elif change.lower() == 'n': 
                                 time.sleep(1)
                                 running = False
@@ -175,7 +177,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                                 continue
                             
                 
-            elif command == '8': # Close Request
+            elif command == '8' and self.llapi.supervisor_check(): # Close Request
                 running = True
                 all_open_work_requests = self.llapi.all_open_work_requests()
                 self.llapi.clear_console()
@@ -262,3 +264,28 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         status = 'Open'
         req = Work_Request(work_request_ID, title, where,  housing, description, priority, status, day, employee)
         self.llapi.create_new_request(req)
+        
+    def change_request(self, req_id):
+        today = datetime.today()
+        day = today.strftime("%d/%m/%y")
+        running = True
+        employee = self.llapi.curent_user
+        work_request_ID = req_id
+        print(f"Work request ID: {req_id}")
+        title = input("Title: ")
+        print("Available Locations:", ' - '.join(self.llapi.location_list()) + ' Everywhere')
+        where = input("Location: ").capitalize()
+        print("Available housing:")
+        locations = self.llapi.get_housing_id_by_location(where)
+        print(' - '.join(locations))
+        housing = input("Housing: ")
+        description = input("Description: ")
+        while running:
+            priority = input("Priority: ").capitalize()
+            if priority not in PRIORITY:
+                print("Please use high, medium or low")
+            else:
+                running = False
+        status = 'Open'
+        change_req = Work_Request(work_request_ID, title, where,  housing, description, priority, status, day, employee)
+        self.llapi.change_req(change_req, req_id)
