@@ -84,7 +84,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                 return
             else:
                 print("Invalid option, please try again ")
-                
+                time.sleep(1.8)
     def create_employee(self):
         self.llapi.clear_console()
         emp_id = self.llapi.employee_rng_id()
@@ -96,8 +96,17 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         mobile = input("Enter mobile number ")
         print("Available locations: ", ' - '.join(self.llapi.location_list()))
         location = input("Enter location: ").capitalize()
-        new_employee = Employee(name, e_mail, address, phone, mobile, location, emp_id)
-        self.llapi.create_new_employee(new_employee)
+        if location in self.llapi.location_list():
+            new_employee = Employee(name, e_mail, address, phone, mobile, location, emp_id)
+            self.llapi.create_new_employee(new_employee)
+        else:
+        
+            print("Not avalible location, try again")
+            time.sleep(1.5)
+            print("Available locations: ", ' - '.join(self.llapi.location_list()))
+            location = input("Enter location: ").capitalize()
+            new_employee = Employee(name, e_mail, address, phone, mobile, location, emp_id)
+            self.llapi.create_new_employee(new_employee)
 
     def change_employee(self,emp_id):
         self.llapi.clear_console
