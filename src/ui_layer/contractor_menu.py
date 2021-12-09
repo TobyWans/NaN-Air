@@ -59,15 +59,15 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         print(self.splash_screen)
         self.all_options = []
         self.all_options.extend(self.employee_options)
-        print("=".center(90, '='))
-        print("Contractors".center(90, ' '))
-        print("=".center(90, '='))
+        print("=".center(70, '='))
+        print("Contractors".center(70, ' '))
+        print("=".center(70, '='))
         print()
         if self.llapi.supervisor_check():
             self.all_options.extend(self.supervisor_options)
         for index in self.all_options:
-            print(f"\t{str(self.all_options.index(index) + 1)+'.':<5} {index}")
-        print("\tR.    Return\n")
+            print(f"{str(self.all_options.index(index) + 1)+'.':<5} {index}")
+        print("R.    Return\n")
         
     def prompt_input(self):               # Finds out what option the user wants with entered key.
         while True:
