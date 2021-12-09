@@ -46,10 +46,10 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         confirm = ""
         while confirm != "y" and confirm != "n":
             confirm = input("Confirm? (y/n): ")
-            if confirm =='y':
+            if confirm.lower() =='y':
                 Contractor_mdl = contractors(contractor, name, profession, phone, opening_hours, location, rating)
                 return self.llapi.add_new_contractor(Contractor_mdl)
-            elif confirm == "n":
+            elif confirm.lower() == "n":
                 return
             else:
                 print(INVALID)

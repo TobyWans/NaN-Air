@@ -127,14 +127,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         user_id = self.llapi.curent_user
         supervisor = self.llapi.employee_name(user_id)
         property_number = input("Property_number: ")
-        
-        street_name = None
-        while street_name == None:
-            try:
-                street_name = str(input("Street_name: "))
-            except ValueError:
-                print(INVALID)
-                street_name = None
+        street_name = input("Street_name: ")
         street_number = None
         while street_number == None:
             try:
@@ -158,13 +151,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
             except ValueError:
                 print(INVALID)
                 nr_of_rooms = None
-        type = None
-        while type == None:        
-            try:
-                type = str(input("Type: "))
-            except ValueError:
-                print(INVALID)
-                type = None
+        type = input("Type: ")
         requires_maintenance = input("Requires maintenance(If nothing to add press enter): ")
         rental_status = input("Please input rental status(free to rent/booked/not applicable): ")
         while rental_status.lower() != "free to rent" and rental_status.lower() != "booked" and rental_status.lower() != "not applicable":
@@ -173,12 +160,12 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         confirm = ""
         while confirm != "y" and confirm != "n":
             confirm = input("Confirm? (y/n): ")
-            if confirm == "y":
+            if confirm.lower() == "y":
                 hous = Housing(supervisor, property_number, street_name, street_number, location, size_in_m2, nr_of_rooms, type, requires_maintenance.lower(), rental_status.lower())
                 self.llapi.add_housing(hous)
                 print("Housing successfully created")
                 time.sleep(1.8)
-            elif confirm == "n":
+            elif confirm.lower() == "n":
                 return
             else:
                 print(INVALID)

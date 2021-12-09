@@ -2,6 +2,8 @@ from src.models.employee import Employee
 from src.logic_layer.LLAPI import LLAPI
 import time
 
+from src.ui_layer.housing_menu import INVALID
+
 
 
 class EmployeeMenu:
@@ -89,24 +91,44 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         self.llapi.clear_console()
         emp_id = self.llapi.employee_rng_id()
         print("Employee ID:", emp_id)
+        city = self.llapi.location_check()
+        location = city
         name = input("Enter name: ")
         e_mail = input("Enter e-mail: ")
         address = input("Enter address: ")
-        phone = input("Enter phone number: ")
-        mobile = input("Enter mobile number ")
-        print("Available locations: ", ' - '.join(self.llapi.location_list()))
-        location = input("Enter location: ").capitalize()
-        if location in self.llapi.location_list():
-            new_employee = Employee(name, e_mail, address, phone, mobile, location, emp_id)
-            self.llapi.create_new_employee(new_employee)
-        else:
-        
-            print("Not avalible location, try again")
-            time.sleep(1.5)
-            print("Available locations: ", ' - '.join(self.llapi.location_list()))
-            location = input("Enter location: ").capitalize()
-            new_employee = Employee(name, e_mail, address, phone, mobile, location, emp_id)
-            self.llapi.create_new_employee(new_employee)
+        phone_input = None
+        while phone_input == None:
+            try:
+                phone_input = int(input("Enter phone number (without dialling code): "))
+            except ValueError:
+                print(INVALID)
+                phone_input =None
+        if location == 'Svalbard':
+            phone = f'+47 {phone_input}'
+        elif location == 'Nuuk':
+            phone = f'+299 {phone_input}'
+        elif location == 'Faroe Islands':
+            phone = f'+298 {phone_input}'
+        mobile_input = None
+        while mobile_input == None:
+            try:
+                mobile_input = int(input("Enter mobile number (without dialling code): "))   
+            except ValueError:
+                print(INVALID)
+                phone_input = None
+        mobile = f'+354 {phone_input}'
+        confirm = ""
+        while confirm != "y" and confirm != "n":
+            confirm = input("Confirm? (y/n): ")
+            if confirm.lower() == "y":
+                new_employee = Employee(name, e_mail, address, phone, mobile, location, emp_id)
+                self.llapi.create_new_employee(new_employee)
+                print("Employee successfully created")
+                time.sleep(1.8)
+            elif confirm.lower() == "n":
+                return
+            else:
+                print(INVALID)
 
     def change_employee(self,emp_id):
         self.llapi.clear_console
