@@ -76,10 +76,11 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                 running = True
                 print("Enter a date in the format dd-mm-yy or type r to return")
                 date_input = input("".center(27))
-                date_str = datetime.strptime(date_input, "%d-%m-%y")
-                date_obj = date_str.strftime("%d/%m/%y")
                 if date_input == 'r':
                     running = False
+                else:
+                    date_str = datetime.strptime(date_input, "%d-%m-%y")
+                    date_obj = date_str.strftime("%d/%m/%y")
                 while running:
                     self.llapi.clear_console()
                     print(self.splash_screen)
@@ -89,21 +90,23 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                         print("\nSorry, there is no requests with that date\n".center(48))
                         print("Try another date | dd-mm-yy | or type r to return")
                         date_input = input("".center(19))
-                        date_str = datetime.strptime(date_input, "%d-%m-%y")
-                        date_obj = date_str.strftime("%d/%m/%y")
-                        self.llapi.clear_console()
                         if date_input == 'r':
                             running = False
+                        else:
+                            date_str = datetime.strptime(date_input, "%d-%m-%y")
+                            date_obj = date_str.strftime("%d/%m/%y")
+                            self.llapi.clear_console()
                     else:
                         for req in search_date:
                             print(req)
                         print("Enter another date | dd-mm-yy | or type r to return")
                         date_input = input("".center(21))
-                        date_str = datetime.strptime(date_input, "%d-%m-%y")
-                        date_obj = date_str.strftime("%d/%m/%y")
-                        self.llapi.clear_console()
                         if date_input == 'r':
                             running = False
+                        else:
+                            date_str = datetime.strptime(date_input, "%d-%m-%y")
+                            date_obj = date_str.strftime("%d/%m/%y")
+                            self.llapi.clear_console()
                 
             elif command == '4': # User open Work Requests
                 user_req_list = self.llapi.user_open_requests(self.llapi.curent_user)
