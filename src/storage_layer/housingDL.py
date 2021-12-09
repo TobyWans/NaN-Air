@@ -1,6 +1,4 @@
 import csv
-import shutil
-from tempfile import NamedTemporaryFile
 
 from src.models.housing import Housing
 from src.models.housing import Particular_real_estate
@@ -8,7 +6,6 @@ from src.models.housing import Particular_real_estate
 class HousingDL:
     def __init__(self):
         self.filepath = "src/data/Housing.csv"
-        self.temp_file = NamedTemporaryFile(delete=False)
 
     def add_housing(self, hous):
         with open(self.filepath, 'a', newline='', encoding='utf-8') as csvfile:
