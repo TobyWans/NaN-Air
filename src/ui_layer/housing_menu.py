@@ -4,7 +4,7 @@ import time
 
 ENTER = "\n\tPress enter to continue"
 RETURN = "\t\tR. Return"
-INVALID = "Invalid option. Try again!"
+INVALID = "Invalid input. Try again!"
 
 class HousingMenu:
     def __init__(self, llapi:LLAPI):
@@ -53,7 +53,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
             elif command == "4":
                 self.add_housing()
             elif command == "5":
-                self.search_by_id()
+                self.change_housing()
             elif command.lower() == "r":
                 return
             else:
@@ -65,20 +65,22 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         self.llapi.clear_console()
         if self.llapi.supervisor_check():
             for location in location_list:
-                self.header(location, 90)
+                self.main_header(location, 155)
                 for row in housing_list:
                     if location in row.values():
                         hous = Housing(**row)
                         print(f"{hous}")
+                        print("-".center(155, '-'))
         if not self.llapi.supervisor_check():
             user_location = self.llapi.location_check()
             for location in location_list:
                 if user_location == location:
-                    self.header(location, 90)
+                    self.main_header(location, 155)
                     for row in housing_list:
                         if location in row.values():
                             hous = Housing(**row)
                             print(f"{hous}")
+                            print("-".center(155, '-'))
         input(ENTER)
         self.llapi.clear_console()
             
@@ -125,17 +127,80 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         user_id = self.llapi.curent_user
         supervisor = self.llapi.employee_name(user_id)
         property_number = input("Property_number: ")
-        street_name = input("Street_name: ")
-        street_number = input("Street_number: ")
+        
+        street_name = None
+        while street_name == None:
+            try:
+                street_name = str(input("Street_name: "))
+            except ValueError:
+                print(INVALID)
+                street_name = None
+        street_number = None
+        while street_number == None:
+            try:
+                street_number = int(input("Street_number: "))
+            except ValueError:
+                print(INVALID)
+                street_number = None
         city = self.llapi.location_check()
         location = city
-        size = input("Size: ")
-        nr_of_rooms = input("Number of rooms: ")
-        type = input("Type: ")
-        requires_maintenance = input("Requires maintenance: ")
-        rental_status = input("Please enter rental status(free to rent/booked): ")
-        hous = Housing(supervisor, property_number, street_name, street_number, location, size, nr_of_rooms, type, requires_maintenance, rental_status)
+        size_in_m2 = None
+        while size_in_m2 == None:
+            try:
+                size_in_m2 = int(input("Size in m2: "))
+            except ValueError:
+                print(INVALID)
+                size_in_m2 = None
+        nr_of_rooms = None
+        while nr_of_rooms == None:
+            try:
+                nr_of_rooms = int(input("Number of rooms: "))
+            except ValueError:
+                print(INVALID)
+                nr_of_rooms = None
+        type = None
+        while type == None:        
+            try:
+                type = str(input("Type: "))
+            except ValueError:
+                print(INVALID)
+                type = None
+        requires_maintenance = input("Requires maintenance(If nothing to add write None): ")
+        rental_status = input("Please input rental status(free to rent/booked/not applicable): ")
+        while rental_status.lower() != "free to rent" and rental_status.lower() != "booked" and rental_status.lower() != "not applicable":
+            print(INVALID)
+            rental_status = input("Please input rental status(free to rent/booked/not applicable):")
+        hous = Housing(supervisor, property_number, street_name, street_number, location, size_in_m2, nr_of_rooms, type, requires_maintenance, rental_status.lower())
         self.llapi.add_housing(hous)
+        print("Housing successfully created")
+        time.sleep(1.8)
 
     def change_housing(self):
-        pass
+        id_number = input("Input ID number: ")
+        print("\nWhat would you want to change?\n\n1. Street name\n2. Street number\n3. Size\n4. Numbers of rooms\n5. Type\n6. Requires maintenance\n7. Rental status")
+        change = int(input("\nEnter a number: "))
+        if change == 1:
+            fieldname = "street_name"
+            parametr = input("Street_name: ")
+        elif change == 2:
+            fieldname = "street_number"
+            parametr = input("Street_number: ")
+        elif change == 3:
+            fieldname = "location"
+            parametr = input("size: ")
+        elif change == 4:
+            fieldname = "nr_of_rooms"
+            parametr = input("Numbers of rooms: ")
+        elif change == 5:
+            fieldname = "type"
+            parametr = input("Type: ")
+        elif change == 6:
+            fieldname = "requires_maintenance"
+            parametr = input("Requires maintenance: ")
+        elif change == 7:
+            fieldname = "rental_status"
+            parametr = input("Rental status: ")
+        else:
+            print(INVALID)
+
+        self.llapi.change_housing(id_number, fieldname, parametr)
