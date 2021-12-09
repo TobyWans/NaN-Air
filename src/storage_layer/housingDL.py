@@ -12,20 +12,12 @@ class HousingDL:
 
     def add_housing(self, hous):
         with open(self.filepath, 'a', newline='', encoding='utf-8') as csvfile:
-            fieldnames = ["supervisor", "property_number" ,"street_name" ,"street_number", "location" ,"size", "nr_of_rooms" ,"type", "requires_maintenance", "rental_status"]
+            fieldnames = ["supervisor", "property_number" ,"street_name" ,"street_number", "location" ,"size_in_m2", "nr_of_rooms" ,"type", "requires_maintenance", "rental_status"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            writer.writerow({"supervisor": hous.supervisor,"property_number": hous.property_number, "street_name": hous.street_name, "street_number": hous.street_number, "location": hous.location, "size": hous.size, "nr_of_rooms": hous.nr_of_rooms, "type": hous.type, "requires_maintenance": hous.requires_maintenance, "rental_status": hous.rental_status})
+            writer.writerow({"supervisor": hous.supervisor,"property_number": hous.property_number, "street_name": hous.street_name, "street_number": hous.street_number, "location": hous.location, "size_in_m2": hous.size_in_m2, "nr_of_rooms": hous.nr_of_rooms, "type": hous.type, "requires_maintenance": hous.requires_maintenance, "rental_status": hous.rental_status})
     
     def change_housing(self, id_number, fieldname, parametr):
-        with open(self.filepath, 'w+') as csvfile:
-            reader = csv.DictReader(csvfile)
-            fieldnames = ["supervisor", "property_number" ,"street_name" ,"street_number", "location" ,"size", "nr_of_rooms" ,"type", "requires_maintenance", "rental_status"]
-            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-            writer.writeheader()
-            for row in reader:
-                if row["property_number"] == id_number:
-                    row[fieldname] = parametr
-                self.temp_file.write(row[fieldname])
+        pass
 
     def get_housing_list(self):
             hous_list = []
