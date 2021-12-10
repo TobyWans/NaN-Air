@@ -69,14 +69,14 @@ class HousingMenu:
         print("=".center(133, '='))
         print("Housing list".center(133, ' '))
         print("=".center(133, '='))
+        print("-".center(133, '-'))
         housing_list = self.llapi.housing_list() # the list of all properties/ not sorted
         location_list = self.llapi.location_list() # The list of all location where company has property
         if self.llapi.supervisor_check():
             for location in location_list: 
-                print("-".center(133, '-'))
                 print(location.center(133, ' '))
                 print("-".center(133, '-'))
-                print(f"{'Property number':<15}{'|':^5} {'Street name and number':^20} | {'Location':<20} | {'Squaremeter':<20} | {'Rooms':<20} | {'Type':<20}")
+                print(f"{'Property ID':^13}|{'Street name and number':^30}|{'Location':^20}|{'m2':^13}|{'Rooms':^30}|{'Type':^20}")
                 print("-".center(133, '-'))
                 for row in housing_list:
                     if location in row.values():
