@@ -108,7 +108,14 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         print("Employee ID:", emp_id)
         city = self.llapi.location_check()
         location = city
-        name = input("Enter name: ")
+        name = None
+        while name == None:
+            name = input("Enter name: ")
+            for letter in name:
+                if letter.isdigit():
+                    print("Input only letters!")
+                    name = None
+                    break
         e_mail = None
         while e_mail == None:
             e_mail = input("Enter e-mail: ")
@@ -166,7 +173,14 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         self.llapi.clear_console
         city = self.llapi.location_check()
         location = city
-        name = input("Enter name: ")
+        name = None
+        while name == None:
+            name = input("Enter name: ")
+            for letter in name:
+                if letter.isdigit():
+                    print("Input only letters!")
+                    name = None
+                    break
         e_mail = None
         while e_mail == None:
             e_mail = input("Enter e-mail: ")
