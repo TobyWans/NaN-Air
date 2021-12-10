@@ -1,4 +1,3 @@
-from os import close
 from src.models.work_requests import Work_Request
 from src.logic_layer.LLAPI import LLAPI
 from src.models.work_report import Work_Report
@@ -136,12 +135,12 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                             self.llapi.clear_console()
                 
             elif command == '5': # User open Work Requests
-                user_req_list = self.llapi.user_open_requests(self.llapi.curent_user)
+                user_rep = self.llapi.user_open_requests(self.llapi.curent_user)
                 self.llapi.clear_console()
                 print(self.splash_screen)
                 print("Your open requests".center(48, '-'))
-                if user_req_list != []:
-                    for row in user_req_list:
+                if user_rep != []:
+                    for row in user_rep:
                         print(row)
                     work_report_input = input("Enter ID of work request to write a report on: ")
                     self.create_work_report(work_report_input)
@@ -203,7 +202,11 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                         all_closed_work_requests = self.llapi.all_closed_work_requests()
                         for request in all_closed_work_requests:
                             print(request)
-                        open_id = int(input("Please try another ID: "))
+                        open_id = input("Please try another ID or type R to return: ")
+                        if open_id.lower() == 'r':
+                            running = False
+                            open_id = 0
+                        open_id = int(open_id)
                     else:
                         print("Work request successfully opened!".center(48, '-'))
                         while running:
@@ -256,6 +259,12 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                         close_id = int(input("Please try another ID: "))
                     else:
                         print("Work request changed successfully!".center(48, '-'))
+                        report = input("Would you like to look at the work report for this request? (Y/N)")
+                        if report.lower() == 'y':
+                            pass
+                        elif report.lower() == 'n':
+                            time.sleep(1)
+                            running = False
                         again = input("Would you like to close another work request? (Y/N): ")
                         if again.lower() == 'y':
                             self.llapi.clear_console()
