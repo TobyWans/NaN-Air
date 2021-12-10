@@ -12,7 +12,7 @@ class Housing:
         self.rental_status = rental_status
 
     def __str__(self):
-        return f"Property number: {self.property_number:10} | Adress: {self.street_name:20} {self.street_number:3}, {self.location:15} | Size: {self.size_in_m2:3}m2 | Number of rooms: {self.nr_of_rooms:5} | Type: {self.type}"
+        return f"{self.property_number:10} | {self.street_name:20} {self.street_number:3}, {self.location:15} | {self.size_in_m2:3}m2 | {self.nr_of_rooms:5} | {self.type}"
 
     def only_housing_id(self):
         return f"{self.property_number}"

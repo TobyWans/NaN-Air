@@ -66,17 +66,24 @@ class HousingMenu:
     def sort_by_location(self): 
         self.llapi.clear_console()
         print(SPLASH_SCREEN)
-        print("Housing list".center(155, '-'))
+        print("=".center(133, '='))
+        print("Housing list".center(133, ' '))
+        print("=".center(133, '='))
         housing_list = self.llapi.housing_list() # the list of all properties/ not sorted
         location_list = self.llapi.location_list() # The list of all location where company has property
         if self.llapi.supervisor_check():
             for location in location_list: 
-                self.main_header(location, 155)
+                print("-".center(133, '-'))
+                print(location.center(133, ' '))
+                print("-".center(133, '-'))
+                print(f"{'Property number':<15}{'|':^5} {'Street name and number':^20} | {'Location':<20} | {'Squaremeter':<20} | {'Rooms':<20} | {'Type':<20}")
+                print("-".center(133, '-'))
                 for row in housing_list:
                     if location in row.values():
                         hous = Housing(**row)
                         print(f"{hous}")
-                        print("-".center(155, '-'))
+                        print()
+                print("-".center(133, '-'))
         if not self.llapi.supervisor_check():
             user_location = self.llapi.location_check()
             for location in location_list:
