@@ -21,16 +21,20 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
 /_/ |_/  \__,_/ /_/ /_/      /_/  |_/_/  /_/     
                                                  """
 
+
     def add_new_contractor(self):         # First instantiates all info into a model class then sends it all the way to the storage layer
-        self.llapi.clear_console()
-        while True:
+        self.llapi.clear_console()        # Also checks for correct format on all inputs
+
+        while True:                       # Location
             location = input("Enter location (Svalbard/Nuuk/Faroe Islands): ")
             if location.lower() != 'svalbard' and location.lower() != 'nuuk' and location.lower() != 'faroe islands':
                 print("Invalid location! Try again")
             else:
                 break
+                                          # Contractor/company name
         contractor = input("Enter contractor (company name): ")
-        name = None
+
+        name = None                       # Name
         while name == None:
             name = input("Enter name: ")
             for letter in name:
@@ -38,36 +42,45 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                     print("Input only letters!")
                     name = None
                     break
-        profession = None
+
+        profession = None                 # Profession
         while profession == None:
             profession = input("Enter profession: ")
             for letter in profession:
                 if letter.isdigit():
-                    print("Input only letters!")
+                    print("Enter only letters!")
                     profession = None
                     break
-        phone_input = None
+
+        phone_input = None                # Phone number
         while phone_input == None:
             try:
                 phone_input = int(input("Enter phone number (without dialling code): "))
-                if len(str(phone_input)) < 6:
+                if len(str(phone_input)) < 6 or len(str(phone_input)) > 14:
                     print("Phone number entered is too short! Try again")
                     phone_input = None
-                elif len(str(phone_input)) > 14:
-                    print("Phone number entered is too long! Try again")
-                    phone_input = None
             except ValueError:
-                print(INVALID)
+                print("Enter only integers!")
                 phone_input =None
-        if location.lower() == 'svalbard':
+
+        if location.lower() == 'svalbard': # Country code
             phone = f'+47 {phone_input}'
         elif location.lower() == 'nuuk':
             phone = f'+299 {phone_input}'
         elif location.lower() == 'faroe islands':
             phone = f'+298 {phone_input}'
+
+        #while True:
         opening_hours = input("Enter opening hours (hh:mm-hh:mm): ")
-        rating = input("Enter rating(X/10): ")
-        confirm = ""
+
+        while True:                       # Rating
+            rating = input("Enter rating(X/10): ")
+            if type(rating) == int and rating <= 10 and rating >= 0:
+                break
+            else:
+                print("Invalid rating!")
+
+        confirm = ""                      # Confirm
         while confirm != "y" and confirm != "n":
             confirm = input("Confirm? (y/n): ")
             if confirm.lower() =='y':
