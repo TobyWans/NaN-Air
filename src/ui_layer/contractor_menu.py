@@ -12,7 +12,7 @@ class ContractorMenu:
             self.list_of_contractors, self.list_of_contractors_objects = self.llapi.get_contractor_list()
         else:                             # Employees on the otherhand get a list sorted by their location
             self.list_of_contractors, self.list_of_contractors_objects = self.llapi.sort_contractors_by_location(self.location)
-        self.supervisor_options = ["Add new contractor"]
+        self.supervisor_options = [] #["Add new contractor"]
         self.employee_options = self.list_of_contractors
         self.splash_screen = """_____   __                   ____________        
 ___  | / /_____ _______      ___    |__(_)_______
@@ -67,13 +67,15 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
             self.all_options.extend(self.supervisor_options)
         for index in self.all_options:
             print(f"{str(self.all_options.index(index) + 1)+'.':<5} {index}")
+        print()
+        print("A.    Add new contractor")
         print("R.    Return\n")
         
     def prompt_input(self):               # Finds out what option the user wants with entered key.
         while True:
             self.draw_options()
             command = input("\tEnter an option: ")
-            if self.llapi.supervisor_check() and command == str(self.all_options.index("Add new contractor")+1):
+            if self.llapi.supervisor_check() and command.lower() == "a": #str(self.all_options.index("Add new contractor")+1):
                 self.add_new_contractor() # Supervisors can add a new contractor by entering the last number before the return option
             elif command.lower() == 'r':
                 return
