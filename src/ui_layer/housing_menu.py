@@ -129,20 +129,20 @@ class HousingMenu:
             free_to_rent, booked = self.llapi.rental_status_by_location(user_location) #if not supervisor prints only housing which are at the same location as employee
         else:
             free_to_rent, booked = self.llapi.rental_status()
-            self.header("Free to rent",155)
-            if len(free_to_rent) != 0:
-                for line in free_to_rent:
-                    print(f"{line}")
-            else:
-                print("Nothing to display".center(155, ' '))
-                print()
-            self.header("Booked",155)
-            if len(booked) != 0:
-                for line in booked:
-                    print(f"{line}")
-            else:
-                print("Nothing to display".center(155, ' '))
-                print()
+        self.header("Free to rent",155)
+        if len(free_to_rent) != 0:
+            for line in free_to_rent:
+                print(f"{line}")
+        else:
+            print("Nothing to display".center(155, ' '))
+            print()
+        self.header("Booked",155)
+        if len(booked) != 0:
+            for line in booked:
+                print(f"{line}")
+        else:
+            print("Nothing to display".center(155, ' '))
+            print()
         input(ENTER)
 
     def add_housing(self): #supervisor can add property in location where he works 
