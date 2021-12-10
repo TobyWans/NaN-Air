@@ -152,6 +152,11 @@ class HousingMenu:
         user_id = self.llapi.curent_user
         supervisor = self.llapi.employee_name(user_id)
         property_number = input("Property_number: ")
+        search_by_property_num = self.llapi.search_by_housing_id(str(property_number))
+        while search_by_property_num != None:
+            print('Entered ID already exists. Try another number!')
+            property_number = input("Property_number: ")
+            search_by_property_num = self.llapi.search_by_housing_id(property_number)
         street_name = input("Street_name: ")
         street_number = None
         while street_number == None:
