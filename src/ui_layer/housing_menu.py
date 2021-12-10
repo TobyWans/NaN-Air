@@ -131,25 +131,38 @@ class HousingMenu:
     def rental_status(self): #Prints out locations segregated with rental status : free to book or booked
         self.llapi.clear_console()
         print(SPLASH_SCREEN)
-        print("Renting status".center(155, '-'))
+        print("=".center(133, '='))
+        print("Renting status".center(133, ' '))
+        print("=".center(133, '='))
+        print("-".center(133, '-'))
         if not self.llapi.supervisor_check():
             user_location = self.llapi.location_check() 
             free_to_rent, booked = self.llapi.rental_status_by_location(user_location) #if not supervisor prints only housing which are at the same location as employee
         else:
             free_to_rent, booked = self.llapi.rental_status()
-        self.header("Free to rent",155)
+        print("Free to rent".center(133, ' '))
         if len(free_to_rent) != 0:
+            print("-".center(133, '-'))
+            print(f"{'Property ID':^13}|{'Street name and number':^30}|{'Location':^20}|{'m2':^13}|{'Rooms':^30}|{'Type':^20}")
+            print("-".center(133, '-'))
             for line in free_to_rent:
                 print(f"{line}")
+                print()
+            print("-".center(133, '-'))
         else:
-            print("Nothing to display".center(155, ' '))
+            print("Nothing to display".center(133, ' '))
             print()
-        self.header("Booked",155)
+        print("Booked".center(133, ' '))
         if len(booked) != 0:
-            for line in booked:
+            print("-".center(133, '-'))
+            print(f"{'Property ID':^13}|{'Street name and number':^30}|{'Location':^20}|{'m2':^13}|{'Rooms':^30}|{'Type':^20}")
+            print("-".center(133, '-'))
+            for line in free_to_rent:
                 print(f"{line}")
+                print()
+            print("-".center(133, '-'))
         else:
-            print("Nothing to display".center(155, ' '))
+            print("Nothing to display".center(133, ' '))
             print()
         input(ENTER)
 
