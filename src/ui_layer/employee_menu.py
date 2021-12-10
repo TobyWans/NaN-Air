@@ -39,7 +39,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
             command = input("\tEnter an option: ")
             if command == '1':
                 self.create_employee()
-                print("Employee successfully created")
+                
                 time.sleep(1.8)
             elif command == '2':
                 running = True
