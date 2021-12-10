@@ -2,8 +2,6 @@ from src.logic_layer.LLAPI import LLAPI
 from src.models.contractors import contractors
 import time
 
-from src.ui_layer.housing_menu import INVALID
-
 class ContractorMenu:
     def __init__(self, llapi: LLAPI):
         self.llapi = llapi
@@ -48,9 +46,6 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
             command = input("\tEnter an option: ")
             if self.llapi.supervisor_check() and command == str(self.all_options.index("Add new contractor")+1):
                 self.add_new_contractor() # Supervisors can add a new contractor by entering the last number before the return option
-                self.llapi.clear_console()
-                print("\n\n\n\n\tContractor has been created. Refreshing list...")
-                time.sleep(1.8)
                 return
             elif command.lower() == 'r':
                 return
@@ -66,12 +61,16 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                     print(self.list_of_contractors_objects[index])
                     input("\tEnter to continue")
                 except:                   # Except when key is not found or index error
-                    print("Invalid option, please try again.")
+                    print(("\n"*7),"\tInvalid option, please try again.")
                     time.sleep(1)
         
 
     def add_new_contractor(self):         # First instantiates all info into a model class then sends it all the way to the storage layer
         self.llapi.clear_console()        # Also checks for correct format on all inputs
+        print(self.splash_screen)
+        print("=".center(48, '='))
+        print("Add a new contractor".center(48, ' '))
+        print("=".center(48, '='))
 
         while True:                       # Location
             location = input("Enter location (Svalbard/Nuuk/Faroe Islands): ")
@@ -146,8 +145,11 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
             confirm = input("Confirm? (y/n): ")
             if confirm.lower() =='y':
                 Contractor_mdl = contractors(contractor, name, profession, phone, opening_hours, location, rating)
+                self.llapi.clear_console()
+                print("\n\n\n\n\tContractor has been created. Refreshing list...")
+                time.sleep(1.8)
                 return self.llapi.add_new_contractor(Contractor_mdl)
             elif confirm.lower() == "n":
                 return
             else:
-                print(INVALID)
+                print("\n\tInvalid input. Try again!\n")
