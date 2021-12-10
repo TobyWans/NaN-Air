@@ -156,10 +156,6 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                 else:
                     print("\n\tThere are no open work requests for you")
                     time.sleep(1.8)
-                # enter work id to add work report
-                # Bæta við dálk fyrir tilbúinn eða ekki
-                # Verktaki þarf að koma fram á report
-                # athugasemd frá yfirmanni
                 
                     
             elif command == '6': # List Finished Requests
@@ -310,16 +306,25 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         work_request_ID = self.llapi.work_req_count()
         print(f"Work request ID: {self.llapi.work_req_count()}")
         title = input("Title: ")
-        print("Available Locations:", ' - '.join(self.llapi.location_list()))
-        where = input("Location: ")
+        while running:
+            print("Available Locations:", ' - '.join(self.llapi.location_list()) + ' - Everywhere')
+            where = input("Location: ")
+            if where.capitalize() in self.llapi.location_list() or where.lower() == 'everywhere':
+                running = False
+            running = True
         print("Available housing:")
-        locations = self.llapi.get_housing_id_by_location(where)
-        print(' - '.join(locations))
-        housing = input("Housing: ")
+        locations = self.llapi.get_housing_id_by_location(where.capitalize())
+        while running:
+            print(' - '.join(locations) + ' - All')
+            housing = input("Housing: ")
+            if housing in self.llapi.get_housing_id_by_location(where.capitalize() or housing.lower() == 'all'):
+                running = False
+        running = True
         description = input("Description: ")
+        print("high, medium or low")
         while running:
             priority = input("Priority: ")
-            if priority not in PRIORITY:
+            if priority.capitalize() not in PRIORITY:
                 print("Please use high, medium or low")
             else:
                 running = False
@@ -335,12 +340,20 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         work_request_ID = req_id
         print(f"Work request ID: {req_id}")
         title = input("Title: ")
-        print("Available Locations:", ' - '.join(self.llapi.location_list()) + ' Everywhere')
-        where = input("Location: ").capitalize()
+        while running:
+            print("Available Locations:", ' - '.join(self.llapi.location_list()) + ' - Everywhere')
+            where = input("Location: ")
+            if where.capitalize() in self.llapi.location_list() or where.lower() == 'everywhere':
+                running = False
+            running = True
         print("Available housing:")
         locations = self.llapi.get_housing_id_by_location(where)
-        print(' - '.join(locations))
-        housing = input("Housing: ")
+        while running:
+            print(' - '.join(locations) + ' - All')
+            housing = input("Housing: ")
+            if housing in self.llapi.get_housing_id_by_location(where.capitalize() or housing.lower() == 'all'):
+                running = False
+        running = True
         description = input("Description: ")
         while running:
             priority = input("Priority: ").capitalize()
@@ -349,7 +362,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
             else:
                 running = False
         status = 'Open'
-        change_req = Work_Request(work_request_ID, title, where,  housing, description, priority, status, day, employee)
+        change_req = Work_Request(work_request_ID, title, where.capitalize(),  housing, description, priority, status, day, employee)
         self.llapi.change_req(change_req, req_id)
         
     def create_work_report(self, wr_id):
