@@ -67,18 +67,14 @@ class HousingMenu:
     def sort_by_location(self): 
         self.llapi.clear_console()
         print(SPLASH_SCREEN)
-        print("=".center(133, '='))
-        print("Housing list".center(133, ' '))
-        print("=".center(133, '='))
+        self.main_header("Housing Menu", 133)
         print("-".center(133, '-'))
         housing_list = self.llapi.housing_list() # the list of all properties/ not sorted
         location_list = self.llapi.location_list() # The list of all location where company has property
         if self.llapi.supervisor_check():
             for location in location_list: 
                 print(location.center(133, ' '))
-                print("-".center(133, '-'))
-                print(f"{'Property ID':^13}|{'Street name and number':^30}|{'Location':^20}|{'m2':^13}|{'Rooms':^30}|{'Type':^20}")
-                print("-".center(133, '-'))
+                self.header(f"{'Property ID':^13}|{'Street name and number':^30}|{'Location':^20}|{'m2':^13}|{'Rooms':^30}|{'Type':^20}", 133)
                 for row in housing_list:
                     if location in row.values():
                         hous = Housing(**row)
@@ -131,9 +127,7 @@ class HousingMenu:
     def rental_status(self): #Prints out locations segregated with rental status : free to book or booked
         self.llapi.clear_console()
         print(SPLASH_SCREEN)
-        print("=".center(133, '='))
-        print("Renting status".center(133, ' '))
-        print("=".center(133, '='))
+        self.main_header("Renting status", 133)
         print("-".center(133, '-'))
         if not self.llapi.supervisor_check():
             user_location = self.llapi.location_check() 
@@ -142,9 +136,7 @@ class HousingMenu:
             free_to_rent, booked = self.llapi.rental_status()
         print("Free to rent".center(133, ' '))
         if len(free_to_rent) != 0:
-            print("-".center(133, '-'))
-            print(f"{'Property ID':^13}|{'Street name and number':^30}|{'Location':^20}|{'m2':^13}|{'Rooms':^30}|{'Type':^20}")
-            print("-".center(133, '-'))
+            self.header(f"{'Property ID':^13}|{'Street name and number':^30}|{'Location':^20}|{'m2':^13}|{'Rooms':^30}|{'Type':^20}",133)
             for line in free_to_rent:
                 print(f"{line}")
                 print()
@@ -154,9 +146,7 @@ class HousingMenu:
             print()
         print("Booked".center(133, ' '))
         if len(booked) != 0:
-            print("-".center(133, '-'))
-            print(f"{'Property ID':^13}|{'Street name and number':^30}|{'Location':^20}|{'m2':^13}|{'Rooms':^30}|{'Type':^20}")
-            print("-".center(133, '-'))
+            self.header(f"{'Property ID':^13}|{'Street name and number':^30}|{'Location':^20}|{'m2':^13}|{'Rooms':^30}|{'Type':^20}",133)
             for line in free_to_rent:
                 print(f"{line}")
                 print()
