@@ -109,8 +109,8 @@ class LLAPI:
     def add_housing(self, hous):
         return self.housLL.add_housing(hous)
 
-    def change_housing(self, id_number, fieldname, parametr):
-        return self.housLL.change_housing(id_number, fieldname, parametr)
+    def change_housing(self, id_number, changed_hous):
+        return self.housLL.change_housing(id_number, changed_hous)
     
     def housing_list(self):
         return self.housLL.housing_list()

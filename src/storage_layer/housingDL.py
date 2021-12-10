@@ -13,8 +13,24 @@ class HousingDL:
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writerow({"supervisor": hous.supervisor,"property_number": hous.property_number, "street_name": hous.street_name, "street_number": hous.street_number, "location": hous.location, "size_in_m2": hous.size_in_m2, "nr_of_rooms": hous.nr_of_rooms, "type": hous.type, "requires_maintenance": hous.requires_maintenance, "rental_status": hous.rental_status})
     
-    def change_housing(self, id_number, fieldname, parametr):
-        pass
+    def change_housing(self, id_number, changed_hous):
+            #def change_request_prep(self,change_req, re_id):
+        change_list = list()
+        with open(self.filepath, 'r', newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                print(row)
+                if str(id_number) == row['property_number']:
+                    change_list.append({"supervisor": changed_hous.supervisor,"property_number": changed_hous.property_number, "street_name": changed_hous.street_name, "street_number": changed_hous.street_number, "location": changed_hous.location, "size_in_m2": changed_hous.size_in_m2, "nr_of_rooms": changed_hous.nr_of_rooms, "type": changed_hous.type, "requires_maintenance": changed_hous.requires_maintenance, "rental_status": changed_hous.rental_status})
+                else:
+                    change_list.append(row)
+                    
+        with open(self.filepath, 'w', newline='', encoding='utf-8') as csvfile:
+            fieldnames = ["supervisor", "property_number" ,"street_name" ,"street_number", "location" ,"size_in_m2", "nr_of_rooms" ,"type", "requires_maintenance", "rental_status"]
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            writer2 = csv.writer(csvfile)
+            writer2.writerow(fieldnames)
+            writer.writerows(change_list)
 
     def get_housing_list(self):
             hous_list = []

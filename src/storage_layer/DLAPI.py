@@ -88,8 +88,8 @@ class DLAPI:
     def add_housing(self, hous):
         return self.housDL.add_housing(hous)
     
-    def change_housing(self, id_number, fieldname, parametr):
-        return self.housDL.change_housing(id_number, fieldname, parametr)
+    def change_housing(self, id_number, changed_hous):
+        return self.housDL.change_housing(id_number, changed_hous)
 
     def get_housing_list(self):
         return self.housDL.get_housing_list()
