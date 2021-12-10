@@ -82,6 +82,9 @@ class LLAPI:
     def get_all_work_reports(self, wr_id):
         return self.workrequestLL.get_all_work_reports(wr_id)
     
+    def get_all_reports(self, wr_id):
+        return self.workrequestLL.get_all_reports(wr_id)
+    
     def report_id_check(self, wr_id):
         return self.workrequestLL.report_id_check(wr_id)
     

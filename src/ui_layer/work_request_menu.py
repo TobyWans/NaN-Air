@@ -9,7 +9,7 @@ PRIORITY = ('Low', 'Medium', 'High')
 class WorkRequestMenu:
     def __init__(self, llapi: LLAPI):
         self.llapi = llapi
-        self.supervisor_options = ["Create new request", "Open/Change request", "Close request"]
+        self.supervisor_options = ["Create new request", "Open/Change request", "Close request", "List of work reports"]
         self.employee_options = ["All work requests", "Search by ID", "Search by user ID", "Search by date", "Your open requests", "Finished request"]
         self.current_user = self.llapi.curent_user
         self.splash_screen = """_____   __                   ____________        
@@ -290,6 +290,15 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                             running = False
                         else:
                             continue
+                        
+            elif command == '10':
+                all_work_reports = self.llapi.get_all_reports(self.llapi.curent_user)
+                self.llapi.clear_console()
+                print("List of all open work reports".center(48, '-'))
+                for request in all_work_reports:
+                    print(request)
+                back = input("Press enter to continue")
+                self.llapi.clear_console()
                 
             elif command.lower() == 'r': # Return to Main Menu
                 self.llapi.clear_console()
@@ -308,16 +317,20 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         title = input("Title: ")
         while running:
             print("Available Locations:", ' - '.join(self.llapi.location_list()) + ' - Everywhere')
-            where = input("Location: ")
+            where = input("Location: ").capitalize()
             if where.capitalize() in self.llapi.location_list() or where.lower() == 'everywhere':
                 running = False
-            running = True
-        print("Available housing:")
+        running = True
         locations = self.llapi.get_housing_id_by_location(where.capitalize())
         while running:
-            print(' - '.join(locations) + ' - All')
+            if where.lower() == 'everywhere':
+                housing = 'All'
+                running = False
+                break
+            print("Available housing:")
+            print(' - '.join(locations))
             housing = input("Housing: ")
-            if housing in self.llapi.get_housing_id_by_location(where.capitalize() or housing.lower() == 'all'):
+            if housing in self.llapi.get_housing_id_by_location(where.capitalize()):
                 running = False
         running = True
         description = input("Description: ")

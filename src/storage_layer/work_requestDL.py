@@ -28,6 +28,16 @@ class WorkRequestDL:
                     rep_list.append(req)
         return rep_list
     
+    def get_all_reports(self, wr_id):
+        rep_list = []
+        with open(self.work_report_file, newline='', encoding='utf-8') as WRfile:
+            reader = csv.DictReader(WRfile)
+            for row in reader:
+                if row['employee'] == wr_id:
+                    req = Work_Report(row['rep_id'], row['housing'], row['regular_irr'], row['work_desc'], row['time'], row['contractor_cost'], row['other_cost'], row['employee'])
+                    rep_list.append(req)
+        return rep_list
+    
     def report_id_check(self, wr_id):
         with open(self.work_report_file, newline='', encoding='utf-8') as WRfile:
             reader = csv.DictReader(WRfile)
