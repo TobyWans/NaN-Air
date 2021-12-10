@@ -1,4 +1,4 @@
-# Þetta er bara til að prófa login, þurfum að búa til eh file með öllu starfsfólki
+# Login checker 
 import uuid
 from src.storage_layer.DLAPI import DLAPI
 
