@@ -29,6 +29,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         print("=".center(48, '='))
         print("Work Request Menu".center(48, ' '))
         print("=".center(48, '='))
+        print()
         for index in all_options:
             print(f"\t\t{all_options.index(index) + 1}. {index}")
         print("\t\tR. Return\n")
