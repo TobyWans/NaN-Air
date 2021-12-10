@@ -23,9 +23,8 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
 
     def add_new_contractor(self):         # First instantiates all info into a model class then sends it all the way to the storage layer
         self.llapi.clear_console()
-        city = self.llapi.location_check()
-        location = city
-        contractor = input("Enter contractor(company name): ")
+        location = input("Enter location (Svalbard/Nuuk/Faroe Islands): ")
+        contractor = input("Enter contractor (company name): ")
         name = input("Enter name: ")
         profession = input("Enter profession: ")
         phone_input = None
@@ -33,21 +32,21 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
             try:
                 phone_input = int(input("Enter phone number (without dialling code): "))
                 if len(str(phone_input)) < 6:
-                    print("Your phone number is to short! Try again")
+                    print("Phone number entered is too short! Try again")
                     phone_input = None
                 elif len(str(phone_input)) > 14:
-                    print("Your phone number is to long! Try again")
+                    print("Phone number entered is too long! Try again")
                     phone_input = None
             except ValueError:
                 print(INVALID)
                 phone_input =None
-        if location == 'Svalbard':
+        if location.lower() == 'svalbard':
             phone = f'+47 {phone_input}'
-        elif location == 'Nuuk':
+        elif location.lower() == 'nuuk':
             phone = f'+299 {phone_input}'
-        elif location == 'Faroe Islands':
+        elif location.lower() == 'faroe islands':
             phone = f'+298 {phone_input}'
-        opening_hours = input("Enter opening hours(hh:mm-hh:mm): ")
+        opening_hours = input("Enter opening hours (hh:mm-hh:mm): ")
         rating = input("Enter rating(X/10): ")
         confirm = ""
         while confirm != "y" and confirm != "n":
