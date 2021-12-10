@@ -23,7 +23,12 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
 
     def add_new_contractor(self):         # First instantiates all info into a model class then sends it all the way to the storage layer
         self.llapi.clear_console()
-        location = input("Enter location (Svalbard/Nuuk/Faroe Islands): ")
+        while True:
+            location = input("Enter location (Svalbard/Nuuk/Faroe Islands): ")
+            if location.lower() != 'svalbard' and location.lower() != 'nuuk' and location.lower() != 'faroe islands':
+                print("Invalid location! Try again")
+            else:
+                break
         contractor = input("Enter contractor (company name): ")
         name = None
         while name == None:
