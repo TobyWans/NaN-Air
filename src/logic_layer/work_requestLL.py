@@ -14,6 +14,9 @@ class WorkRequestLL:
     def search_id(self, user_id):
         return self.dlapi.search_id(user_id)
     
+    def search_user_id(self, user_id):
+        return self.dlapi.search_user_id(user_id)
+    
     def search_date(self, date):
         return self.dlapi.search_date(date)
     
@@ -29,6 +32,9 @@ class WorkRequestLL:
     def create_new_request(self, req):
         return self.dlapi.create_new_request(req)
     
+    def create_report(self, rep):
+        return self.dlapi.create_report(rep)
+    
     def open_request(self, wr_id):
         return self.dlapi.open_request(wr_id)
     
@@ -40,6 +46,9 @@ class WorkRequestLL:
     
     def work_req_count(self):
         return self.dlapi.work_req_count()
+    
+    def work_rep_count(self):
+        return self.dlapi.work_rep_count()
     
     
 if __name__=='__main__':

@@ -1,6 +1,7 @@
 from os import close
 from src.models.work_requests import Work_Request
 from src.logic_layer.LLAPI import LLAPI
+from src.models.work_report import Work_Report
 from datetime import datetime
 import time
 
@@ -10,7 +11,7 @@ class WorkRequestMenu:
     def __init__(self, llapi: LLAPI):
         self.llapi = llapi
         self.supervisor_options = ["Create new request", "Open/Change request", "Close request"]
-        self.employee_options = ["All work requests", "Search by ID", "Search by date", "Your open requests", "Finished request"]
+        self.employee_options = ["All work requests", "Search by ID", "Search by user ID", "Search by date", "Your open requests", "Finished request"]
         self.current_user = self.llapi.curent_user
         self.splash_screen = """_____   __                   ____________        
 ___  | / /_____ _______      ___    |__(_)_______
@@ -73,8 +74,32 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                             running = False
                             
             # Bæta við search by user id
+            elif command == '3':
+                running = True
+                id_input = input("Please enter a user ID or type r to return: ")
+                if id_input == 'r':
+                    running = False
+                print()
+                while running:
+                    self.llapi.clear_console()
+                    print(self.splash_screen)
+                    print("Search for work requests by user ID".center(48, '-'))
+                    search_id = self.llapi.search_user_id(id_input)
+                    if search_id == None:
+                        print("\nSorry, there are no requests with that user ID\n".center(48))
+                        id_input = input("Please try another user ID: ")
+                        if id_input == 'r':
+                            running = False
+                        print()
+                    else:
+                        for req in search_id:
+                            print(req)
+                        id_input = input("Enter another user ID to search or type r to return: ")
+                        self.llapi.clear_console()
+                        if id_input == 'r':
+                            running = False
                 
-            elif command == '3': # Search Work Requests by date
+            elif command == '4': # Search Work Requests by date
                 running = True
                 print("Enter a date in the format dd-mm-yy or type r to return")
                 date_input = input("".center(27))
@@ -110,18 +135,27 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                             date_obj = date_str.strftime("%d/%m/%y")
                             self.llapi.clear_console()
                 
-            elif command == '4': # User open Work Requests
+            elif command == '5': # User open Work Requests
                 user_req_list = self.llapi.user_open_requests(self.llapi.curent_user)
+                self.llapi.clear_console()
+                print(self.splash_screen)
+                print("Your open requests".center(48, '-'))
                 if user_req_list != []:
                     for row in user_req_list:
                         print(row)
+                    work_report_input = input("Enter ID of work request to write a report on: ")
+                    self.create_work_report(work_report_input)
+                    print("Work Report created successfully!")
+                else:
+                    print("\nThere are no open work requests for you")
+                    time.sleep(1.8)
                 # enter work id to add work report
                 # Bæta við dálk fyrir tilbúinn eða ekki
                 # Verktaki þarf að koma fram á report
                 # athugasemd frá yfirmanni
-                input("Press enter to continue")
+                
                     
-            elif command == '5': # List Finished Requests
+            elif command == '6': # List Finished Requests
                 finished_requests = self.llapi.all_closed_work_requests()
                 self.llapi.clear_console()
                 print("List of closed work Requests".center(48, '-'))
@@ -130,12 +164,12 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                 back = input("Press enter to continue")
                 self.llapi.clear_console()
                 
-            elif command == '6' and self.llapi.supervisor_check(): # Create new Request
+            elif command == '7' and self.llapi.supervisor_check(): # Create new Request
                 self.create_new_request()
                 print("Work request created successfully".center(48, '-'))
                 time.sleep(1.8)
                 
-            elif command == '7' and self.llapi.supervisor_check(): # Open Request
+            elif command == '8' and self.llapi.supervisor_check(): # Open Request
                 running = True
                 all_closed_work_requests = self.llapi.all_closed_work_requests()
                 self.llapi.clear_console()
@@ -186,7 +220,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                                 continue
                             
                 
-            elif command == '8' and self.llapi.supervisor_check(): # Close Request
+            elif command == '9' and self.llapi.supervisor_check(): # Close Request
                 running = True
                 all_open_work_requests = self.llapi.all_open_work_requests()
                 self.llapi.clear_console()
@@ -298,3 +332,25 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         status = 'Open'
         change_req = Work_Request(work_request_ID, title, where,  housing, description, priority, status, day, employee)
         self.llapi.change_req(change_req, req_id)
+        
+    def create_work_report(self, wr_id):
+        MAINTENANCE = ('I', 'R')
+        running = True
+        employee = self.llapi.curent_user
+        work_report_id = self.llapi.work_rep_count()
+        print(f"Work report ID: {self.llapi.work_rep_count()}")
+        while running:
+            regular_irr = input("Regular/Irregular Maintenance(I/R): ")
+            if regular_irr.capitalize() in MAINTENANCE:
+                running = False
+        housing = input("Housing: ")
+        description = input("Description: ")
+        timeofjob = input("Time in hours: ")
+        contractor = (input("Contractor Cost: "))
+        if contractor == '':
+            contractor = None
+        other = (input("Other costs: "))
+        if other == '':
+            other = None
+        rep = Work_Report(work_report_id, housing, regular_irr.capitalize(), description, timeofjob, contractor, other, employee)
+        self.llapi.create_report(rep)

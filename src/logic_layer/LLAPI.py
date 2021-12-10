@@ -71,6 +71,7 @@ class LLAPI:
     
     def employee_name(self, user_id):
         return self.employeell.employee_name(user_id)
+    
         # Work Request Logic
     def all_open_work_requests(self):
         return self.workrequestLL.all_open_work_requests()
@@ -80,6 +81,9 @@ class LLAPI:
     
     def search_id(self, wr_id):
         return self.workrequestLL.search_id(wr_id)
+    
+    def search_user_id(self, user_id):
+        return self.workrequestLL.search_user_id(user_id)
 
     def search_des_file_by_city(self, city):
         return self.destinationLL.search_des_file_by_city(city)
@@ -93,6 +97,9 @@ class LLAPI:
     def create_new_request(self, req):
         return self.workrequestLL.create_new_request(req)
     
+    def create_report(self, rep):
+        return self.workrequestLL.create_report(rep)
+    
     def open_request(self, wr_id):
         return self.workrequestLL.open_request(wr_id)
     
@@ -104,6 +111,9 @@ class LLAPI:
     
     def work_req_count(self):
         return self.workrequestLL.work_req_count()
+    
+    def work_rep_count(self):
+        return self.workrequestLL.work_rep_count()
         
         # Housing Logic
     def add_housing(self, hous):

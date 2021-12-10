@@ -28,14 +28,20 @@ class DLAPI:
     def get_all_closed_work_requests(self):
         return self.ReqDL.get_all_closed_work_requests()
     
-    def search_id(self, user_id):
-        return self.ReqDL.search_id(user_id)
+    def search_id(self, req_id):
+        return self.ReqDL.search_id(req_id)
+    
+    def search_user_id(self, user_id):
+        return self.ReqDL.search_user_id(user_id)
     
     def search_date(self, date):
         return self.ReqDL.search_date(date)
     
     def create_new_request(self, req):
         return self.ReqDL.create_new_request(req)
+    
+    def create_report(self, rep):
+        return self.ReqDL.create_report(rep)
     
     def close_request(self, wr_id):
         return self.ReqDL.close_request(wr_id)
@@ -48,6 +54,9 @@ class DLAPI:
     
     def work_req_count(self):
         return self.ReqDL.work_req_count()
+    
+    def work_rep_count(self):
+        return self.ReqDL.work_rep_count()
         
         # Destination Logic
     def destination_info(self):
