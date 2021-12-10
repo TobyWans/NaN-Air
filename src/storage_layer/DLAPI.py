@@ -28,6 +28,9 @@ class DLAPI:
     def get_all_closed_work_requests(self):
         return self.ReqDL.get_all_closed_work_requests()
     
+    def get_all_work_reports(self, wr_id):
+        return self.ReqDL.get_all_work_reports(wr_id)
+    
     def search_id(self, req_id):
         return self.ReqDL.search_id(req_id)
     
