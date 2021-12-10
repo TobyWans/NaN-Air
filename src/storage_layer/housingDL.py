@@ -65,7 +65,7 @@ class HousingDL:
         with open(self.filepath, newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                if row["property_number"].lower() == entered_property_number:
+                if row["property_number"].lower() == entered_property_number.lower():
                     property = Particular_real_estate(**row)
                     return property
             return None
