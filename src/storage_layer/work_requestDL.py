@@ -24,7 +24,7 @@ class WorkRequestDL:
             reader = csv.DictReader(WRfile)
             for row in reader:
                 if row['rep_id'] == wr_id:
-                    req = Work_Report(**row)
+                    req = Work_Report(row['rep_id'], row['housing'], row['regular_irr'], row['work_desc'], row['time'], row['contractor_cost'], row['other_cost'], row['employee'])
                     rep_list.append(req)
         return rep_list
     

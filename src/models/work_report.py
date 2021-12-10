@@ -10,7 +10,7 @@ class Work_Report:
         self.employee = employee
                 
     def __str__(self):
-        return f"\tID: {self.rep_id}\n{'Housing ID:':<13} {self.housing}\n{'Regular/Irregular Maintenance:':<13} {self.regular_irr}\n{'Description:'}\n{self.description_readability(self.desc)}\n{'Time:':<13} {self.time}\n{'Contractor costs:':<13} {self.contractor}\n{'Other costs:':<13} {self.other}\n{'Employee ID:':<13} {self.employee}"
+        return f"Work Request ID: {self.rep_id}\n{'Housing ID:':<13} {self.housing}\n{'Regular/Irregular Maintenance:':<13} {self.regular_irr}\n{'Description:'}\n{self.description_readability(self.desc)}\n{'Time:':<13} {self.time}\n{'Contractor costs:':<13} {self.contractor}\n{'Other costs:':<13} {self.other}\n{'Employee ID:':<13} {self.employee}"
     
         # Code to make the description more readable
     def description_readability(self, desc):
