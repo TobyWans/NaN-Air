@@ -48,18 +48,15 @@ class HousingMenu:
             if command == "1":
                 self.sort_by_location()
             elif command == "2":
-                self.search_by_id()
-                input(ENTER)
-                return
+                search = self.search_by_id()
+                if search != None:
+                    input(ENTER)
             elif command == "3":
                 self.rental_status()
-                time.sleep(1)
-            elif command == "4":
+            elif command == "4" and self.llapi.supervisor_check():
                 self.add_housing()
-                time.sleep(1)
-            elif command == "5":
+            elif command == "5" and self.llapi.supervisor_check():
                 self.change_housing()
-                time.sleep(1)
             elif command.lower() == "r":
                 return
             else:
@@ -116,11 +113,12 @@ class HousingMenu:
                 print("Search for property by ID number".center(48, '-'))
                 if id_input.lower() == 'r':
                     running = False
+                    return None
             else:
                 print(f"{search_by_id}")
                 the_id = id_input
                 running = False
-        return the_id #Returns id_number
+                return the_id #Returns id_number
 
     def rental_status(self): #Prints out locations segregated with rental status : free to book or booked
         self.llapi.clear_console()
