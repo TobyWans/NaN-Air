@@ -66,11 +66,9 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         
 
     def add_new_contractor(self):         # First instantiates all info into a model class then sends it all the way to the storage layer
-        self.llapi.clear_console()        # Also checks for correct format on all inputs
-        print(self.splash_screen)
-        print("=".center(48, '='))
-        print("Add a new contractor".center(48, ' '))
-        print("=".center(48, '='))
+        print()                           # Also checks for correct format on all inputs
+        print("Add a new contractor".center(48, '-'))
+        print()
 
         while True:                       # Location
             location = input("Enter location (Svalbard/Nuuk/Faroe Islands): ")
