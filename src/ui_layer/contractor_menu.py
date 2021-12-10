@@ -56,8 +56,11 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         while phone_input == None:
             try:
                 phone_input = int(input("Enter phone number (without dialling code): "))
-                if len(str(phone_input)) < 6 or len(str(phone_input)) > 14:
+                if len(str(phone_input)) < 6:
                     print("Phone number entered is too short! Try again")
+                    phone_input = None
+                if len(str(phone_input)) > 14:
+                    print("Phone number entered is too long! Try again")
                     phone_input = None
             except ValueError:
                 print("Enter only integers!")
@@ -70,13 +73,21 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         elif location.lower() == 'faroe islands':
             phone = f'+298 {phone_input}'
 
-        #while True:
-        opening_hours = input("Enter opening hours (hh:mm-hh:mm): ")
+        while True:                        # Opening hours
+            opening_hours = input("Enter opening hours (hh:mm-hh:mm): ")
+            try:
+                if int(opening_hours[0:2]) in range(0,60) and int(opening_hours[3:5]) in range(0,60) and int(opening_hours[6:8]) in range(0,60) and int(opening_hours[9:11]) in range(0,60):
+                    break
+                else:
+                    print("Invalid format!")
+            except ValueError:
+                print("Invalid value!") 
 
         while True:                       # Rating
-            rating = input("Enter rating(X/10): ")
-            if type(rating) == int and rating <= 10 and rating >= 0:
-                break
+            rating = input("Enter rating (X/10): ")
+            if rating.isnumeric():
+                if int(rating) <= 10 and int(rating) >= 0:
+                    break
             else:
                 print("Invalid rating!")
 
@@ -90,6 +101,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                 return
             else:
                 print(INVALID)
+
 
     def draw_options(self):               # Displays all the available options for the user
         self.llapi.clear_console()
@@ -107,6 +119,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                 print()
             print(f"{str(self.all_options.index(index) + 1)+'.':<5} {index}")
         print("R.    Return\n")
+
         
     def prompt_input(self):               # Finds out what option the user wants with entered key.
         while True:
@@ -118,6 +131,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
             elif command.lower() == 'r':
                 return
             else:
+
                 try:                      # Tries to call the model class' __string__
                     index = int(command) - 1
                     self.llapi.clear_console()
