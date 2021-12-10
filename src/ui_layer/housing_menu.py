@@ -200,7 +200,7 @@ class HousingMenu:
         print(SPLASH_SCREEN)
         print("Search for property by ID number".center(48, '-'))
         id_number = self.search_by_id()
-        while id_number != None:
+        if id_number != None:
             confirm = ""
             while confirm != "y" and confirm != "n":
                 confirm = input(f"\nDo you want to change information for the property displayed above?\n\t\tID number: {id_number}(y/n)?  ")
