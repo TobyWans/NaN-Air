@@ -37,6 +37,7 @@ class HousingMenu:
         if self.llapi.supervisor_check():
             all_options.extend(self.supervisor_options)
         self.main_header("Housing Menu")
+        print()
         for index in all_options:
             print(f"\t\t{all_options.index(index) + 1}. {index}")
         print(RETURN)
@@ -69,14 +70,14 @@ class HousingMenu:
         print("=".center(133, '='))
         print("Housing list".center(133, ' '))
         print("=".center(133, '='))
+        print("-".center(133, '-'))
         housing_list = self.llapi.housing_list() # the list of all properties/ not sorted
         location_list = self.llapi.location_list() # The list of all location where company has property
         if self.llapi.supervisor_check():
             for location in location_list: 
-                print("-".center(133, '-'))
                 print(location.center(133, ' '))
                 print("-".center(133, '-'))
-                print(f"{'Property number':<15}{'|':^5} {'Street name and number':^20} | {'Location':<20} | {'Squaremeter':<20} | {'Rooms':<20} | {'Type':<20}")
+                print(f"{'Property ID':^13}|{'Street name and number':^30}|{'Location':^20}|{'m2':^13}|{'Rooms':^30}|{'Type':^20}")
                 print("-".center(133, '-'))
                 for row in housing_list:
                     if location in row.values():
@@ -164,7 +165,14 @@ class HousingMenu:
             print('Entered ID already exists. Try another number!')
             property_number = input("Property_number: ")
             search_by_property_num = self.llapi.search_by_housing_id(property_number)
-        street_name = input("Street_name: ")
+        street_name = None
+        while street_name == None:
+            street_name = input("Street_name: ")
+            for letter in street_name:
+                if letter.isdigit():
+                    print("Input only letters!")
+                    street_name = None
+                    break
         street_number = None
         while street_number == None:
             try:
@@ -188,7 +196,14 @@ class HousingMenu:
             except ValueError:
                 print(INVALID)
                 nr_of_rooms = None
-        type = input("Type: ")
+        type = None
+        while type == None:
+            type = input("Type: ")
+            for letter in type:
+                if letter.isdigit():
+                    print("Input only letters!")
+                    type = None
+                    break
         requires_maintenance = input("Requires maintenance(If nothing to add press enter): ")
         rental_status = input("Please input rental status(free to rent/booked/not applicable): ")
         while rental_status.lower() != "free to rent" and rental_status.lower() != "booked" and rental_status.lower() != "not applicable":
@@ -220,7 +235,14 @@ class HousingMenu:
                     user_id = self.llapi.curent_user
                     supervisor = self.llapi.employee_name(user_id)
                     property_number = id_number
-                    street_name = input("Street_name: ")
+                    street_name = None
+                    while street_name == None:
+                        street_name = input("Street_name: ")
+                        for letter in street_name:
+                            if letter.isdigit():
+                                print("Input only letters!")
+                                street_name = None
+                                break
                     street_number = None
                     while street_number == None:
                         try:
@@ -244,7 +266,14 @@ class HousingMenu:
                         except ValueError:
                             print(INVALID)
                             nr_of_rooms = None
-                    type = input("Type: ")
+                    type = None
+                    while type == None:
+                        type = input("Type: ")
+                        for letter in type:
+                            if letter.isdigit():
+                                print("Input only letters!")
+                                type = None
+                                break                    
                     requires_maintenance = input("Requires maintenance(If nothing to add press enter): ")
                     rental_status = input("Please input rental status(free to rent/booked/not applicable): ")
                     while rental_status.lower() != "free to rent" and rental_status.lower() != "booked" and rental_status.lower() != "not applicable":
