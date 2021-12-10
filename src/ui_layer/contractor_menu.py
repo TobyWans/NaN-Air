@@ -25,8 +25,22 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         self.llapi.clear_console()
         location = input("Enter location (Svalbard/Nuuk/Faroe Islands): ")
         contractor = input("Enter contractor (company name): ")
-        name = input("Enter name: ")
-        profession = input("Enter profession: ")
+        name = None
+        while name == None:
+            name = input("Enter name: ")
+            for letter in name:
+                if letter.isdigit():
+                    print("Input only letters!")
+                    name = None
+                    break
+        profession = None
+        while profession == None:
+            profession = input("Enter profession: ")
+            for letter in profession:
+                if letter.isdigit():
+                    print("Input only letters!")
+                    profession = None
+                    break
         phone_input = None
         while phone_input == None:
             try:
