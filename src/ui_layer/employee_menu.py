@@ -109,7 +109,12 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         city = self.llapi.location_check()
         location = city
         name = input("Enter name: ")
-        e_mail = input("Enter e-mail: ")
+        e_mail = None
+        while e_mail == None:
+            e_mail = input("Enter e-mail: ")
+            if '@' not in e_mail:
+                print("Incorrect e_mail - '@' is missing! Try again")
+                e_mail = None
         address = input("Enter address: ")
         phone_input = None
         while phone_input == None:
@@ -150,7 +155,12 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         city = self.llapi.location_check()
         location = city
         name = input("Enter name: ")
-        e_mail = input("Enter e-mail: ")
+        e_mail = None
+        while e_mail == None:
+            e_mail = input("Enter e-mail: ")
+            if '@' not in e_mail:
+                print("Incorrect e_mail - '@' is missing! Try again")
+                e_mail = None
         address = input("Enter address: ")
         phone_input = None
         while phone_input == None:
@@ -189,8 +199,8 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         while confirm != "y" and confirm != "n":
             confirm = input("Confirm? (y/n): ")
             if confirm.lower() == "y":
-                new_employee = Employee(name, e_mail, address, phone, mobile, location, emp_id)
-                self.llapi.change_employee(new_employee)
+                change_employee = Employee(name, e_mail, address, phone, mobile, location, emp_id)
+                self.llapi.change_employee(change_employee, emp_id)
                 print(f"Information about employee {emp_id} successfully updated")
                 time.sleep(1.8)
             elif confirm.lower() == "n":
