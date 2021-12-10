@@ -142,11 +142,18 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                 if user_rep != []:
                     for row in user_rep:
                         print(row)
-                    work_report_input = input("Enter ID of work request to write a report on: ")
-                    self.create_work_report(work_report_input)
-                    print("Work Report created successfully!")
+                    work_report_input = input("Enter ID of work request to write a report on or type R to return: ")
+                    if work_report_input.lower() == 'r':
+                        pass
+                    elif self.llapi.report_id_check(work_report_input):
+                        print("Report already created!")
+                        time.sleep(1.4)
+                    else:
+                        self.create_work_report(work_report_input)
+                        print("Work Report created successfully!")
+                        time.sleep(1.8)
                 else:
-                    print("\nThere are no open work requests for you")
+                    print("\n\tThere are no open work requests for you")
                     time.sleep(1.8)
                 # enter work id to add work report
                 # Bæta við dálk fyrir tilbúinn eða ekki
@@ -261,11 +268,13 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                         print("Work request changed successfully!".center(48, '-'))
                         report = input("Would you like to look at the work report for this request? (Y/N)")
                         if report.lower() == 'y':
-                            pass
+                            work_reports = self.llapi.get_all_work_reports(str(close_id))
+                            for report in work_reports:
+                                print(report)
                         elif report.lower() == 'n':
                             time.sleep(1)
                             running = False
-                        again = input("Would you like to close another work request? (Y/N): ")
+                        again = input("\nWould you like to close another work request? (Y/N): ")
                         if again.lower() == 'y':
                             self.llapi.clear_console()
                             all_open_work_requests = self.llapi.all_open_work_requests()
@@ -346,10 +355,10 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         MAINTENANCE = ('I', 'R')
         running = True
         employee = self.llapi.curent_user
-        work_report_id = self.llapi.work_rep_count()
-        print(f"Work report ID: {self.llapi.work_rep_count()}")
+        work_report_id = str(wr_id)
+        print(f"Work report ID: {wr_id}")
         while running:
-            regular_irr = input("Regular/Irregular Maintenance(I/R): ")
+            regular_irr = input("Regular/Irregular Maintenance(R/I): ")
             if regular_irr.capitalize() in MAINTENANCE:
                 running = False
         housing = input("Housing: ")

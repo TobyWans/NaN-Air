@@ -1,3 +1,4 @@
+from src.models.work_report import Work_Report
 from src.models.work_requests import Work_Request
 import csv, os
 
@@ -16,6 +17,24 @@ class WorkRequestDL:
                     req = Work_Request(**row)
                     req_list.append(req)
         return req_list
+    
+    def get_all_work_reports(self, wr_id):
+        rep_list = []
+        with open(self.work_report_file, newline='', encoding='utf-8') as WRfile:
+            reader = csv.DictReader(WRfile)
+            for row in reader:
+                if row['rep_id'] == wr_id:
+                    req = Work_Report(row['rep_id'], row['housing'], row['regular_irr'], row['work_desc'], row['time'], row['contractor_cost'], row['other_cost'], row['employee'])
+                    rep_list.append(req)
+        return rep_list
+    
+    def report_id_check(self, wr_id):
+        with open(self.work_report_file, newline='', encoding='utf-8') as WRfile:
+            reader = csv.DictReader(WRfile)
+            for row in reader:
+                if row['rep_id'] == wr_id:
+                    return True
+        return False
     
         # gets all closed work requests by searching a csv file
     def get_all_closed_work_requests(self):
@@ -131,27 +150,7 @@ class WorkRequestDL:
             writerV2 = csv.writer(csvfile)
             writerV2.writerow(fieldnames)
             writer.writerows(change_list)
-                
-                
-        
-        
-        
-        
-        
-        
-        #     reader = csv.DictReader(readfile)
-        #     fieldnames = ['req_id', 'title', 'where', 'housing_id', 'description', 'priority', 'status', 'date', 'employee']
-        #     writer = csv.DictWriter(writefile, fieldnames=fieldnames)
-        #     for row in reader:
-        #         if str(re_id) == row[0]:
-        #             writer.writerow({'req_id': change_req.req_id, 'title': change_req.title, 'where': change_req.where, 'housing_id': change_req.housing_id, 'description': change_req.description, 'priority': change_req.priority, 'status': change_req.status, 'date': change_req.date, 'employee': change_req.employee})
-        #         else:
-        #             writer.writerow(row)
-        #     writer.writerows(reader)
-        # os.remove('src\data\Work_Requests.csv')
-        # os.rename('src/data/work_req_temp.csv', 'src\data\Work_Requests.csv')
             
-       
        # counter for requests to id them
     def work_req_count(self):
         with open(self.work_req_file, newline='', encoding='utf-8') as wrfile:
