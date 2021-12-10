@@ -37,6 +37,8 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
             if index == "Add new contractor":
                 print()
             print(f"{str(self.all_options.index(index) + 1)+'.':<5} {index}")
+        if self.llapi.supervisor_check() == False:
+            print()
         print("R.    Return\n")
 
         

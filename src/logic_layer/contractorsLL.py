@@ -21,6 +21,6 @@ class ContractorMenuLL:
         sorted_contractor_list = self.dlapi.sort_contractors_by_location(location)
         self.contractor_list_str = []
         for Contractor in sorted_contractor_list:
-            contr_str = Contractor.display()
+            contr_str = Contractor.display()            # Contractor.display() returns thumbnail/summary of contractor
             self.contractor_list_str.append(contr_str)
         return self.contractor_list_str, sorted_contractor_list
