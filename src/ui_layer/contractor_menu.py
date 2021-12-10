@@ -12,7 +12,7 @@ class ContractorMenu:
             self.list_of_contractors, self.list_of_contractors_objects = self.llapi.get_contractor_list()
         else:                             # Employees on the otherhand get a list sorted by their location
             self.list_of_contractors, self.list_of_contractors_objects = self.llapi.sort_contractors_by_location(self.location)
-        self.supervisor_options = [] #["Add new contractor"]
+        self.supervisor_options = ["Add new contractor"]
         self.employee_options = self.list_of_contractors
         self.splash_screen = """_____   __                   ____________        
 ___  | / /_____ _______      ___    |__(_)_______
@@ -32,6 +32,12 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         while phone_input == None:
             try:
                 phone_input = int(input("Enter phone number (without dialling code): "))
+                if len(str(phone_input)) < 6:
+                    print("Your phone number is to short! Try again")
+                    phone_input = None
+                elif len(str(phone_input)) > 14:
+                    print("Your phone number is to long! Try again")
+                    phone_input = None
             except ValueError:
                 print(INVALID)
                 phone_input =None
@@ -59,24 +65,25 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         print(self.splash_screen)
         self.all_options = []
         self.all_options.extend(self.employee_options)
+        if self.llapi.supervisor_check():
+            self.all_options.extend(self.supervisor_options)
         print("=".center(70, '='))
         print("Contractors".center(70, ' '))
         print("=".center(70, '='))
         print()
-        if self.llapi.supervisor_check():
-            self.all_options.extend(self.supervisor_options)
         for index in self.all_options:
+            if index == "Add new contractor":
+                print()
             print(f"{str(self.all_options.index(index) + 1)+'.':<5} {index}")
-        print()
-        print("A.    Add new contractor")
         print("R.    Return\n")
         
     def prompt_input(self):               # Finds out what option the user wants with entered key.
         while True:
             self.draw_options()
             command = input("\tEnter an option: ")
-            if self.llapi.supervisor_check() and command.lower() == "a": #str(self.all_options.index("Add new contractor")+1):
+            if self.llapi.supervisor_check() and command == str(self.all_options.index("Add new contractor")+1):
                 self.add_new_contractor() # Supervisors can add a new contractor by entering the last number before the return option
+                return
             elif command.lower() == 'r':
                 return
             else:

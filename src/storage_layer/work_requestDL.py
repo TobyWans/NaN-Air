@@ -4,6 +4,7 @@ import csv, os
 class WorkRequestDL:
     def __init__(self):
         self.work_req_file = 'src\data\Work_Requests.csv'
+        self.work_report_file = 'src\data\work_report.csv'
     
         # gets all open work requests by searching a csv file
     def get_all_open_work_requests(self):
@@ -37,6 +38,19 @@ class WorkRequestDL:
                     return req
         return None
     
+    def search_user_id(self, user_id):
+        reqs_list = []
+        with open(self.work_req_file, newline='', encoding='utf-8') as WRfile:
+            reader = csv.DictReader(WRfile)
+            for row in reader:
+                if row['employee'] == user_id:
+                    req = Work_Request(**row)
+                    reqs_list.append(req)
+        if len(reqs_list):
+            return reqs_list
+        else:
+            return None
+    
         # Searches for work request by a date the user inputs
     def search_date(self, date):
         reqs_list = []
@@ -58,6 +72,12 @@ class WorkRequestDL:
             writer = csv.DictWriter(wrfile, fieldnames=fieldnames)
             writer.writerow({'req_id': req.req_id, 'title': req.title, 'where': req.where, 'housing_id': req.housing_id, 'description': req.description, 'priority': req.priority, 'status': req.status, 'date': req.date, 'employee': req.employee})
             
+    def create_report(self, rep):
+        with open(self.work_report_file, 'a', newline='', encoding='utf-8') as workreport:
+            fieldnames = ['rep_id','housing','regular_irregular','work_desc','time','contractor_cost','other_cost','employee']
+            writer = csv.DictWriter(workreport, fieldnames=fieldnames)
+            writer.writerow({'rep_id': rep.rep_id, 'housing': rep.housing, 'regular_irregular': rep.regular_irr, 'work_desc': rep.desc, 'time': rep.time, 'contractor_cost': rep.contractor, 'other_cost': rep.other, 'employee': rep.employee})
+        
         # Closes open work request
     def close_request(self, wr_id):
         if wr_id == None:
@@ -135,6 +155,12 @@ class WorkRequestDL:
        # counter for requests to id them
     def work_req_count(self):
         with open(self.work_req_file, newline='', encoding='utf-8') as wrfile:
+            reader = csv.reader(wrfile)
+            lines = len(list(reader))
+        return lines
+    
+    def work_rep_count(self):
+        with open(self.work_report_file, newline='', encoding='utf-8') as wrfile:
             reader = csv.reader(wrfile)
             lines = len(list(reader))
         return lines
