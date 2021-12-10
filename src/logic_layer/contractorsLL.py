@@ -6,7 +6,7 @@ class ContractorMenuLL:
     def __init__(self, dlapi: DLAPI):
         self.dlapi = dlapi
     
-    def add_new_contractor(self, Contractor_mdl):       # Carries the contractor_mdl from the model class to the DLAPI
+    def add_new_contractor(self, Contractor_mdl):       # Carries the contractor_mdl from the model class to the DLAPI, also checks format correctness
         self.dlapi.add_new_contractor(Contractor_mdl)
 
     def get_contractor_list(self):                      # Gets list of all contractors
