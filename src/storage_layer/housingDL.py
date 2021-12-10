@@ -7,14 +7,13 @@ class HousingDL:
     def __init__(self):
         self.filepath = "src/data/Housing.csv"
 
-    def add_housing(self, hous):
+    def add_housing(self, hous): #Gets new housing and write it to choosen file
         with open(self.filepath, 'a', newline='', encoding='utf-8') as csvfile:
             fieldnames = ["supervisor", "property_number" ,"street_name" ,"street_number", "location" ,"size_in_m2", "nr_of_rooms" ,"type", "requires_maintenance", "rental_status"]
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writerow({"supervisor": hous.supervisor,"property_number": hous.property_number, "street_name": hous.street_name, "street_number": hous.street_number, "location": hous.location, "size_in_m2": hous.size_in_m2, "nr_of_rooms": hous.nr_of_rooms, "type": hous.type, "requires_maintenance": hous.requires_maintenance, "rental_status": hous.rental_status})
     
-    def change_housing(self, id_number, changed_hous):
-            #def change_request_prep(self,change_req, re_id):
+    def change_housing(self, id_number, changed_hous): #gets id number of house which should be changed, reed the file, finds the right hous,  and then write to the file with changes
         change_list = list()
         with open(self.filepath, 'r', newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
@@ -32,7 +31,7 @@ class HousingDL:
             writer2.writerow(fieldnames)
             writer.writerows(change_list)
 
-    def get_housing_list(self):
+    def get_housing_list(self): #gets list of all houses
             hous_list = []
             with open(self.filepath, newline='', encoding='utf-8') as csvfile:
                 reader = csv.DictReader(csvfile)
@@ -40,7 +39,7 @@ class HousingDL:
                     hous_list.append(row)
             return hous_list
         
-    def get_housing_id_by_location(self, location):
+    def get_housing_id_by_location(self, location): #get list of houses with choosen location
         housing_id_list = []
         with open(self.filepath, newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
@@ -50,18 +49,18 @@ class HousingDL:
                     housing_id_list.append(housing_id)
         return housing_id_list
     
-    def get_location_list(self):
+    def get_location_list(self): #get list of locaation
         location_list = []
         with open(self.filepath, newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                if row['location'] in location_list:
+                if row['location'] in location_list: 
                     continue
                 else:
                     location_list.append(row['location'])
         return location_list
     
-    def search_by_housing_id(self, entered_property_number):
+    def search_by_housing_id(self, entered_property_number): #if given property number is founded, returns information about property, else return None
         
         with open(self.filepath, newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
