@@ -46,6 +46,9 @@ class DLAPI:
     def search_date(self, date):
         return self.ReqDL.search_date(date)
     
+    def search_housing_id(self, housing):
+        return self.ReqDL.search_housing_id(housing)
+    
     def create_new_request(self, req):
         return self.ReqDL.create_new_request(req)
     

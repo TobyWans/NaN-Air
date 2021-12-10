@@ -94,6 +94,19 @@ class WorkRequestDL:
         else:
             return None
         
+    def search_housing_id(self, housing):
+        req_list = []
+        with open(self.work_req_file, newline='', encoding='utf-8') as wrfile:
+            reader = csv.DictReader(wrfile)
+            for row in reader:
+                if row['housing_id'] == housing:
+                    req = Work_Request(**row)
+                    req_list.append(req)
+            if len(req_list):
+                return req_list
+            else:
+                return None
+        
         # Creates a new work request and writes it to the csv file
     def create_new_request(self, req):
         with open(self.work_req_file, 'a', newline='', encoding='utf-8') as wrfile:

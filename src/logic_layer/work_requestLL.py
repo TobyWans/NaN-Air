@@ -29,6 +29,9 @@ class WorkRequestLL:
     def search_date(self, date):
         return self.dlapi.search_date(date)
     
+    def search_housing_id(self, housing):
+        return self.dlapi.search_housing_id(housing)
+    
         # gets all requests linked to the users account
     def user_open_requests(self, user_id):
         user_req_list = []

@@ -10,7 +10,7 @@ class WorkRequestMenu:
     def __init__(self, llapi: LLAPI):
         self.llapi = llapi
         self.supervisor_options = ["Create new request", "Open/Change request", "Close request", "List of work reports"]
-        self.employee_options = ["All work requests", "Search by ID", "Search by user ID", "Search by date", "Your open requests", "Finished request"]
+        self.employee_options = ["All work requests", "Search by ID", "Search by user ID", "Search by date", "Search by housing ID", "Your open requests", "Finished request"]
         self.current_user = self.llapi.curent_user
         self.splash_screen = """_____   __                   ____________        
 ___  | / /_____ _______      ___    |__(_)_______
@@ -134,8 +134,33 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                             date_str = datetime.strptime(date_input, "%d-%m-%y")
                             date_obj = date_str.strftime("%d/%m/%y")
                             self.llapi.clear_console()
+                            
+            elif command == '5': # Search by housing ID.
+                running = True
+                id_input = input("Please enter a housing ID of your work request or type r to return: ")
+                if id_input == 'r':
+                    running = False
+                print()
+                while running:
+                    self.llapi.clear_console()
+                    print(self.splash_screen)
+                    print("Search for work requests by housing ID".center(48, '-'))
+                    search_id = self.llapi.search_housing_id(id_input)
+                    if search_id == None:   
+                        print("\nSorry, there are no requests with that housing ID\n".center(48))
+                        id_input = input("Please try another ID: ")
+                        if id_input == 'r':
+                            running = False
+                        print()
+                    else:
+                        for house in search_id:
+                            print(house)
+                        id_input = input("Enter another housing ID to search or type r to return: ")
+                        self.llapi.clear_console()
+                        if id_input == 'r':
+                            running = False
                 
-            elif command == '5': # User open Work Requests
+            elif command == '6': # User open Work Requests
                 user_rep = self.llapi.user_open_requests(self.llapi.curent_user)
                 self.llapi.clear_console()
                 print(self.splash_screen)
@@ -158,7 +183,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                     time.sleep(1.8)
                 
                     
-            elif command == '6': # List Finished Requests
+            elif command == '7': # List Finished Requests
                 finished_requests = self.llapi.all_closed_work_requests()
                 self.llapi.clear_console()
                 print("List of closed work Requests".center(48, '-'))
@@ -167,12 +192,12 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                 back = input("Press enter to continue")
                 self.llapi.clear_console()
                 
-            elif command == '7' and self.llapi.supervisor_check(): # Create new Request
+            elif command == '8' and self.llapi.supervisor_check(): # Create new Request
                 self.create_new_request()
                 print("Work request created successfully".center(48, '-'))
                 time.sleep(1.8)
                 
-            elif command == '8' and self.llapi.supervisor_check(): # Open Request
+            elif command == '9' and self.llapi.supervisor_check(): # Open Request
                 running = True
                 all_closed_work_requests = self.llapi.all_closed_work_requests()
                 self.llapi.clear_console()
@@ -227,7 +252,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                                 continue
                             
                 
-            elif command == '9' and self.llapi.supervisor_check(): # Close Request
+            elif command == '10' and self.llapi.supervisor_check(): # Close Request
                 running = True
                 all_open_work_requests = self.llapi.all_open_work_requests()
                 self.llapi.clear_console()
@@ -291,7 +316,7 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                         else:
                             continue
                         
-            elif command == '10':
+            elif command == '11':
                 all_work_reports = self.llapi.get_all_reports(self.llapi.curent_user)
                 self.llapi.clear_console()
                 print("List of all open work reports".center(48, '-'))

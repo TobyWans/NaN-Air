@@ -93,6 +93,9 @@ class LLAPI:
     
     def search_user_id(self, user_id):
         return self.workrequestLL.search_user_id(user_id)
+    
+    def search_housing_id(self, housing):
+        return self.workrequestLL.search_housing_id(housing)
 
     def search_des_file_by_city(self, city):
         return self.destinationLL.search_des_file_by_city(city)
