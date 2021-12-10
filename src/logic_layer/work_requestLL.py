@@ -11,6 +11,9 @@ class WorkRequestLL:
     def all_closed_work_requests(self):
         return self.dlapi.get_all_closed_work_requests()
     
+    def get_all_work_reports(self, wr_id):
+        return self.dlapi.get_all_work_reports(wr_id)
+    
     def search_id(self, user_id):
         return self.dlapi.search_id(user_id)
     
