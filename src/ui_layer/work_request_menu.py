@@ -145,6 +145,9 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                     work_report_input = input("Enter ID of work request to write a report on or type R to return: ")
                     if work_report_input.lower() == 'r':
                         pass
+                    elif self.llapi.report_id_check(work_report_input):
+                        print("Report already created!")
+                        time.sleep(1.4)
                     else:
                         self.create_work_report(work_report_input)
                         print("Work Report created successfully!")

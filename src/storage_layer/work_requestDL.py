@@ -28,6 +28,14 @@ class WorkRequestDL:
                     rep_list.append(req)
         return rep_list
     
+    def report_id_check(self, wr_id):
+        with open(self.work_report_file, newline='', encoding='utf-8') as WRfile:
+            reader = csv.DictReader(WRfile)
+            for row in reader:
+                if row['rep_id'] == wr_id:
+                    return True
+        return False
+    
         # gets all closed work requests by searching a csv file
     def get_all_closed_work_requests(self):
         req_list = []

@@ -31,6 +31,9 @@ class DLAPI:
     def get_all_work_reports(self, wr_id):
         return self.ReqDL.get_all_work_reports(wr_id)
     
+    def report_id_check(self, wr_id):
+        return self.ReqDL.report_id_check(wr_id)
+    
     def search_id(self, req_id):
         return self.ReqDL.search_id(req_id)
     
