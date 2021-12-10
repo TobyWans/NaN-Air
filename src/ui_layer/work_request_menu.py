@@ -265,12 +265,13 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
                         print("Work request changed successfully!".center(48, '-'))
                         report = input("Would you like to look at the work report for this request? (Y/N)")
                         if report.lower() == 'y':
-                            work_reports = self.llapi.get_all_work_reports(close_id)
-                            print(work_reports)
+                            work_reports = self.llapi.get_all_work_reports(str(close_id))
+                            for report in work_reports:
+                                print(report)
                         elif report.lower() == 'n':
                             time.sleep(1)
                             running = False
-                        again = input("Would you like to close another work request? (Y/N): ")
+                        again = input("\nWould you like to close another work request? (Y/N): ")
                         if again.lower() == 'y':
                             self.llapi.clear_console()
                             all_open_work_requests = self.llapi.all_open_work_requests()
