@@ -18,7 +18,7 @@ class HousingDL:
         with open(self.filepath, 'r', newline='', encoding='utf-8') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                print(row)
+                
                 if str(id_number) == row['property_number']:
                     change_list.append({"supervisor": changed_hous.supervisor,"property_number": changed_hous.property_number, "street_name": changed_hous.street_name, "street_number": changed_hous.street_number, "location": changed_hous.location, "size_in_m2": changed_hous.size_in_m2, "nr_of_rooms": changed_hous.nr_of_rooms, "type": changed_hous.type, "requires_maintenance": changed_hous.requires_maintenance, "rental_status": changed_hous.rental_status})
                 else:
