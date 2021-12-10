@@ -32,6 +32,12 @@ _  /|  / / /_/ /_  / / /     _  ___ |  / _  /
         while phone_input == None:
             try:
                 phone_input = int(input("Enter phone number (without dialling code): "))
+                if len(str(phone_input)) < 6:
+                    print("Your phone number is to short! Try again")
+                    phone_input = None
+                elif len(str(phone_input)) > 14:
+                    print("Your phone number is to long! Try again")
+                    phone_input = None
             except ValueError:
                 print(INVALID)
                 phone_input =None
